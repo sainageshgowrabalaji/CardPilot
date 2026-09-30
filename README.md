@@ -120,11 +120,11 @@ CARDPILOT_EMBEDDER=bge-small uv run python evals/run.py      # after uv sync --e
 
 ## Run it
 
-Needs Python 3.11 and [uv](https://docs.astral.sh/uv/).
+Needs [uv](https://docs.astral.sh/uv/). It fetches Python 3.11 for the project by itself, because `.python-version` pins it to match CI and Docker.
 
 ```bash
 uv sync
-cp .env.example .env              # then put your Groq key in .env (optional)
+cp .env.example .env              # the dot matters. Then put your Groq key in .env (optional)
 uv run cardpilot-ingest           # builds the search index for both countries
 uv run uvicorn cardpilot.api:app  # open http://localhost:8000
 ```
