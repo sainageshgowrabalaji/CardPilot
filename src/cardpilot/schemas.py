@@ -28,6 +28,7 @@ class Evidence(BaseModel):
     title: str
     url: str | None = None
     card: str | None = None
+    kind: str | None = None  # "list" for one row of a list_cards result, "scope" for the catalog line
 
 
 class CitedSentence(BaseModel):

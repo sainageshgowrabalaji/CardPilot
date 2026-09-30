@@ -49,6 +49,9 @@ class State(TypedDict, total=False):
     notice: str | None
     refused: str | None
     advice_request: bool
+    ranking_request: bool
+    history: list[dict]  # earlier turns of this session, already redacted: question, answer, mentioned
+    list_attribute: str | None  # set when the question is about many cards at once
     mentioned: list[str]
     other_country: list[str]
     messages: Annotated[list[AnyMessage], add_messages]
@@ -62,22 +65,54 @@ class State(TypedDict, total=False):
 
 AGENT_PROMPT = """You are CardPilot, a careful guide to credit cards in {country}.
 You only know what your tools return. Use them before stating any fact.
-- Use get_card for a named card, compare_cards for two or three cards, search_docs for anything else, and estimate_rewards only when the user gives monthly amounts.
-- Category keys for estimate_rewards are {categories}.
+- Use get_card for a named card, compare_cards for two or three cards, list_cards for questions about many cards at once (the APRs of all cards, which cards have no annual fee, top or best cards), search_docs for anything else, and estimate_rewards only when the user gives monthly amounts.
+- Category keys for estimate_rewards and list_cards earn_<category> are {categories}.
+- CardPilot does not rank or grade cards. For "top", "best" or "popular" cards, use list_cards with the attribute the user asked about, or overview.
+- Earlier turns of this conversation come before the question. Use them to understand words like "these" or "it", and look facts up again with the tools.
 - Everything is about {country} only. Never use outside knowledge about cards, and never mention cards from other countries.
 - Call the tools you need, then stop calling tools. Do not write the final answer here."""
 
 COMPOSE_PROMPT = """You are CardPilot. Write the answer to the user's question about credit cards in {country}, using only the evidence below.
 Rules:
-- 2 to 5 short, plain sentences. Each sentence lists the ids of the evidence that supports it, like ["E2"].
+- 2 to 5 short, plain sentences. When the question covers many cards, write one short sentence per card, up to 12. Each sentence lists the ids of the evidence that supports it, like ["E2"].
 - Every number (fees, percents, amounts) must appear in the cited evidence exactly.
 - Explain and compare. Never recommend a card, never say which card the user should get, and never say "best for you".{advice_note}
+- Earlier turns of the conversation may come before the question. Use them only to understand what the user means, never as evidence.
 - If the evidence does not answer the question, say so in one sentence and cite nothing.
 
 Evidence:
 {evidence}"""
 
 ADVICE_NOTE = "\n- The user asked which card to choose. Say kindly that you can't choose for them, then lay out the differences that matter."
+RANKING_NOTE = (
+    "\n- The user asked for top, best or popular cards. CardPilot does not rank cards, and a note saying so is added "
+    "for you. Do not call any card top, best or popular. Give the facts card by card."
+)
+
+REFERS_BACK = re.compile(
+    r"\b(it|its|it's|they|them|their|these|those|this card|that card|the same|both|either)\b", re.IGNORECASE
+)
+LIST_WORDS = re.compile(
+    r"\b(all|every|each|list|which cards|what cards|any cards|the cards|these cards|those cards|cards (?:with|that|have|"
+    r"charge|offer|earn|give)|aprs|annual fees|interest rates|earn rates|forex (?:fees|markups)|foreign transaction fees)\b",
+    re.IGNORECASE,
+)
+ATTRIBUTE_WORDS: list[tuple[str, str]] = [
+    ("intro_apr", r"\bintro(?:ductory)?\b|0% apr|zero percent|balance transfer offer"),
+    ("foreign_fee", r"foreign|forex|abroad|international|overseas|markup"),
+    ("apr", r"\baprs?\b|interest rates?|\binterest\b|finance charges?"),
+    ("credit_level", r"credit score|eligib|who can get|qualify|approval|income"),
+    ("welcome_offer", r"welcome|sign ?up bonus|joining bonus|\bbonus"),
+    ("earn_dining", r"dining|restaurants?|food delivery|swiggy|zomato"),
+    ("earn_groceries", r"grocer|supermarket"),
+    ("earn_gas", r"\bgas\b|petrol|\bfuel\b"),
+    ("earn_fuel", r"\bfuel\b|petrol|\bgas\b"),
+    ("earn_travel", r"travel|flights?|hotels?|airlines?"),
+    ("earn_online_shopping", r"online shopping|amazon|flipkart|e-?commerce"),
+    ("earn_streaming", r"streaming|netflix|spotify"),
+    ("earn_bills_utilities", r"bills?|utilit|electricity|recharge"),
+    ("annual_fee", r"\bfees?\b|cost|charges?"),
+]
 
 COMPARE_WORDS = re.compile(r"\b(compare|comparison|vs\.?|versus|difference|differ|better)\b", re.IGNORECASE)
 WORD = re.compile(r"[a-z0-9]+")
@@ -113,28 +148,57 @@ def build_graph(
     categories = ", ".join(k for k, _ in country.categories)
 
     # -------------------------------------------------------------- guard_in
+    def list_attribute_for(text: str) -> str:
+        keys = {k for k, _ in country.categories}
+        for attribute, pattern in ATTRIBUTE_WORDS:
+            if attribute.startswith("earn_") and attribute[len("earn_") :] not in keys:
+                continue
+            if re.search(pattern, text, re.IGNORECASE):
+                return attribute
+        return "overview"
+
     def guard_in(state: State) -> dict:
         t = time.perf_counter()
         screened = screen_input(state["question"], max_question_chars)
+        history = [h for h in (state.get("history") or []) if h.get("question")][-3:]
         mentioned = [c.id for c in catalog.mentions(screened.text)]
         other = [] if mentioned else [c.name for cat in others for c in cat.mentions(screened.text)]
-        detail = "clean" if not screened.removed else f"removed {', '.join(screened.removed)}"
+        notes = ["clean" if not screened.removed else f"removed {', '.join(screened.removed)}"]
         if screened.refused:
-            detail += ", refused"
+            notes.append("refused")
+        if not mentioned and not other and history and REFERS_BACK.search(screened.text):
+            mentioned = [m for m in history[-1].get("mentioned", []) if catalog.get(m)]
+            if mentioned:
+                notes.append("follow-up about the previous cards")
+        list_attribute = None
+        if not mentioned and (screened.ranking_request or LIST_WORDS.search(screened.text)):
+            list_attribute = list_attribute_for(screened.text)
+            notes.append(f"about every card, {list_attribute}")
+        if mentioned:
+            notes.append(f"cards {', '.join(mentioned)}")
+        if history:
+            notes.append(f"{len(history)} earlier turns")
+        earlier: list[AnyMessage] = []
+        for turn in history:
+            earlier += [HumanMessage(turn["question"]), AIMessage(turn.get("answer") or "")]
         return {
             "question": screened.text,
             "notice": notice_for(screened.removed),
             "refused": screened.refused,
             "advice_request": screened.advice_request,
+            "ranking_request": screened.ranking_request,
+            "history": history,
+            "list_attribute": list_attribute,
             "mentioned": mentioned,
             "other_country": other,
             "tool_calls": 0,
             "evidence": {},
             "messages": [
                 SystemMessage(AGENT_PROMPT.format(country=country.name, categories=categories)),
+                *earlier,
                 HumanMessage(screened.text),
             ],
-            "trace": _tick([], "guard", detail + (f", cards {', '.join(mentioned)}" if mentioned else ""), t),
+            "trace": _tick([], "guard", ", ".join(notes), t),
         }
 
     def after_guard(state: State) -> str:
@@ -147,6 +211,9 @@ def build_graph(
         """The same tool choices the model would make, by rules. Used offline and as a safety net."""
         q, mentioned = state["question"], state.get("mentioned", [])
         calls = []
+        if state.get("list_attribute"):
+            calls.append({"name": "list_cards", "args": {"attribute": state["list_attribute"]}})
+            return [{**c, "id": f"plan{i}", "type": "tool_call"} for i, c in enumerate(calls)]
         if len(mentioned) >= 2 and (COMPARE_WORDS.search(q) or state.get("advice_request")):
             calls.append({"name": "compare_cards", "args": {"cards": mentioned[:3]}})
         else:
@@ -184,6 +251,16 @@ def build_graph(
             # The model tried to answer from memory. Every answer must rest on evidence, so search first.
             calls = planned_calls(state)
             reply = AIMessage(reply.content or "", tool_calls=calls)
+        if not used and state.get("list_attribute") and not any(c["name"] == "list_cards" for c in calls):
+            # The question is plainly about every card. Search alone returns five passages, so list them all too.
+            extra = {
+                "name": "list_cards",
+                "args": {"attribute": state["list_attribute"]},
+                "id": "route0",
+                "type": "tool_call",
+            }
+            calls.append(extra)
+            reply = AIMessage(reply.content or "", tool_calls=calls)
         if used + len(calls) > max_tool_calls:
             calls = calls[: max(0, max_tool_calls - used)]
             reply = AIMessage(reply.content or "", tool_calls=calls)
@@ -211,6 +288,8 @@ def build_graph(
                 eid = duplicate or f"E{len(evidence) + 1}"
                 if not duplicate:
                     evidence[eid] = item.model_copy(update={"id": eid})
+                elif item.kind and not evidence[eid].kind:
+                    evidence[eid] = evidence[eid].model_copy(update={"kind": item.kind})
                 lines.append(f"[{eid}] {item.text} (source: {item.title})")
             messages.append(ToolMessage("\n".join(lines) or note, tool_call_id=call["id"], name=call["name"]))
             notes.append(note)
@@ -224,6 +303,9 @@ def build_graph(
     # -------------------------------------------------------------- compose
     def extractive(state: State, limit: int = 4) -> list[dict]:
         """An answer made only of evidence sentences: relevant to the question, no repeats, balanced across cards."""
+        rows = [(eid, e) for eid, e in state.get("evidence", {}).items() if e.kind == "list"]
+        if rows and (state.get("list_attribute") or not state.get("mentioned")):  # about every card: one sentence each
+            return [{"text": e.text, "evidence_ids": [eid]} for eid, e in rows[:12]]
         mentioned = [c for c in (catalog.get(m) for m in state.get("mentioned", [])) if c]
         names = list(dict.fromkeys(c.name for c in mentioned))  # a list, so the answer order never depends on hashing
         ids = {c.id for c in mentioned}
@@ -276,11 +358,15 @@ def build_graph(
         if models.composer is None or state.get("engine") == "offline":
             return {"sentences": extractive(state), "trace": _tick([], "compose", "extracted from evidence", t)}
         listing = "\n".join(f"[{eid}] {e.text} (source: {e.title})" for eid, e in evidence.items())
-        prompt = COMPOSE_PROMPT.format(
-            country=country.name, evidence=listing, advice_note=ADVICE_NOTE if state.get("advice_request") else ""
-        )
+        note = ADVICE_NOTE if state.get("advice_request") else RANKING_NOTE if state.get("ranking_request") else ""
+        prompt = COMPOSE_PROMPT.format(country=country.name, evidence=listing, advice_note=note)
+        earlier: list[AnyMessage] = []
+        for turn in state.get("history") or []:
+            earlier += [HumanMessage(turn["question"]), AIMessage(turn.get("answer") or "")]
         try:
-            answer: CitedAnswer = models.composer.invoke([SystemMessage(prompt), HumanMessage(state["question"])])
+            answer: CitedAnswer = models.composer.invoke(
+                [SystemMessage(prompt), *earlier, HumanMessage(state["question"])]
+            )
             sentences = [s.model_dump() for s in answer.sentences]
             return {
                 "sentences": sentences,
@@ -341,10 +427,13 @@ def build_graph(
             refused = True
         else:
             sentences, removed = [], 0
+            ranking_note = state.get("ranking_request") and not state.get("advice_request")
             for s in state.get("sentences", []):
                 if not screen_sentence(s["text"]):
                     removed += 1
                     continue
+                if ranking_note and all(evidence[i].kind == "scope" for i in s["evidence_ids"]):
+                    continue  # the note below already says what the catalog covers
                 sentences.append(
                     {"text": s["text"], "sources": sorted({n for n in (cite(i) for i in s["evidence_ids"]) if n})}
                 )
@@ -353,6 +442,15 @@ def build_graph(
                     0,
                     {
                         "text": "I can't tell you which card to get, but here is how they differ so you can decide.",
+                        "sources": [],
+                    },
+                )
+            elif ranking_note:
+                sentences.insert(
+                    0,
+                    {
+                        "text": f"CardPilot doesn't rank or grade cards. It covers {len(catalog.cards)} well-known cards "
+                        f"in {'the ' if country.code == 'us' else ''}{country.name}, and here is what each one publishes.",
                         "sources": [],
                     },
                 )
@@ -397,10 +495,20 @@ def build_graph(
     return g.compile()
 
 
-def ask(graph, question: str, callbacks: list[Any] | None = None) -> dict:
-    """Runs one question through the graph and returns the API response, trace included."""
+def ask(graph, question: str, history: list[dict] | None = None, callbacks: list[Any] | None = None) -> dict:
+    """Runs one question through the graph and returns the API response, trace included.
+
+    `history` is the session's earlier turns. The result carries a `turn` entry, the redacted question and a
+    short form of the answer, for the caller to keep as history. Refused questions leave no turn."""
     config = {"recursion_limit": 25}
     if callbacks:
         config["callbacks"] = callbacks
-    state = graph.invoke({"question": question}, config=config)
-    return {**state["result"], "trace": state.get("trace", [])}
+    state = graph.invoke({"question": question, "history": history or []}, config=config)
+    result = {**state["result"], "trace": state.get("trace", [])}
+    if not result["refused"]:
+        result["turn"] = {
+            "question": state["question"],
+            "answer": " ".join(s["text"] for s in result["sentences"])[:600],
+            "mentioned": state.get("mentioned", []),
+        }
+    return result

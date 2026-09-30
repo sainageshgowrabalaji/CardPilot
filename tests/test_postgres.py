@@ -53,7 +53,9 @@ def test_hostile_query_text_is_safe(pg_knowledge):
 
 def test_reopening_reuses_the_index(pg, pg_knowledge):
     k = load_knowledge(pg, "us")
-    assert k.store.embedder_id == k.embedder.id and k.store.count() > 0
+    from cardpilot.retrieval import index_version
+
+    assert k.store.embedder_id == index_version(k.embedder, k.catalog.chunks()) and k.store.count() > 0
 
 
 def test_the_agent_runs_on_postgres(pg_knowledge):

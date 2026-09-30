@@ -30,7 +30,7 @@ def payload(result) -> dict:
 def test_tools_are_listed_read_only():
     tools = asyncio.run(mcp_server.server.list_tools())
     names = {t.name for t in tools}
-    assert names == {"search_card_docs", "get_card", "compare_cards", "estimate_rewards", "ask_cardpilot"}
+    assert names == {"search_card_docs", "get_card", "list_cards", "compare_cards", "estimate_rewards", "ask_cardpilot"}
     for t in tools:
         assert t.annotations.read_only_hint and t.input_schema["properties"]["country"]["enum"] == ["us", "in"]
 
@@ -61,3 +61,9 @@ def test_an_unknown_country_is_rejected():
     # In process the server raises; over stdio the client receives the same message with is_error set.
     with pytest.raises(Exception, match="Input should be 'us' or 'in'"):
         call("search_card_docs", {"country": "uk", "query": "fees"})
+
+
+def test_list_cards():
+    body = payload(call("list_cards", {"country": "us", "attribute": "apr"}))
+    assert len(body["cards"]) == 13  # the catalog line plus 12 cards
+    assert "does not rank" in body["cards"][0]["text"]

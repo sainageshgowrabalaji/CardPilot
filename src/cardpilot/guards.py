@@ -40,6 +40,7 @@ class Screened:
     removed: list[str] = field(default_factory=list)
     refused: str | None = None
     advice_request: bool = False
+    ranking_request: bool = False
 
 
 def redact(text: str) -> tuple[str, list[str]]:
@@ -90,6 +91,13 @@ ADVICE_REQUEST = re.compile(
 )
 
 
+RANKING_REQUEST = re.compile(
+    r"\b(?:top|best|most popular|popular|top[- ]rated|highest[- ]rated|graded|ranked|leading|number one)\b"
+    r"(?:\W+\w+){0,3}?\W+cards?\b|\bcards?\b(?:\W+\w+){0,4}?\W+(?:ranked|graded|rated|ranking|most popular)\b",
+    re.IGNORECASE,
+)
+
+
 def screen_input(text: str, max_chars: int = 800) -> Screened:
     clean, removed = redact(text.strip())
     if not clean:
@@ -112,12 +120,18 @@ def screen_input(text: str, max_chars: int = 800) -> Screened:
             removed=removed,
             refused="I only explain credit cards, so I can't help with that. For money questions beyond cards, a licensed adviser is the right person.",
         )
-    return Screened(text=clean, removed=removed, advice_request=bool(ADVICE_REQUEST.search(clean)))
+    return Screened(
+        text=clean,
+        removed=removed,
+        advice_request=bool(ADVICE_REQUEST.search(clean)),
+        ranking_request=bool(RANKING_REQUEST.search(clean)),
+    )
 
 
 ADVICE_WORDING = re.compile(
     r"\byou should (?:get|apply|choose|pick|go with|sign up)|\bi (?:would )?recommend\b|\bi suggest\b|\bbest (?:card|choice|option) "
-    r"for you\b|\bgo with the\b|\bthe best card\b|\bthe clear winner\b|\bdefinitely get\b",
+    r"for you\b|\bgo with the\b|\bthe best card\b|\bthe clear winner\b|\bdefinitely get\b|\bmost popular card|"
+    r"\btop[- ]rated card|\bbest overall\b",
     re.IGNORECASE,
 )
 

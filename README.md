@@ -14,6 +14,8 @@ CardPilot explains and compares. It never tells anyone which card to get.
 ## What it does
 
 - **Ask** a question about a card or about how cards work, and get 2 to 5 cited sentences with the sources listed underneath
+- **Ask about every card at once**, like every card's APR or which cards have no annual fee, and get one cited line per card
+- **Follow-ups** like "what is its APR?" or "are these the top cards?" work, because each session keeps its last three turns
 - **Compare** two or three cards side by side, every cell linked to its source
 - **Rewards** estimates yearly rewards from monthly spending, with plain arithmetic you can check
 - **Learn** gives short lessons built only from the regulator's pages (CFPB and FTC for the US, RBI for India)
@@ -51,12 +53,12 @@ flowchart TB
 
 Each question runs through a fixed LangGraph state machine. The model only works inside it.
 
-1. **guard_in** removes card numbers (checked with the Luhn formula), SSN, Aadhaar, PAN, CVV and expiry dates before anything is logged or sent to a model. It refuses prompt injection and topics outside cards, and it refuses a card from the other country.
-2. **agent** lets the model pick tools (`search_docs`, `get_card`, `compare_cards`, `estimate_rewards`). If the model answers from memory without a tool, the graph makes it search first. Tool calls are capped per question.
+1. **guard_in** adds the session's last three turns so follow-ups make sense, and removes card numbers (checked with the Luhn formula), SSN, Aadhaar, PAN, CVV and expiry dates before anything is logged or sent to a model. It refuses prompt injection and topics outside cards, and it refuses a card from the other country.
+2. **agent** lets the model pick tools (`search_docs`, `get_card`, `compare_cards`, `list_cards`, `estimate_rewards`). If the model answers from memory without a tool, the graph makes it search first. Tool calls are capped per question.
 3. **tools** run the calls and give every piece of evidence an id like `E3`.
 4. **compose** asks the model for a `CitedAnswer`, a typed structure where each sentence lists its evidence ids.
 5. **verify** drops any sentence that cites an id that does not exist, or states a number the cited evidence does not contain.
-6. **finalize** removes advice wording ("you should get"), numbers the sources, and adds the date and disclaimer.
+6. **finalize** removes advice and ranking wording ("you should get", "most popular card"), numbers the sources, and adds the date and disclaimer. A question about top or best cards gets a note that CardPilot doesn't rank cards, followed by the facts card by card.
 
 If the model is down, rate limited or slow, the same graph answers with extracted, cited facts and
 says which engine answered. The whole trace (steps, tools, timings) is returned with every answer
@@ -103,6 +105,8 @@ CI fails the build if a score drops below its threshold. Latest offline results 
 | Card and ID numbers removed | 100% | 100% |
 | Prompt injections and off-topic questions refused | 100% | 100% |
 | "Which card should I get" answered without a pick | 100% | 100% |
+| Questions about every card that name every card | 100% | 100% |
+| "Top" or "best" cards answered without a ranking | 100% | 100% |
 
 **What the evals caught.** The first run scored 39% (US) and 47% (India) on fee questions, because
 people say "cost per year" while card pages say "annual fee". A small domain vocabulary
@@ -149,8 +153,8 @@ To use it as an MCP server, add this to Claude Desktop's config, with the full p
 }
 ```
 
-The tools are `search_card_docs`, `get_card`, `compare_cards`, `estimate_rewards`, and
-`ask_cardpilot` (the whole agent as one tool). All are marked read-only.
+The tools are `search_card_docs`, `get_card`, `list_cards`, `compare_cards`, `estimate_rewards`,
+and `ask_cardpilot` (the whole agent as one tool). All are marked read-only.
 
 ## API
 
@@ -185,8 +189,8 @@ logs record route, status and time but never the question.
 uv run pytest -q
 ```
 
-136 tests, all offline. They cover the guards, the catalog, retrieval in all three modes, country
-isolation, the offline graph, the model graph with scripted fake models (tool use, dropped
+162 tests, all offline. They cover the guards, the catalog, retrieval in all three modes, country
+isolation, the offline graph, questions about every card, follow-ups, the model graph with scripted fake models (tool use, dropped
 unsupported sentences, advice removal, outage fallback, tool call cap, a card number never
 reaching the model), the API, the MCP tools, and the Postgres store on a real Postgres with
 pgvector started inside the test run.
@@ -197,7 +201,7 @@ pgvector started inside the test run.
 src/cardpilot/
   api.py          FastAPI app, sessions, rate limits, metrics, Wallet tap
   graph.py        the LangGraph agent
-  tools.py        the four tools and their schemas
+  tools.py        the five tools and their schemas
   llm.py          model gateway with retries and fallback
   guards.py       redaction, injection and topic checks, advice filter
   retrieval.py    index building and hybrid search

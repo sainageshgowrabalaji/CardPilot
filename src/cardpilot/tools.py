@@ -6,6 +6,8 @@ ToolBox is built for one country's knowledge and cannot see any other.
 
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 from .retrieval import Knowledge
@@ -38,11 +40,43 @@ class EstimateRewards(BaseModel):
     )
 
 
+ListAttribute = Literal[
+    "overview",
+    "annual_fee",
+    "apr",
+    "intro_apr",
+    "foreign_fee",
+    "credit_level",
+    "welcome_offer",
+    "earn_dining",
+    "earn_groceries",
+    "earn_gas",
+    "earn_fuel",
+    "earn_travel",
+    "earn_online_shopping",
+    "earn_streaming",
+    "earn_bills_utilities",
+    "earn_other",
+]
+
+
+class ListCards(BaseModel):
+    """One fact for every card in this country's catalog, each with its source. Use it for questions about many
+    cards at once, like the APRs of all cards, which cards have no annual fee, or the top or best cards.
+    CardPilot does not rank cards, so for "top" or "best" use overview or the attribute the user named."""
+
+    attribute: ListAttribute = Field(
+        description="overview, annual_fee, apr (purchase APR or interest rate), intro_apr, foreign_fee, credit_level, "
+        "welcome_offer, or earn_<category> for an earn rate, like earn_dining."
+    )
+
+
 TOOL_SCHEMAS = {
     "search_docs": SearchDocs,
     "get_card": GetCard,
     "compare_cards": CompareCards,
     "estimate_rewards": EstimateRewards,
+    "list_cards": ListCards,
 }
 
 
@@ -111,3 +145,22 @@ class ToolBox:
         ]
         items.append(Evidence(id="", text=result["note"], title="How the estimate works", url=None))
         return items, f"estimate_rewards over {len(a.monthly_spend)} categories"
+
+    def list_cards(self, a: ListCards) -> tuple[list[Evidence], str]:
+        catalog = self.k.catalog
+        country = catalog.country
+        scope = Evidence(
+            id="",
+            text=f"CardPilot's {country.name} catalog has {len(catalog.cards)} well-known cards. It does not rank or grade them.",
+            title=f"CardPilot {country.name} catalog, as of {catalog.as_of}",
+            url=None,
+            kind="scope",
+        )
+        items = [scope]
+        try:
+            for card in catalog.cards:
+                text, src = catalog.attribute(card, a.attribute)
+                items.append(Evidence(id="", text=text, title=src.title, url=src.url, card=card.name, kind="list"))
+        except ValueError as exc:
+            return [scope], f"list_cards({a.attribute}) failed: {exc}"
+        return items, f"list_cards({a.attribute}) returned {len(items) - 1} cards"

@@ -199,6 +199,8 @@ class Catalog:
             facts.append(
                 (f"The {card.name} intro APR is {card.intro_apr.rstrip('. ')}.", card.source_for("intro", "apr"))
             )
+        if card.regular_apr or card.interest_rate:
+            facts.append(self.attribute(card, "apr"))
         if card.credit_level and c.code == "us":
             facts.append(
                 (f"The {card.name} is aimed at {card.credit_level.rstrip('. ')} credit.", card.source_for("credit"))
@@ -211,6 +213,64 @@ class Catalog:
                 )
             )
         return facts
+
+    def attribute(self, card: Card, attribute: str) -> tuple[str, Source]:
+        """One sentence stating a single attribute of a card, with its source. Used to list every card at once."""
+        c, n = self.country, card.name
+        if attribute == "overview":
+            fee = self.attribute(card, "annual_fee")[0].split(" has ", 1)[-1].rstrip(".")
+            return f"The {n} is a {card.kind} card from {card.issuer} with {fee}.", card.sources[0]
+        if attribute == "annual_fee":
+            if card.annual_fee is None:
+                return f"CardPilot has no published annual fee for the {n}.", card.sources[0]
+            fee = "no annual fee" if card.annual_fee == 0 else f"an annual fee of {c.money(card.annual_fee)}"
+            if c.code == "in" and card.annual_fee:
+                fee += " (GST extra)"
+            return f"The {n} has {fee}.", card.source_for("annual fee", "renewal fee", "fee")
+        if attribute == "apr":
+            src = card.source_for("apr", "interest", "finance charge", "variable")
+            if card.regular_apr:
+                rate = re.sub(r"^variable,?\s*", "", card.regular_apr.strip()).rstrip(". ")
+                return f"The {n} has a variable purchase APR of {rate}.", src
+            if card.interest_rate:
+                return f"Interest on the {n} is {card.interest_rate.rstrip('. ')}.", src
+            return f"CardPilot has no published purchase APR for the {n}.", card.sources[0]
+        if attribute == "intro_apr":
+            if card.intro_apr:
+                return f"The {n} intro APR is {card.intro_apr.rstrip('. ')}.", card.source_for("intro", "apr")
+            return f"CardPilot has no intro APR offer on record for the {n}.", card.sources[0]
+        if attribute == "foreign_fee":
+            word = "foreign transaction fee" if c.code == "us" else "forex markup fee"
+            pct = card.foreign_transaction_fee_pct
+            src = card.source_for("foreign", "forex", "markup")
+            if pct is None:
+                return f"CardPilot has no published {word} for the {n}.", card.sources[0]
+            return (f"The {n} has no {word}." if pct == 0 else f"The {n} charges a {word} of {pct:g}%."), src
+        if attribute == "credit_level":
+            if not card.credit_level:
+                return f"CardPilot has no published credit or eligibility guidance for the {n}.", card.sources[0]
+            if c.code == "us":
+                return f"The {n} is aimed at {card.credit_level.rstrip('. ')} credit.", card.source_for("credit")
+            return f"Eligibility for the {n}. {card.credit_level.rstrip('. ')}.", card.source_for(
+                "eligib", "income", "age"
+            )
+        if attribute == "welcome_offer":
+            if not card.welcome_offer:
+                return f"CardPilot has no welcome offer on record for the {n}.", card.sources[0]
+            return f"The {n} welcome offer is {card.welcome_offer.rstrip('. ')}.", card.source_for(
+                "welcome", "bonus", "offer"
+            )
+        if attribute.startswith("earn_"):
+            key = attribute[len("earn_") :]
+            labels = dict(c.categories)
+            if key not in labels:
+                raise ValueError(f"{key} is not a spending category in {c.name}.")
+            rate = card.earn.get(key)
+            src = card.source_for("earn", "%", "cashback", "cash back")
+            if rate is None:
+                return f"CardPilot has no published earn rate on {labels[key].lower()} for the {n}.", card.sources[0]
+            return f"The {n} earns an estimated {rate:g}% on {labels[key].lower()}.", src
+        raise ValueError(f"Unknown attribute {attribute!r}.")
 
     # ------------------------------------------------------------ tools
 

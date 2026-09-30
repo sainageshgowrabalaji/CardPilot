@@ -56,6 +56,9 @@ class Session:
     country: str
     created: float
     last_seen: float
+    # The last few redacted questions and short answers, so follow-ups like "what about these?" make sense.
+    # Kept only in memory for the life of the session.
+    history: list[dict] = field(default_factory=list)
 
 
 class Sessions:
@@ -502,7 +505,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         s = r.sessions.get(body.session_id)
         r.limiter.check(client_of(request), "ask", settings.rate_limit_per_minute)
         started = time.perf_counter()
-        result = ask(r.graphs[s.country], body.question, callbacks=tracing_callbacks(settings))
+        result = ask(r.graphs[s.country], body.question, history=list(s.history), callbacks=tracing_callbacks(settings))
+        turn = result.pop("turn", None)
+        if turn:
+            s.history = [*s.history, turn][-3:]
         r.metrics.observe((time.perf_counter() - started) * 1000)
         r.metrics.inc(
             "answers_total", country=s.country, engine=result["engine"], refused=str(result["refused"]).lower()

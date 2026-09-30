@@ -100,3 +100,22 @@ def test_advice_requests_are_flagged(text):
 )
 def test_advice_wording_is_removed(sentence, ok):
     assert screen_sentence(sentence) is ok
+
+
+@pytest.mark.parametrize(
+    "text,ranking",
+    [
+        ("need to know the APRs for top cards used in USA", True),
+        ("are these the top graded cards in USA ?", True),
+        ("most popular credit cards in India", True),
+        ("Which cards are rated highest?", True),
+        ("What is the best way to avoid interest?", False),
+        ("Compare Savor and Amex Gold", False),
+    ],
+)
+def test_ranking_requests_are_flagged(text, ranking):
+    assert screen_input(text).ranking_request is ranking
+
+
+def test_ranking_wording_is_removed():
+    assert not screen_sentence("The Savor is the most popular card in the country.")

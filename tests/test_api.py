@@ -170,3 +170,22 @@ def test_metrics(client):
     text = client.get("/metrics").text
     assert 'cardpilot_sessions_total{country="us"}' in text and "cardpilot_active_sessions" in text
     assert 'path="/api/session"' in text
+
+
+def test_follow_ups_use_the_session_history(client):
+    sid = start(client)
+    client.post("/api/ask", json={"session_id": sid, "question": "Tell me about the Savor"}, headers=H)
+    body = client.post("/api/ask", json={"session_id": sid, "question": "what is its APR?"}, headers=H).json()
+    assert "turn" not in body
+    assert any("Savor" in s["text"] for s in body["sentences"])
+    other = start(client)  # a new session starts with no history
+    fresh = client.post("/api/ask", json={"session_id": other, "question": "what is its APR?"}, headers=H).json()
+    assert "follow-up" not in fresh["trace"][0]["detail"]
+
+
+def test_history_keeps_only_the_last_three_turns(client):
+    sid = start(client)
+    for q in ["APR?", "Savor fee?", "Amex Gold fee?", "Venture fee?"]:
+        client.post("/api/ask", json={"session_id": sid, "question": q}, headers=H)
+    session = client.app.state.rt.sessions.get(sid)
+    assert [t["question"] for t in session.history] == ["Savor fee?", "Amex Gold fee?", "Venture fee?"]

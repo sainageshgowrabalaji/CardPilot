@@ -203,3 +203,50 @@ def test_auto_engine_order():
         ).chosen_engine()
         == "groq"
     )
+
+
+def test_list_cards_for_many_cards_and_a_ranking_note(knowledge):
+    agent = Script(AIMessage("", tool_calls=[call("list_cards", attribute="apr")]), AIMessage("done"))
+
+    def compose(messages):
+        assert "does not rank cards" in messages[0].content  # the ranking note reached the composer
+        scope, _ = first_fact(messages, "does not rank")
+        eid, fact = first_fact(messages, "Citi Double Cash Card has a variable purchase APR")
+        return CitedAnswer(
+            sentences=[
+                CitedSentence(text="CardPilot covers 12 cards.", evidence_ids=[scope]),
+                CitedSentence(text=fact, evidence_ids=[eid]),
+            ]
+        )
+
+    r = ask(graph_for(knowledge, "us", models(agent, Script(compose))), "APRs for the top cards in the USA?")
+    texts = [s["text"] for s in r["sentences"]]
+    assert texts[0].startswith("CardPilot doesn't rank")
+    assert "CardPilot covers 12 cards." not in texts  # a catalog-only sentence is replaced by the note
+    assert any("18.49% to 28.74%" in t for t in texts)
+
+
+def test_the_model_sees_earlier_turns(knowledge):
+    agent = Script(AIMessage("", tool_calls=[call("get_card", card="Savor")]), AIMessage("done"))
+    composer = Script(CitedAnswer(sentences=[]))
+    history = [
+        {
+            "question": "Tell me about the Savor",
+            "answer": "The Capital One Savor Cash Rewards has no annual fee.",
+            "mentioned": ["capital-one-savor"],
+        }
+    ]
+    ask(graph_for(knowledge, "us", models(agent, composer)), "what is its APR?", history=history)
+    first_call = agent.seen[0]
+    assert [type(m).__name__ for m in first_call] == ["SystemMessage", "HumanMessage", "AIMessage", "HumanMessage"]
+    assert "Tell me about the Savor" in first_call[1].content
+    assert any("Tell me about the Savor" in str(m.content) for m in composer.seen[0])
+
+
+def test_a_question_about_every_card_always_lists_them(knowledge):
+    # The model only searches, which returns five passages. The graph adds list_cards so no card is missed.
+    agent = Script(AIMessage("", tool_calls=[call("search_docs", query="APR top cards")]), AIMessage("done"))
+    r = ask(graph_for(knowledge, "us", models(agent, Script(RuntimeError("composer down")))), "APRs for the top cards?")
+    assert "list_cards" in next(t["detail"] for t in r["trace"] if t["step"] == "agent")
+    named = [c.name for c in knowledge["us"].catalog.cards if any(c.name in s["text"] for s in r["sentences"])]
+    assert len(named) == 12

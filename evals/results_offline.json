@@ -1,7 +1,7 @@
 {
   "engine": "offline",
   "embedder": "glove-64-v1",
-  "when": "2026-09-29",
+  "when": "2026-09-30",
   "golden": {
     "us": 59,
     "in": 51
@@ -10,8 +10,8 @@
     "retrieval": {
       "keyword": {
         "hit@1": 0.559322033898305,
-        "hit@5": 0.8135593220338984,
-        "mrr@10": 0.6766949152542373,
+        "hit@5": 0.8305084745762712,
+        "mrr@10": 0.6772598870056498,
         "n": 59
       },
       "vector": {
@@ -23,7 +23,7 @@
       "hybrid": {
         "hit@1": 0.6440677966101694,
         "hit@5": 0.9661016949152542,
-        "mrr@10": 0.7700564971751414,
+        "mrr@10": 0.7686440677966102,
         "n": 59,
         "misses": [
           "How much do I get back at restaurants with the Amex Gold?",
@@ -39,15 +39,15 @@
         "n": 10
       },
       "vector": {
-        "hit@1": 0.5,
+        "hit@1": 0.4,
         "hit@5": 0.5,
-        "mrr@10": 0.5375,
+        "mrr@10": 0.4875,
         "n": 10
       },
       "hybrid": {
         "hit@1": 0.6,
         "hit@5": 0.8,
-        "mrr@10": 0.6777777777777778,
+        "mrr@10": 0.6766666666666667,
         "n": 10,
         "misses": [
           "Is the Savor free to keep?",
@@ -60,7 +60,8 @@
       "fact_questions": 23,
       "wrong_facts": [],
       "cited": 1.0,
-      "answered": 1.0
+      "answered": 1.0,
+      "list_coverage": 1.0
     },
     "safety": {
       "leakage_refused": 1.0,
@@ -68,27 +69,28 @@
       "redaction": 1.0,
       "injection_refused": 1.0,
       "off_topic_refused": 1.0,
-      "advice_safe": 1.0
+      "advice_safe": 1.0,
+      "ranking_safe": 1.0
     }
   },
   "in": {
     "retrieval": {
       "keyword": {
-        "hit@1": 0.8823529411764706,
+        "hit@1": 0.8431372549019608,
         "hit@5": 1.0,
-        "mrr@10": 0.9379084967320261,
+        "mrr@10": 0.9183006535947713,
         "n": 51
       },
       "vector": {
         "hit@1": 0.29411764705882354,
-        "hit@5": 0.9215686274509803,
-        "mrr@10": 0.5719654528478056,
+        "hit@5": 0.9019607843137255,
+        "mrr@10": 0.564340180516651,
         "n": 51
       },
       "hybrid": {
-        "hit@1": 0.7450980392156863,
+        "hit@1": 0.7254901960784313,
         "hit@5": 1.0,
-        "mrr@10": 0.8643790849673202,
+        "mrr@10": 0.8545751633986928,
         "n": 51,
         "misses": []
       }
@@ -97,7 +99,7 @@
       "keyword": {
         "hit@1": 0.3,
         "hit@5": 0.7,
-        "mrr@10": 0.5,
+        "mrr@10": 0.4666666666666666,
         "n": 10
       },
       "vector": {
@@ -109,7 +111,7 @@
       "hybrid": {
         "hit@1": 0.4,
         "hit@5": 0.7,
-        "mrr@10": 0.5333333333333333,
+        "mrr@10": 0.5083333333333333,
         "n": 10,
         "misses": [
           "Can my bank send me a card I didn't request?",
@@ -123,7 +125,8 @@
       "fact_questions": 19,
       "wrong_facts": [],
       "cited": 1.0,
-      "answered": 1.0
+      "answered": 1.0,
+      "list_coverage": 1.0
     },
     "safety": {
       "leakage_refused": 1.0,
@@ -131,12 +134,13 @@
       "redaction": 1.0,
       "injection_refused": 1.0,
       "off_topic_refused": 1.0,
-      "advice_safe": 1.0
+      "advice_safe": 1.0,
+      "ranking_safe": 1.0
     }
   },
   "latency_ms": {
-    "p50": 4.383367499997348,
-    "p95": 5.378193900001804,
-    "n": 210
+    "p50": 4.463774999976522,
+    "p95": 7.456496250006239,
+    "n": 222
   }
 }

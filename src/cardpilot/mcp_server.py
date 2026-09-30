@@ -22,7 +22,7 @@ from .countries import COUNTRIES
 from .graph import ask, build_graph
 from .llm import build_models
 from .retrieval import Knowledge, load_knowledge
-from .tools import EstimateRewards, GetCard, SearchDocs, ToolBox
+from .tools import EstimateRewards, GetCard, ListAttribute, ListCards, SearchDocs, ToolBox
 
 Country = Literal["us", "in"]
 READ_ONLY = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
@@ -71,6 +71,15 @@ def get_card(country: Country, card: str) -> dict:
 
 
 @server.tool(annotations=READ_ONLY)
+def list_cards(country: Country, attribute: ListAttribute) -> dict:
+    """One fact for every card in the country's catalog, like every card's APR or annual fee. CardPilot does not
+    rank cards. Earn rates use earn_<category>, with categories dining, groceries, travel, online_shopping, other,
+    plus gas and streaming (us) or fuel and bills_utilities (in)."""
+    found, note = ToolBox(knowledge(country)).list_cards(ListCards(attribute=attribute))
+    return {"country": country, "note": note, "cards": _evidence(found)}
+
+
+@server.tool(annotations=READ_ONLY)
 def compare_cards(country: Country, cards: list[str]) -> dict:
     """A side-by-side table for two or three cards from the same country, every cell cited."""
     catalog = knowledge(country).catalog
@@ -106,7 +115,9 @@ def estimate_rewards(country: Country, monthly_spend: dict[str, float]) -> dict:
 )
 def ask_cardpilot(country: Country, question: str) -> dict:
     """The full CardPilot agent: guardrails, tool use, a cited answer and its verification trace."""
-    return ask(graph(country), question)
+    result = ask(graph(country), question)
+    result.pop("turn", None)
+    return result
 
 
 @server.resource("cardpilot://{country}/cards", name="cards", mime_type="application/json")

@@ -96,3 +96,36 @@ def test_fact_sentences_have_no_double_periods(code, catalogs):
     for card in catalogs[code].cards:
         for text, _ in catalogs[code].fact_sentences(card):
             assert ".." not in text, text
+
+
+ATTRIBUTES = ["overview", "annual_fee", "apr", "intro_apr", "foreign_fee", "credit_level", "welcome_offer"]
+
+
+@pytest.mark.parametrize("code", ["us", "in"])
+def test_every_card_has_a_sentence_for_every_attribute(catalogs, code):
+    catalog = catalogs[code]
+    keys = [f"earn_{k}" for k, _ in catalog.country.categories]
+    for card in catalog.cards:
+        for attribute in ATTRIBUTES + keys:
+            text, src = catalog.attribute(card, attribute)
+            assert card.name in text and src.url.startswith("https://"), (card.id, attribute)
+            assert ".." not in text
+
+
+def test_apr_sentences(catalogs):
+    us, india = catalogs["us"], catalogs["in"]
+    assert (
+        us.attribute(us.get("citi-double-cash"), "apr")[0]
+        == "The Citi Double Cash Card has a variable purchase APR of 18.49% to 28.74%."
+    )
+    assert "no published purchase APR" in us.attribute(us.get("amex-gold"), "apr")[0]
+    assert "3.75% per month" in india.attribute(india.get("hdfc-millennia"), "apr")[0]
+
+
+def test_attributes_stay_in_their_country(catalogs):
+    with pytest.raises(ValueError):
+        catalogs["us"].attribute(catalogs["us"].cards[0], "earn_fuel")
+    with pytest.raises(ValueError):
+        catalogs["in"].attribute(catalogs["in"].cards[0], "earn_streaming")
+    with pytest.raises(ValueError):
+        catalogs["us"].attribute(catalogs["us"].cards[0], "ranking")

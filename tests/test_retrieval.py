@@ -55,7 +55,7 @@ def test_index_rebuilds_when_the_embedder_changes(settings, tmp_path):
     k = load_knowledge(s, "us")
     k.store.rebuild(k.catalog.chunks()[:3], k.embedder.embed(["a", "b", "c"]), "some-other-embedder")
     again = load_knowledge(s, "us")
-    assert again.store.embedder_id == again.embedder.id
+    assert again.store.embedder_id.startswith(again.embedder.id + "+")
     assert again.store.count() == len(again.catalog.chunks())
 
 
@@ -78,3 +78,16 @@ def test_expansion_can_be_turned_off(knowledge):
     expanded = knowledge["us"].search("What does the Amex Gold cost per year?", k=5)
     assert any("annual fee" in c.text.lower() for c in expanded)
     assert [c.id for c in plain] != [c.id for c in expanded]
+
+
+def test_index_rebuilds_when_the_card_data_changes(tmp_path):
+    from cardpilot.retrieval import index_version
+
+    s = Settings(engine="offline", index_dir=tmp_path, _env_file=None)
+    k = load_knowledge(s, "us")
+    chunks = k.catalog.chunks()
+    stale = [c.model_copy(update={"text": c.text + " (old)"}) if i == 0 else c for i, c in enumerate(chunks)]
+    k.store.rebuild(stale, k.embedder.embed([c.text for c in stale]), index_version(k.embedder, stale))
+    again = load_knowledge(s, "us")
+    assert again.store.embedder_id == index_version(again.embedder, chunks)
+    assert not any("(old)" in c.text for c in again.search("annual fee", k=50, mode="keyword"))
