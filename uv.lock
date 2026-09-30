@@ -108,7 +108,7 @@ tracing = [
 [package.dev-dependencies]
 dev = [
     { name = "httpx" },
-    { name = "pgserver" },
+    { name = "pgserver", marker = "python_full_version < '3.13'" },
     { name = "pgvector" },
     { name = "psycopg", extra = ["binary"] },
     { name = "pytest" },
@@ -137,7 +137,7 @@ provides-extras = ["embeddings", "postgres", "tracing"]
 [package.metadata.requires-dev]
 dev = [
     { name = "httpx", specifier = ">=0.27" },
-    { name = "pgserver", specifier = ">=0.1.4" },
+    { name = "pgserver", marker = "python_full_version < '3.13'", specifier = ">=0.1.4" },
     { name = "pgvector", specifier = ">=0.3" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
     { name = "pytest", specifier = ">=8" },
@@ -1719,9 +1719,9 @@ name = "pgserver"
 version = "0.1.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "fasteners" },
-    { name = "platformdirs" },
-    { name = "psutil" },
+    { name = "fasteners", marker = "python_full_version < '3.13'" },
+    { name = "platformdirs", marker = "python_full_version < '3.13'" },
+    { name = "psutil", marker = "python_full_version < '3.13'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/35/f1/475d079b823c26deaf8a2cc3d7358a8f5cfa481bd5a8f878666b08450ed9/pgserver-0.1.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:854fa9394d495b3a332c954b63d4356b56d29220530e6d2aae146821bf87e05a", size = 10378190, upload-time = "2024-06-08T18:41:30.005Z" },

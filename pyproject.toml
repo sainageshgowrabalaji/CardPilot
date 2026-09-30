@@ -23,7 +23,15 @@ postgres = ["psycopg[binary]>=3.2", "pgvector>=0.3"]
 tracing = ["langfuse>=2.50"]
 
 [dependency-groups]
-dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6", "pgserver>=0.1.4", "psycopg[binary]>=3.2", "pgvector>=0.3"]
+dev = [
+  "pytest>=8",
+  "httpx>=0.27",
+  "ruff>=0.6",
+  # Embedded Postgres for the pgvector tests. It ships only for Python 3.11 and 3.12, and the tests skip without it.
+  "pgserver>=0.1.4; python_version < '3.13'",
+  "psycopg[binary]>=3.2",
+  "pgvector>=0.3",
+]
 
 [project.scripts]
 cardpilot-ingest = "cardpilot.retrieval:main"
