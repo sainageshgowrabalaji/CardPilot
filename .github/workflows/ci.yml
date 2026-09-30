@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.11"
+          enable-cache: true
+      - run: uv sync --frozen
+      - name: Lint
+        run: |
+          uv run ruff check src tests evals
+          uv run ruff format --check src tests evals
+      - name: Tests (includes a real Postgres with pgvector, started in process)
+        run: uv run pytest -q
+      - name: Evals, failing the build below the thresholds
+        run: uv run python evals/run.py --check --out eval-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results
+          path: eval-output/
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t cardpilot .
+      - name: Smoke test the image
+        run: |
+          docker run -d --name cp -p 8000:8000 cardpilot
+          for i in $(seq 1 30); do curl -fsS localhost:8000/healthz && break; sleep 1; done
+          curl -fsS -X POST localhost:8000/api/session -H 'X-CardPilot-Client: ci' -H 'Content-Type: application/json' -d '{"country":"us"}'
+          docker logs cp | tail -5

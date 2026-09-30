@@ -1,0 +1,10 @@
+{"source": "holdout", "question": "Is the Savor free to keep?", "card_id": "capital-one-savor", "must": ["annual fee"], "field": "fee"}
+{"source": "holdout", "question": "Will the Quicksilver charge me when I shop in Europe?", "card_id": "capital-one-quicksilver", "must": ["foreign transaction fee", "outside the us"], "field": "fee"}
+{"source": "holdout", "question": "Membership cost of the Sapphire Preferred?", "card_id": "chase-sapphire-preferred", "must": ["annual fee"], "field": "fee"}
+{"source": "holdout", "question": "Points on groceries with the Blue Cash Everyday?", "card_id": "amex-blue-cash-everyday", "must": ["groceries", "grocery", "supermarket"], "field": "other"}
+{"source": "holdout", "question": "Does the Active Cash reward me for eating out?", "card_id": "wells-fargo-active-cash", "must": ["dining"], "field": "other"}
+{"source": "holdout", "question": "What if I pay my card bill late?", "card_id": null, "must": ["counts as late", "penalty fee"], "field": "general"}
+{"source": "holdout", "question": "Does carrying a balance cost me money?", "card_id": null, "must": ["apr stands", "more than the minimum", "interest"], "field": "general"}
+{"source": "holdout", "question": "Am I on the hook if my card goes missing?", "card_id": null, "must": ["lost or stolen"], "field": "general"}
+{"source": "holdout", "question": "How do I fix a billing error on my statement?", "card_id": null, "must": ["dispute"], "field": "general"}
+{"source": "holdout", "question": "Is it smart to move my debt to a 0% card?", "card_id": null, "must": ["balance transfer"], "field": "general"}

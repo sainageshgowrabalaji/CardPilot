@@ -1,0 +1,51 @@
+{"source": "generated", "question": "What is the yearly charge for the HDFC Millennia?", "card_id": "hdfc-millennia", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "How much cashback does the HDFC Millennia give on online shopping?", "card_id": "hdfc-millennia", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the HDFC Millennia give anything back on dining?", "card_id": "hdfc-millennia", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Regalia Gold?", "card_id": "hdfc-regalia-gold", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Regalia Gold add on international spends?", "card_id": "hdfc-regalia-gold", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Regalia Gold give on online shopping?", "card_id": "hdfc-regalia-gold", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Regalia Gold give anything back on dining?", "card_id": "hdfc-regalia-gold", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Simplyclick?", "card_id": "sbi-simplyclick", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Simplyclick add on international spends?", "card_id": "sbi-simplyclick", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Simplyclick give on online shopping?", "card_id": "sbi-simplyclick", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Simplyclick give anything back on dining?", "card_id": "sbi-simplyclick", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the SBI Cashback?", "card_id": "sbi-cashback", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the SBI Cashback add on international spends?", "card_id": "sbi-cashback", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the SBI Cashback give on online shopping?", "card_id": "sbi-cashback", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the SBI Cashback give anything back on dining?", "card_id": "sbi-cashback", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Amazon Pay Icici?", "card_id": "icici-amazon-pay", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Amazon Pay Icici add on international spends?", "card_id": "icici-amazon-pay", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Amazon Pay Icici give on online shopping?", "card_id": "icici-amazon-pay", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Amazon Pay Icici give anything back on dining?", "card_id": "icici-amazon-pay", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Flipkart Axis?", "card_id": "axis-flipkart", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Flipkart Axis add on international spends?", "card_id": "axis-flipkart", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Flipkart Axis give on online shopping?", "card_id": "axis-flipkart", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Flipkart Axis give anything back on dining?", "card_id": "axis-flipkart", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Axis Ace?", "card_id": "axis-ace", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Axis Ace add on international spends?", "card_id": "axis-ace", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Axis Ace give on online shopping?", "card_id": "axis-ace", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Axis Ace give anything back on dining?", "card_id": "axis-ace", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the IDFC Millennia?", "card_id": "idfc-first-millennia", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the IDFC Millennia add on international spends?", "card_id": "idfc-first-millennia", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the IDFC Millennia give on online shopping?", "card_id": "idfc-first-millennia", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the IDFC Millennia give anything back on dining?", "card_id": "idfc-first-millennia", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the IDFC Wow?", "card_id": "idfc-first-wow", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the IDFC Wow add on international spends?", "card_id": "idfc-first-wow", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the IDFC Wow give on online shopping?", "card_id": "idfc-first-wow", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the IDFC Wow give anything back on dining?", "card_id": "idfc-first-wow", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What is the yearly charge for the Tata Neu?", "card_id": "hdfc-tata-neu-infinity", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "generated", "question": "What markup does the Tata Neu add on international spends?", "card_id": "hdfc-tata-neu-infinity", "must": ["forex", "markup"], "field": "foreign"}
+{"source": "generated", "question": "How much cashback does the Tata Neu give on online shopping?", "card_id": "hdfc-tata-neu-infinity", "must": ["online shopping"], "field": "online_shopping"}
+{"source": "generated", "question": "Does the Tata Neu give anything back on dining?", "card_id": "hdfc-tata-neu-infinity", "must": ["dining"], "field": "dining"}
+{"source": "handwritten", "question": "When do I get an interest free period on my card?", "card_id": null, "must": ["interest-free period"], "field": "general"}
+{"source": "handwritten", "question": "What is the minimum amount due and how is it set?", "card_id": null, "must": ["minimum amount due"], "field": "general"}
+{"source": "handwritten", "question": "When can the bank report me to CIBIL as a defaulter?", "card_id": null, "must": ["credit information", "past due"], "field": "general"}
+{"source": "handwritten", "question": "How quickly must the bank close my card when I ask?", "card_id": null, "must": ["close a credit card"], "field": "general"}
+{"source": "handwritten", "question": "I got a credit card I never applied for. What now?", "card_id": null, "must": ["unsolicited"], "field": "general"}
+{"source": "handwritten", "question": "Someone used my card online without my permission. Am I liable?", "card_id": null, "must": ["zero liability", "shadow reversal"], "field": "general"}
+{"source": "handwritten", "question": "What is a key fact statement?", "card_id": null, "must": ["key fact statement"], "field": "general"}
+{"source": "handwritten", "question": "Is the late fee charged on my whole bill?", "card_id": null, "must": ["late payment charges"], "field": "general"}
+{"source": "handwritten", "question": "What charges apply if I withdraw cash with my card?", "card_id": null, "must": ["cash advance"], "field": "general"}
+{"source": "handwritten", "question": "Can the bank raise my limit without asking me?", "card_id": null, "must": ["consent"], "field": "general"}
+{"source": "handwritten", "question": "How much time do I get to pay after the statement?", "card_id": null, "must": ["fortnight"], "field": "general"}
+{"source": "handwritten", "question": "Can interest be charged on amounts I already paid?", "card_id": null, "must": ["interest can be charged"], "field": "general"}

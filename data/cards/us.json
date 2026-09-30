@@ -1,0 +1,1128 @@
+{
+  "country": "us",
+  "currency": "USD",
+  "as_of": "2026-09-29",
+  "cards": [
+    {
+      "id": "chase-freedom-unlimited",
+      "name": "Chase Freedom Unlimited",
+      "issuer": "Chase",
+      "network": "Visa",
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 3,
+      "intro_apr": "0% on purchases and balance transfers for 15 months from account opening, then variable APR",
+      "regular_apr": "variable, 18.24% to 27.74%",
+      "credit_level": "good to excellent",
+      "earn": {
+        "dining": 3,
+        "groceries": 1.5,
+        "gas": 1.5,
+        "travel": 1.5,
+        "online_shopping": 1.5,
+        "streaming": 1.5,
+        "other": 1.5
+      },
+      "earn_assumption": "Chase states these rates as cash back percents. Rewards post as points and are counted at face value when redeemed for cash, which has no minimum.",
+      "earn_caps": "5% applies only to travel bought through Chase Travel. 3% applies to dining and drugstores. Bonus rates depend on the merchant category code.",
+      "key_benefits": [
+        "Purchase protection",
+        "Extended warranty",
+        "Trip cancellation and interruption insurance",
+        "Auto rental coverage",
+        "Intro APR on purchases and balance transfers"
+      ],
+      "welcome_offer": "As of September 2026, Chase lists a $200 bonus after $500 in purchases in the first 3 months (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited",
+          "title": "Chase Freedom Unlimited credit card (Chase product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/chase-freedom-unlimited",
+          "title": "Chase Freedom Unlimited review (NerdWallet, updated September 24, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 3% on dining, including takeout and eligible delivery. It also earns 3% at drugstores.",
+          "source": "s1"
+        },
+        {
+          "text": "Travel booked through Chase Travel earns 5%. All other purchases earn 1.5%.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "New accounts get a 0% intro APR on purchases and balance transfers for 15 months from opening.",
+          "source": "s1"
+        },
+        {
+          "text": "After the intro period the variable APR is 18.24% to 27.74%. A balance transfer costs $5 or 5% of the amount, whichever is greater.",
+          "source": "s2"
+        },
+        {
+          "text": "Each foreign transaction carries a fee of 3% of the amount in US dollars.",
+          "source": "s2"
+        },
+        {
+          "text": "Purchase protection covers new items against damage or theft for 120 days, up to $500 per item. Extended warranty adds one year to eligible warranties of three years or less.",
+          "source": "s1"
+        },
+        {
+          "text": "Trip cancellation and interruption insurance can pay up to $1,500 per traveler and $6,000 per trip.",
+          "source": "s1"
+        },
+        {
+          "text": "Rewards can be redeemed for cash with no minimum and do not expire while the account is open. Using points on Amazon values each point at 0.8 cents.",
+          "source": "s1"
+        },
+        {
+          "text": "A purchase earns a bonus rate based on the merchant category code. A store that seems to fit a category may still earn only the base rate.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Foreign transaction fee, balance transfer fee, APR range and credit level come from NerdWallet. The Chase product page did not list them and the Chase pricing page blocks automated reading. NerdWallet also lists 2% on Lyft through September 2027, which was not seen on the Chase page."
+    },
+    {
+      "id": "chase-sapphire-preferred",
+      "name": "Chase Sapphire Preferred",
+      "issuer": "Chase",
+      "network": "Visa",
+      "kind": "points",
+      "annual_fee": 95,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": null,
+      "regular_apr": "variable, 19.24% to 29.99%",
+      "credit_level": "good to excellent",
+      "earn": {
+        "dining": 3,
+        "groceries": 1,
+        "gas": 3,
+        "travel": 2,
+        "online_shopping": 1,
+        "streaming": 3,
+        "other": 1
+      },
+      "earn_assumption": "Points valued at 1 cent each, the cash back value NerdWallet reports. Chase Travel bookings that qualify for Points Boost can be worth more.",
+      "earn_caps": "5x applies only to travel bought through Chase Travel. The 3x grocery rate covers online grocery orders only and excludes Target, Walmart and wholesale clubs, so groceries are shown at 1x. Gas, EV charging and streaming earn 3x.",
+      "key_benefits": [
+        "Up to $100 yearly hotel credit through Chase Travel",
+        "Trip cancellation and interruption insurance",
+        "Primary auto rental coverage",
+        "Baggage delay insurance",
+        "Purchase protection",
+        "Extended warranty",
+        "Point transfers to airline and hotel partners"
+      ],
+      "welcome_offer": "As of September 2026, Chase lists 75,000 bonus points after $5,000 in purchases in the first 3 months (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred",
+          "title": "Chase Sapphire Preferred credit card (Chase product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/chase-sapphire-preferred",
+          "title": "Chase Sapphire Preferred review (NerdWallet, updated September 14, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 5 points per dollar on travel booked through Chase Travel and 2 points on other travel.",
+          "source": "s1"
+        },
+        {
+          "text": "Dining, streaming, online grocery orders, and gas and EV charging earn 3 points per dollar. Everything else earns 1 point.",
+          "source": "s1"
+        },
+        {
+          "text": "Online grocery orders from Target, Walmart and wholesale clubs do not earn the 3x rate.",
+          "source": "s1"
+        },
+        {
+          "text": "The annual fee is $95. There is no foreign transaction fee on purchases made outside the US.",
+          "source": "s1"
+        },
+        {
+          "text": "Each account anniversary year brings up to $100 in statement credits for hotel stays bought through Chase Travel.",
+          "source": "s1"
+        },
+        {
+          "text": "Points can move to airline programs such as United, Southwest and British Airways. They can also move to hotel programs such as World of Hyatt and Marriott Bonvoy.",
+          "source": "s1"
+        },
+        {
+          "text": "Points are worth 1 cent each as cash back. Some Chase Travel bookings under Points Boost can reach 1.5 cents per point.",
+          "source": "s2"
+        },
+        {
+          "text": "Trip cancellation and interruption coverage reaches $10,000 per traveler and $20,000 per trip. Rental car coverage is primary, up to $60,000.",
+          "source": "s1"
+        },
+        {
+          "text": "Baggage delay coverage pays up to $100 a day for 5 days. Purchase protection lasts 120 days, up to $500 per item.",
+          "source": "s1"
+        },
+        {
+          "text": "NerdWallet lists the recommended credit level as good to excellent.",
+          "source": "s2"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "No intro APR was listed on the pages read, so intro_apr is null. The Chase page shows a variable APR of 19.24% to 29.99%. NerdWallet shows 19.24% to 27.49%. The issuer figure is used. Credit level comes from NerdWallet."
+    },
+    {
+      "id": "citi-double-cash",
+      "name": "Citi Double Cash Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 3,
+      "intro_apr": "0% on balance transfers for 18 months, then variable APR. No intro APR on purchases.",
+      "regular_apr": "variable, 18.49% to 28.74%",
+      "credit_level": null,
+      "earn": {
+        "dining": 2,
+        "groceries": 2,
+        "gas": 2,
+        "travel": 2,
+        "online_shopping": 2,
+        "streaming": 2,
+        "other": 2
+      },
+      "earn_assumption": "Rewards post as ThankYou points worth 1 cent each as cash back, per NerdWallet. The 2% is 1% when you buy plus 1% when you pay.",
+      "earn_caps": "No cap on the base 2%. The second 1% is earned only as purchases are paid off. Hotels, car rentals and attractions booked through Citi Travel earn 5% in total.",
+      "key_benefits": [
+        "$0 liability on unauthorized charges",
+        "Free FICO Score access",
+        "Intro APR on balance transfers"
+      ],
+      "welcome_offer": "As of September 2026, NerdWallet lists $200 cash back after $1,500 in purchases in the first 6 months (changes often). The Citi page did not show the figures when read.",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.citi.com/credit-cards/citi-double-cash-credit-card",
+          "title": "Citi Double Cash Card (Citi product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/reviews/credit-cards/citi-double-cash",
+          "title": "Citi Double Cash Review: A Solid Choice for Everyday Spending (NerdWallet, updated April 16, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Every purchase earns 1% when made and another 1% when it is paid off. That adds up to 2% with no categories to track.",
+          "source": "s1"
+        },
+        {
+          "text": "Hotels, car rentals and attractions booked on the Citi Travel portal earn an extra 3%, for 5% in total.",
+          "source": "s1"
+        },
+        {
+          "text": "Rewards arrive as ThankYou points. They can be taken as a statement credit, direct deposit, check, gift cards or travel.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s2"
+        },
+        {
+          "text": "Balance transfers get a 0% intro APR for 18 months. Purchases get no intro rate.",
+          "source": "s2"
+        },
+        {
+          "text": "The transfer fee is 3% with a $5 minimum for transfers made in the first 4 months. After that it is 5% with a $5 minimum.",
+          "source": "s2"
+        },
+        {
+          "text": "Outside any intro rate, the variable APR is 18.49% to 28.74%, based on credit.",
+          "source": "s2"
+        },
+        {
+          "text": "Purchases abroad carry a 3% foreign transaction fee.",
+          "source": "s2"
+        },
+        {
+          "text": "Cardholders have $0 liability for unauthorized charges.",
+          "source": "s1"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "The Citi page loaded without its rate and fee numbers. APR, fees and the welcome offer come from NerdWallet (updated April 16, 2026). Network and reward structure were read on the Citi page. Recommended credit level was not stated on either page."
+    },
+    {
+      "id": "capital-one-savor",
+      "name": "Capital One Savor Cash Rewards",
+      "issuer": "Capital One",
+      "network": null,
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": "0% on purchases and balance transfers for 12 months, then variable APR",
+      "regular_apr": "variable, 18.49% to 28.49%",
+      "credit_level": "good to excellent",
+      "earn": {
+        "dining": 3,
+        "groceries": 3,
+        "gas": 1,
+        "travel": 1,
+        "online_shopping": 1,
+        "streaming": 3,
+        "other": 1
+      },
+      "earn_assumption": "Cash back is stated as a percent, so no conversion is needed.",
+      "earn_caps": "The grocery rate excludes superstores such as Walmart and Target. Entertainment also earns 3%. Hotels, vacation rentals and rental cars booked through Capital One Travel earn 5%. Capital One Entertainment purchases earn 8%.",
+      "key_benefits": [
+        "No foreign transaction fee",
+        "No minimum to redeem",
+        "Intro APR on purchases and balance transfers"
+      ],
+      "welcome_offer": "As of September 2026, NerdWallet lists a $200 cash bonus after $500 in purchases in the first 3 months (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.nerdwallet.com/blog/credit-cards/capital-one-savor-savorone-changes",
+          "title": "Capital One Savor Review: Foodie-Focused Rewards, for No Annual Fee (NerdWallet, updated September 21, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 3% on dining, entertainment, popular streaming services and grocery stores.",
+          "source": "s1"
+        },
+        {
+          "text": "Superstores such as Walmart and Target do not count as grocery stores for the 3% rate.",
+          "source": "s1"
+        },
+        {
+          "text": "Hotels, vacation rentals and rental cars booked through Capital One Travel earn 5%. Capital One Entertainment purchases earn 8%. Everything else earns 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee and no foreign transaction fee.",
+          "source": "s1"
+        },
+        {
+          "text": "A 0% intro APR applies to purchases and balance transfers for 12 months. A balance transfer fee applies.",
+          "source": "s1"
+        },
+        {
+          "text": "After the intro period the variable APR is 18.49% to 28.49%.",
+          "source": "s1"
+        },
+        {
+          "text": "Rewards can be redeemed as soon as they post, with no minimum amount.",
+          "source": "s1"
+        },
+        {
+          "text": "NerdWallet lists the recommended credit level as good to excellent.",
+          "source": "s1"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "The Capital One Savor page could not be fetched by the research tool. All facts come from NerdWallet (updated September 21, 2026). Card network and the balance transfer fee percent were not stated."
+    },
+    {
+      "id": "capital-one-venture",
+      "name": "Capital One Venture Rewards",
+      "issuer": "Capital One",
+      "network": "Visa",
+      "kind": "miles",
+      "annual_fee": 95,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": null,
+      "regular_apr": "variable, 19.49% to 28.49%",
+      "credit_level": "excellent",
+      "earn": {
+        "dining": 2,
+        "groceries": 2,
+        "gas": 2,
+        "travel": 2,
+        "online_shopping": 2,
+        "streaming": 2,
+        "other": 2
+      },
+      "earn_assumption": "Miles valued at 1 cent each, the value NerdWallet reports for travel statement credits and Capital One Travel bookings. Gift card redemptions can be worth 0.8 to 1 cent.",
+      "earn_caps": "5x applies only to hotels, vacation rentals and rental cars booked through Capital One Travel. The 2x base rate has no cap.",
+      "key_benefits": [
+        "Up to $120 credit for Global Entry or TSA PreCheck",
+        "Travel accident insurance",
+        "Auto rental collision damage waiver",
+        "Extended warranty",
+        "Hertz Five Star status",
+        "Mile transfers to 15+ travel loyalty programs"
+      ],
+      "welcome_offer": "As of September 2026, Capital One lists 75,000 bonus miles after $4,000 in purchases in the first 3 months, plus $300 for hotel and vacation rental bookings through Capital One Travel in the first year (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.capitalone.com/credit-cards/venture/",
+          "title": "Capital One Venture Rewards card (Capital One product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/reviews/credit-cards/capital-one-venture",
+          "title": "Capital One Venture Review: Easy Earnings, Effortless Redemptions (NerdWallet, updated September 14, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Every purchase earns 2 miles per dollar with no cap.",
+          "source": "s1"
+        },
+        {
+          "text": "Hotels, vacation rentals and rental cars booked through Capital One Travel earn 5 miles per dollar.",
+          "source": "s1"
+        },
+        {
+          "text": "The annual fee is $95. There is no foreign transaction fee.",
+          "source": "s1"
+        },
+        {
+          "text": "Miles can pay for travel, book trips on Capital One Travel, or move to more than 15 travel loyalty programs. They can also go toward cash, gift cards or Amazon purchases.",
+          "source": "s1"
+        },
+        {
+          "text": "NerdWallet values miles at 1 cent each when used as a travel statement credit or on Capital One Travel. Partner transfers vary in value.",
+          "source": "s2"
+        },
+        {
+          "text": "The card gives up to $120 back for a Global Entry or TSA PreCheck application. The credit is available once every 4 years.",
+          "source": "s1"
+        },
+        {
+          "text": "Coverage includes travel accident insurance, an auto rental collision damage waiver and extended warranty.",
+          "source": "s1"
+        },
+        {
+          "text": "The variable APR is 19.49% to 28.49%. No intro APR was listed.",
+          "source": "s1"
+        },
+        {
+          "text": "Capital One lists the card for applicants with excellent credit.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Network comes from NerdWallet because the Capital One page did not state it. NerdWallet lists recommended credit as good to excellent, while Capital One says excellent. The issuer label is used."
+    },
+    {
+      "id": "capital-one-quicksilver",
+      "name": "Capital One Quicksilver Cash Rewards",
+      "issuer": "Capital One",
+      "network": null,
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": "0% on purchases and balance transfers for 15 months, then variable APR",
+      "regular_apr": "variable, 18.49% to 28.49%",
+      "credit_level": "excellent",
+      "earn": {
+        "dining": 1.5,
+        "groceries": 1.5,
+        "gas": 1.5,
+        "travel": 1.5,
+        "online_shopping": 1.5,
+        "streaming": 1.5,
+        "other": 1.5
+      },
+      "earn_assumption": "Cash back is stated as a percent, so no conversion is needed.",
+      "earn_caps": "No cap on 1.5%. Hotels, vacation rentals, rental cars and activities booked through Capital One Travel earn 5%. Capital One Entertainment purchases also earn 5%.",
+      "key_benefits": [
+        "No foreign transaction fee",
+        "Rewards do not expire while the account is open",
+        "Extended warranty",
+        "Travel accident insurance",
+        "Intro APR on purchases and balance transfers"
+      ],
+      "welcome_offer": "As of September 2026, Capital One lists a one time $200 cash bonus. NerdWallet reports it requires $500 in purchases within 3 months (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.capitalone.com/credit-cards/quicksilver/",
+          "title": "Capital One Quicksilver card (Capital One product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.capitalone.com/learn-grow/money-management/quicksilver-card-benefits",
+          "title": "All about Capital One Quicksilver card benefits and features (Capital One, April 2, 2026)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.nerdwallet.com/reviews/credit-cards/capital-one-quicksilver",
+          "title": "Capital One Quicksilver Review: A No-Fuss, No-Gimmicks Card (NerdWallet, updated April 20, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Every purchase earns 1.5% cash back with no limit.",
+          "source": "s1"
+        },
+        {
+          "text": "Hotels, rental cars, vacation rentals and activities booked through Capital One Travel earn 5%.",
+          "source": "s2"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s2"
+        },
+        {
+          "text": "There is no fee on purchases made outside the US.",
+          "source": "s1"
+        },
+        {
+          "text": "A 0% intro APR covers purchases and balance transfers for 15 months.",
+          "source": "s2"
+        },
+        {
+          "text": "After the intro period the variable APR is 18.49% to 28.49%. The transfer fee is 3% during the first 15 months.",
+          "source": "s3"
+        },
+        {
+          "text": "Rewards never expire while the account is open. They can be redeemed in any amount as cash, a statement credit, a credit against recent purchases or gift cards.",
+          "source": "s1"
+        },
+        {
+          "text": "Benefits include extended warranty on eligible items and travel accident insurance when the fare is paid with the card.",
+          "source": "s2"
+        },
+        {
+          "text": "Capital One lists the card for applicants with excellent credit.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "APR range and balance transfer fee come from NerdWallet (updated April 20, 2026). Card network was not stated on the pages read. NerdWallet lists recommended credit as good to excellent, while Capital One says excellent."
+    },
+    {
+      "id": "amex-gold",
+      "name": "American Express Gold Card",
+      "issuer": "American Express",
+      "network": "American Express",
+      "kind": "points",
+      "annual_fee": 325,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": null,
+      "regular_apr": null,
+      "credit_level": null,
+      "earn": {
+        "dining": 4,
+        "groceries": 4,
+        "gas": 1,
+        "travel": 1,
+        "online_shopping": 1,
+        "streaming": 1,
+        "other": 1
+      },
+      "earn_assumption": "Points valued at 1 cent each as a working estimate. The Amex page did not state a fixed cash value, and actual value depends on how points are used.",
+      "earn_caps": "4x at restaurants worldwide applies to the first $50,000 each calendar year, then 1x. 4x at US supermarkets applies to the first $25,000 each calendar year, then 1x. Flights booked directly with airlines or through Amex Travel earn 3x. Prepaid hotels through Amex Travel earn 5x. Other travel is shown at 1x.",
+      "key_benefits": [
+        "Up to $10 monthly dining credit at select partners",
+        "$10 monthly Uber Cash",
+        "Up to $7 monthly Dunkin' credit",
+        "Up to $100 yearly Resy credit",
+        "Baggage insurance",
+        "Car rental loss and damage insurance",
+        "Purchase protection"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
+          "title": "American Express Gold Card (American Express product page)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 4 points per dollar at restaurants worldwide on up to $50,000 a calendar year. After that it earns 1 point.",
+          "source": "s1"
+        },
+        {
+          "text": "US supermarkets earn 4 points per dollar on up to $25,000 a calendar year, then 1 point.",
+          "source": "s1"
+        },
+        {
+          "text": "Flights bought directly from airlines or through Amex Travel earn 3 points per dollar. Prepaid hotels booked through Amex Travel earn 5 points. Other purchases earn 1 point.",
+          "source": "s1"
+        },
+        {
+          "text": "The annual fee is $325 for the main card. Up to five additional cards have no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no foreign transaction fee from American Express.",
+          "source": "s1"
+        },
+        {
+          "text": "Monthly perks include up to $10 in dining credits at select partners, $10 in Uber Cash and up to $7 at Dunkin'. There is also up to $100 a year at Resy. These credits require enrollment.",
+          "source": "s1"
+        },
+        {
+          "text": "Points can go toward travel, gift cards and other items, or transfer to 20 airline and hotel partners. Pay with Points works for flights and prepaid hotels on Amex Travel.",
+          "source": "s1"
+        },
+        {
+          "text": "Purchase protection covers accidental damage, theft or loss for 90 days, up to $10,000 per purchase and $50,000 a year.",
+          "source": "s1"
+        },
+        {
+          "text": "Baggage insurance can cover up to $1,250 for carry-on bags and $500 for checked bags beyond what the carrier pays.",
+          "source": "s1"
+        },
+        {
+          "text": "The card has no preset spending limit.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "The Amex page did not show a welcome offer, Pay Over Time APR or recommended credit level when read, so those fields are null. The card has no intro APR listed."
+    },
+    {
+      "id": "amex-blue-cash-everyday",
+      "name": "Blue Cash Everyday Card from American Express",
+      "issuer": "American Express",
+      "network": "American Express",
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 2.7,
+      "intro_apr": "0% on purchases and balance transfers for 15 months, then variable APR",
+      "regular_apr": "variable, 19.74% to 28.74%",
+      "credit_level": null,
+      "earn": {
+        "dining": 1,
+        "groceries": 3,
+        "gas": 3,
+        "travel": 1,
+        "online_shopping": 3,
+        "streaming": 1,
+        "other": 1
+      },
+      "earn_assumption": "Cash back is stated as a percent and paid as Reward Dollars, so no conversion is needed.",
+      "earn_caps": "Each 3% category has its own limit of $6,000 in purchases per year, then 1%. The categories are US supermarkets, US online retail and US gas stations.",
+      "key_benefits": [
+        "Up to $84 a year Disney streaming credit",
+        "Purchase protection",
+        "Car rental loss and damage insurance",
+        "Global Assist Hotline",
+        "Intro APR on purchases and balance transfers"
+      ],
+      "welcome_offer": "As of September 2026, NerdWallet lists up to $200 cash back after $2,000 in purchases in the first 6 months (changes often). The Amex page did not show an offer when read.",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.americanexpress.com/us/credit-cards/card/blue-cash-everyday/",
+          "title": "Blue Cash Everyday Card (American Express product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/american-express-blue-cash-everyday",
+          "title": "AmEx Blue Cash Everyday Review: Solid Cash Back, $0 Annual Fee (NerdWallet, updated April 20, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 3% at US supermarkets, 3% on US online retail purchases and 3% at US gas stations. Each category is capped at $6,000 a year, then drops to 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "Other purchases earn 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "Transactions abroad cost 2.7% after conversion to US dollars.",
+          "source": "s1"
+        },
+        {
+          "text": "Cash back arrives as Reward Dollars. They can be used as a statement credit or at Amazon.com checkout.",
+          "source": "s1"
+        },
+        {
+          "text": "A monthly statement credit of up to $7 applies to Disney+, Hulu or ESPN+ subscriptions. That is up to $84 a year.",
+          "source": "s1"
+        },
+        {
+          "text": "Balance transfers must be requested within 60 days of opening the account. Fees apply.",
+          "source": "s1"
+        },
+        {
+          "text": "A 0% intro APR covers purchases and balance transfers for 15 months. The variable APR after that is 19.74% to 28.74%.",
+          "source": "s2"
+        },
+        {
+          "text": "The balance transfer fee is $5 or 3% of the amount, whichever is greater.",
+          "source": "s2"
+        },
+        {
+          "text": "Purchase protection and car rental loss and damage insurance are included.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Intro APR, APR range, balance transfer fee and welcome offer come from NerdWallet (updated April 20, 2026) because the Amex page did not show them when read. Recommended credit level was not stated."
+    },
+    {
+      "id": "wells-fargo-active-cash",
+      "name": "Wells Fargo Active Cash Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa",
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 3,
+      "intro_apr": "0% on purchases and qualifying balance transfers for 12 months from account opening, then variable APR",
+      "regular_apr": "variable, 18.74%, 24.74% or 28.74%",
+      "credit_level": null,
+      "earn": {
+        "dining": 2,
+        "groceries": 2,
+        "gas": 2,
+        "travel": 2,
+        "online_shopping": 2,
+        "streaming": 2,
+        "other": 2
+      },
+      "earn_assumption": "Cash back is stated as a percent, so no conversion is needed.",
+      "earn_caps": "No cap and no categories. The 2% applies to purchases.",
+      "key_benefits": [
+        "Cell phone protection up to $600",
+        "Auto rental collision damage waiver",
+        "Roadside Dispatch",
+        "Visa Signature Concierge",
+        "Zero Liability protection",
+        "Free FICO Score through Credit Close-Up"
+      ],
+      "welcome_offer": "As of September 2026, Wells Fargo lists a $100 cash rewards bonus after $500 in purchases in the first 3 months (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://creditcards.wellsfargo.com/cards/active-cash-credit-card",
+          "title": "Wells Fargo Active Cash Card (Wells Fargo product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/wells-fargo-active-cash",
+          "title": "Wells Fargo Active Cash review (NerdWallet, updated September 14, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns unlimited 2% cash rewards on purchases.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "A 0% intro APR covers purchases and qualifying balance transfers for 12 months from opening. After that the variable APR is 18.74%, 24.74% or 28.74%.",
+          "source": "s1"
+        },
+        {
+          "text": "After the intro period, balance transfers cost up to 5%, with a $5 minimum.",
+          "source": "s2"
+        },
+        {
+          "text": "Purchases made abroad carry a 3% foreign transaction fee.",
+          "source": "s2"
+        },
+        {
+          "text": "Paying the monthly phone bill with the card adds cell phone protection of up to $600 for damage or theft. A $25 deductible applies.",
+          "source": "s2"
+        },
+        {
+          "text": "Other benefits include an auto rental collision damage waiver, Roadside Dispatch and Visa Signature Concierge.",
+          "source": "s1"
+        },
+        {
+          "text": "Rewards can be used as a statement credit, at PayPal checkout, for gift cards, or toward past purchases.",
+          "source": "s1"
+        },
+        {
+          "text": "Wells Fargo offers free FICO Score access through Credit Close-Up.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Foreign transaction fee and the post-intro balance transfer fee come from NerdWallet. The intro balance transfer fee terms were unclear on the Wells Fargo page. Recommended credit level was not stated."
+    },
+    {
+      "id": "discover-it-cash-back",
+      "name": "Discover it Cash Back",
+      "issuer": "Discover (Capital One)",
+      "network": "Discover",
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 0,
+      "intro_apr": "0% on purchases and balance transfers for 15 months, then variable APR",
+      "regular_apr": "variable, 17.49% to 26.49%",
+      "credit_level": null,
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "gas": 1,
+        "travel": 1,
+        "online_shopping": 1,
+        "streaming": 1,
+        "other": 1
+      },
+      "earn_assumption": "Cash back is stated as a percent. The 5% categories rotate each quarter and need activation, so every fixed key shows the 1% base rate.",
+      "earn_caps": "5% applies to rotating quarterly categories after activation, on up to $1,500 in purchases per quarter, then 1%.",
+      "key_benefits": [
+        "Cashback Match at the end of the first year",
+        "Free FICO Score",
+        "$0 fraud liability",
+        "Free Social Security number alerts",
+        "Card lock"
+      ],
+      "welcome_offer": "As of September 2026, new cardmembers get an automatic match of all cash back earned in the first year, with no cap (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/discover-it-cash-back",
+          "title": "Discover it Cash Back Review: 5% Rewards Are Worth a Little Work (NerdWallet, updated September 23, 2026)"
+        },
+        {
+          "id": "s2",
+          "url": "https://discover.com/credit-cards/card-smarts/discover-it-cash-back-card",
+          "title": "Discover it Cash Back card (Discover Card Smarts page)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 5% in categories that rotate each quarter. Activation is required, and the 5% stops after $1,500 in purchases each quarter.",
+          "source": "s1"
+        },
+        {
+          "text": "All other purchases earn 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "At the end of the first year, Discover matches all cash back a new cardmember earned.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no annual fee and no foreign transaction fee.",
+          "source": "s1"
+        },
+        {
+          "text": "A 0% intro APR covers purchases and balance transfers for 15 months. The variable APR after that is 17.49% to 26.49%.",
+          "source": "s1"
+        },
+        {
+          "text": "The intro balance transfer fee is 3%. Later transfers can cost up to 5%.",
+          "source": "s1"
+        },
+        {
+          "text": "Cash back can be redeemed in any amount as a deposit or statement credit. Gift card redemptions start at $5.",
+          "source": "s1"
+        },
+        {
+          "text": "Discover lists $0 fraud liability, free Social Security number alerts and a card lock feature.",
+          "source": "s2"
+        },
+        {
+          "text": "NerdWallet notes that the card is now issued by Capital One.",
+          "source": "s1"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "The Discover product page could not be fetched by the research tool. Rates, fees and rewards come from NerdWallet (updated September 23, 2026). Recommended credit level and current quarter categories were not recorded."
+    },
+    {
+      "id": "bofa-customized-cash-rewards",
+      "name": "Bank of America Customized Cash Rewards",
+      "issuer": "Bank of America",
+      "network": null,
+      "kind": "cash back",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": 3,
+      "intro_apr": "0% for 15 billing cycles on purchases and on balance transfers made in the first 60 days, then variable APR",
+      "regular_apr": "variable, 17.49% to 27.49%",
+      "credit_level": "good to excellent",
+      "earn": {
+        "dining": 1,
+        "groceries": 2,
+        "gas": 1,
+        "travel": 1,
+        "online_shopping": 1,
+        "streaming": 1,
+        "other": 1
+      },
+      "earn_assumption": "Cash back is stated as a percent. Only one 3% category is active at a time, so each 3% option is recorded at the 1% base. Rates ignore the first year 6% offer and any Preferred Rewards bonus.",
+      "earn_caps": "You pick one 3% category from gas and EV charging, online shopping, dining, travel, drug stores and pharmacies, or home improvement and furnishings. Grocery stores and wholesale clubs earn 2%. The 3% and 2% rates share a $2,500 quarterly limit on combined purchases, then 1%.",
+      "key_benefits": [
+        "Choice of 3% category",
+        "Preferred Rewards bonus of 10% to 75% for eligible bank customers",
+        "Intro APR on purchases and balance transfers",
+        "Redemption to a 529 plan and other options"
+      ],
+      "welcome_offer": "As of September 2026, Bank of America lists a $200 online bonus after $1,000 in purchases in the first 90 days. In the first year the choice category earns 6% instead of 3% (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/",
+          "title": "Bank of America Customized Cash Rewards credit card (Bank of America product page)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/bankofamerica-cash-rewards",
+          "title": "Bank of America Customized Cash Rewards Review: Choose Your Own Bonus Category (NerdWallet, updated August 3, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Cardholders choose one 3% category. The options are gas and EV charging, online shopping, dining, travel, drug stores and pharmacies, or home improvement and furnishings. Online shopping here includes cable, internet, phone plans and streaming.",
+          "source": "s1"
+        },
+        {
+          "text": "Grocery stores and wholesale clubs earn 2%. Other purchases earn 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "The bonus rates apply to the first $2,500 in combined purchases each quarter across the choice category and grocery and wholesale club spending.",
+          "source": "s1"
+        },
+        {
+          "text": "The choice category can be changed up to once a month.",
+          "source": "s2"
+        },
+        {
+          "text": "There is no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "A 3% foreign transaction fee applies to purchases abroad.",
+          "source": "s2"
+        },
+        {
+          "text": "A 0% intro APR lasts 15 billing cycles for purchases and for balance transfers made in the first 60 days. The variable APR after that is 17.49% to 27.49%.",
+          "source": "s1"
+        },
+        {
+          "text": "Balance transfers cost 3% in the first 60 days and 5% after that.",
+          "source": "s1"
+        },
+        {
+          "text": "Bank of America Preferred Rewards members can get a 10% to 75% rewards bonus based on their balances.",
+          "source": "s2"
+        },
+        {
+          "text": "Rewards can go to a statement credit, a Bank of America or Merrill deposit, a 529 plan, Amazon or PayPal purchases, or a check.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Card network was not stated on the pages read. Foreign transaction fee, recommended credit level, the monthly category change rule and Preferred Rewards details come from NerdWallet (updated August 3, 2026)."
+    },
+    {
+      "id": "discover-it-secured",
+      "name": "Discover it Secured Cash Back",
+      "issuer": "Discover (Capital One)",
+      "network": "Discover",
+      "kind": "secured",
+      "annual_fee": 0,
+      "foreign_transaction_fee_pct": null,
+      "intro_apr": null,
+      "regular_apr": null,
+      "credit_level": "building or rebuilding credit (no credit score required to apply)",
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "gas": 1,
+        "travel": 1,
+        "online_shopping": 1,
+        "streaming": 1,
+        "other": 1
+      },
+      "earn_assumption": "Cash back is stated as a percent. The 5% categories change each quarter and need activation, so every fixed key shows the 1% base rate.",
+      "earn_caps": "5% applies to everyday purchases at places that change each quarter, after activation, up to a quarterly maximum. The quarterly maximum was not stated on the page read.",
+      "key_benefits": [
+        "Refundable security deposit",
+        "Cashback Match at the end of the first year",
+        "Reports to the three major credit bureaus",
+        "Path to an unsecured account and deposit refund"
+      ],
+      "welcome_offer": "As of September 2026, the issuer lists an automatic dollar for dollar match of all cash back earned in the first year (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://discover.com/credit-cards/secured/",
+          "title": "Discover it Secured Credit Card (Discover product page, hosted by Capital One)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.nerdwallet.com/credit-cards/reviews/discover-it-secured",
+          "title": "Discover's Secured Card Review: Earn Rewards as You Build Credit (NerdWallet, updated April 20, 2026)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card has no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "A refundable deposit as low as $49 can open a credit line starting at $200.",
+          "source": "s1"
+        },
+        {
+          "text": "The highest credit line is set at approval. It ranges from $1,000 to $3,000 based on creditworthiness.",
+          "source": "s1"
+        },
+        {
+          "text": "The card earns 5% on everyday purchases at places that change each quarter, up to a quarterly maximum, once activated. Other purchases earn 1%.",
+          "source": "s1"
+        },
+        {
+          "text": "At the end of the first year, all cash back earned is matched automatically.",
+          "source": "s1"
+        },
+        {
+          "text": "No credit score is needed to apply.",
+          "source": "s1"
+        },
+        {
+          "text": "Account activity is reported to the three major credit bureaus.",
+          "source": "s1"
+        },
+        {
+          "text": "With a record of responsible use, the deposit can be returned and the account made unsecured.",
+          "source": "s1"
+        },
+        {
+          "text": "In April 2026, NerdWallet reported that automatic upgrade reviews at seven months would soon end. Cardholders could still ask for an upgrade.",
+          "source": "s2"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "The issuer page now sits on a Capital One site and shows newer terms than NerdWallet's April 2026 review. NerdWallet described a $200 minimum deposit, 2% at gas stations and restaurants, a 26.49% variable APR, no foreign transaction fee and a waived first late fee. Those older figures were not used. APR and foreign transaction fee are null because the issuer page did not state them."
+    }
+  ],
+  "general": [
+    {
+      "text": "A grace period is the time between the end of a billing cycle and the payment due date. Paying the full balance by the due date usually means no interest on purchases. Paying less means interest on the unpaid part.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-grace-period-for-a-credit-card-en-47/",
+        "title": "What is a grace period for a credit card? (CFPB)"
+      }
+    },
+    {
+      "text": "Card issuers must mail or deliver bills at least 21 days before the payment is due.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-grace-period-for-a-credit-card-en-47/",
+        "title": "What is a grace period for a credit card? (CFPB)"
+      }
+    },
+    {
+      "text": "APR stands for annual percentage rate. It is the yearly cost of borrowing on a card, and the CFPB says you can avoid interest on purchases by paying the full balance each month by the due date.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-card-interest-rate-what-does-apr-mean-en-44/",
+        "title": "What is a credit card interest rate? What does APR mean? (CFPB)"
+      }
+    },
+    {
+      "text": "Paying more than the minimum each month lowers the total interest paid. It also shortens the time it takes to clear the balance.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/consumer-tools/educator-tools/youth-financial-education/teach/activities/understanding-minimum-payments/",
+        "title": "Understanding minimum payments (CFPB)"
+      }
+    },
+    {
+      "text": "A payment counts as late when at least the minimum payment does not arrive by the time and date on the bill.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/data-research/credit-card-data/know-you-owe-credit-cards/credit-card-contract-definitions/",
+        "title": "Credit card contract definitions (CFPB)"
+      }
+    },
+    {
+      "text": "Federal rules bar a penalty fee larger than the dollar amount tied to the violation. For a late payment, the fee cannot be more than the minimum payment that was due.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/52/",
+        "title": "12 CFR 1026.52 Limitations on fees (CFPB)"
+      }
+    },
+    {
+      "text": "Paying on time is the top factor for a strong credit score. The CFPB suggests using no more than 30 percent of total credit limits. Applying for a lot of credit in a short time can worry lenders.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-and-keep-a-good-credit-score-en-318/",
+        "title": "How do I get and keep a good credit score? (CFPB)"
+      }
+    },
+    {
+      "text": "If a lost or stolen card is reported before anyone uses it, the cardholder owes nothing for unauthorized charges. If it is used first, federal law caps the cardholder's share at $50. If only the card number is stolen, there is generally no liability.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/am-i-responsible-for-unauthorized-charges-if-my-credit-cards-are-lost-or-stolen-en-29/",
+        "title": "Am I responsible for unauthorized charges if my credit cards are lost or stolen? (CFPB)"
+      }
+    },
+    {
+      "text": "Under the Fair Credit Billing Act, a written dispute must reach the issuer within 60 days after the first bill with the error was sent. The issuer must acknowledge it within 30 days and resolve it within 90 days. The disputed amount can be withheld during the investigation.",
+      "source": {
+        "url": "https://www.consumer.ftc.gov/articles/0219-disputing-credit-card-charges",
+        "title": "Using Credit Cards and Disputing Charges (FTC Consumer Advice)"
+      }
+    },
+    {
+      "text": "A secured card works with a cash deposit, such as $500, that sets how much you can spend. Payments are reported to the three major credit bureaus, which helps build a credit history.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/what-are-some-ways-to-start-or-rebuild-a-good-credit-history-en-2155/",
+        "title": "What are some ways to start or rebuild a good credit history? (CFPB)"
+      }
+    },
+    {
+      "text": "An authorized user is someone the account holder asks the issuer to give a card to. Anyone the account holder hands the card or card number to is also treated as an authorized user.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/data-research/credit-card-data/know-you-owe-credit-cards/credit-card-contract-definitions/",
+        "title": "Credit card contract definitions (CFPB)"
+      }
+    },
+    {
+      "text": "A balance transfer moves debt from one card to another, sometimes for a fee. Promotional low rates on transfers often expire.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/consumer-tools/credit-cards/answers/key-terms/",
+        "title": "Credit cards key terms (CFPB)"
+      }
+    },
+    {
+      "text": "An introductory rate must last at least six months unless the cardholder is more than 60 days late. The issuer must say how long it lasts and what rate follows.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/how-long-can-i-keep-a-low-rate-on-a-balance-transfer-or-other-introductory-rate-en-15/",
+        "title": "How long can I keep a low rate on a balance transfer or other introductory rate? (CFPB)"
+      }
+    },
+    {
+      "text": "A 0% balance transfer does not shield new purchases. While a balance is carried, new purchases can build interest from the day they are made.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/do-i-pay-interest-on-new-purchases-after-i-get-a-zero-or-low-rate-balance-transfer-en-49/",
+        "title": "Do I pay interest on new purchases after I get a zero or low rate balance transfer? (CFPB)"
+      }
+    },
+    {
+      "text": "Issuers must list per purchase transaction fees, such as foreign transaction fees, in the rate and fee table that comes with a card application.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/60/",
+        "title": "12 CFR 1026.60 Credit and charge card applications and solicitations (CFPB)"
+      }
+    },
+    {
+      "text": "Cash advances often carry a flat or percent fee and a higher APR than purchases. Interest starts the day the cash is taken, with no grace period. Many cards set a lower limit for cash advances.",
+      "source": {
+        "url": "https://www.consumerfinance.gov/ask-cfpb/can-i-withdraw-money-from-my-credit-card-at-an-atm-en-34/",
+        "title": "Can I withdraw money from my credit card at an ATM? (CFPB)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171A1F" media="(prefers-color-scheme: dark)">
+<meta name="description" content="CardPilot explains credit card benefits in your country. Every answer shows its source. Education only, not financial advice.">
+<title>CardPilot</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='6' width='28' height='20' rx='5' fill='%230F6E6E'/%3E%3Crect x='6.5' y='11' width='6' height='4.5' rx='1.2' fill='%23fff' opacity='.85'/%3E%3Cpath d='M17.5 21.5l8-6.5-2.4 9-2-2.6z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #F7F4EE;
+  --surface: #FFFDF9;
+  --surface-2: #EFEAE1;
+  --ink: #1F2A37;
+  --muted: #56606D;
+  --line: #E4DDD1;
+  --field-line: #A39A8D;
+  --accent: #0F6E6E;
+  --accent-hover: #0B5A5A;
+  --on-accent: #FFFFFF;
+  --accent-soft: #E2EFEC;
+  --link: #0F6E6E;
+  --ring: #0F6E6E;
+  --clay: #C0714F;
+  --clay-soft: #F8E9DF;
+  --clay-ink: #7A3E24;
+  --shadow: 0 1px 2px rgba(31, 42, 55, .05), 0 6px 20px rgba(31, 42, 55, .05);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --fs: 1.0625rem;
+  --fs-small: 1rem;
+  --fs-tiny: .875rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171A1F;
+    --surface: #1F242B;
+    --surface-2: #282E37;
+    --ink: #ECE6DC;
+    --muted: #A9B1BC;
+    --line: #333A44;
+    --field-line: #5E6874;
+    --accent: #0F6E6E;
+    --accent-hover: #138585;
+    --on-accent: #FFFFFF;
+    --accent-soft: #1A3533;
+    --link: #74C7BE;
+    --ring: #74C7BE;
+    --clay: #D48765;
+    --clay-soft: #36271F;
+    --clay-ink: #F2C6AF;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .22);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: var(--fs);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { line-height: 1.25; margin: 0; }
+h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; }
+h3 { font-size: 1.125rem; font-weight: 650; }
+p { margin: 0; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+button, input, textarea, select { font: inherit; color: inherit; }
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.muted { color: var(--muted); }
+.small { font-size: var(--fs-small); }
+.icon { width: 1.15em; height: 1.15em; flex: none; vertical-align: -0.2em; }
+
+.wrap { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 22px; border-radius: 14px;
+  border: 1.5px solid transparent; font-weight: 600; font-size: 1rem;
+  cursor: pointer; text-decoration: none; transition: background-color .15s, border-color .15s, opacity .15s;
+}
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.primary:hover:not(:disabled) { background: var(--accent-hover); }
+.btn.secondary { background: transparent; border-color: var(--accent); color: var(--link); }
+@media (prefers-color-scheme: dark) { .btn.secondary { border-color: var(--link); } }
+.btn.secondary:hover:not(:disabled) { background: var(--accent-soft); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.compact { min-height: 44px; padding: 0 16px; }
+.linklike {
+  background: none; border: 0; padding: 8px 4px; min-height: 44px; cursor: pointer;
+  color: var(--link); text-decoration: underline; text-underline-offset: 3px; font-size: var(--fs-small);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.linklike:hover { text-decoration-thickness: 2px; }
+
+/* Cards and fields */
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; box-shadow: var(--shadow);
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > label, .label { font-weight: 600; font-size: var(--fs-small); }
+.hint { color: var(--muted); font-size: var(--fs-small); }
+input[type="text"], input[type="search"], input[type="number"], textarea {
+  width: 100%; min-height: 48px; padding: 11px 14px; font-size: 1rem;
+  background: var(--surface); color: var(--ink);
+  border: 1.5px solid var(--field-line); border-radius: var(--radius-sm);
+}
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+input:focus-visible, textarea:focus-visible { outline-offset: 1px; border-color: var(--ring); }
+.money-input { position: relative; display: flex; align-items: center; }
+.money-input .affix {
+  position: absolute; color: var(--muted); pointer-events: none; font-size: 1rem;
+}
+.money-input .affix.pre { left: 14px; }
+.money-input .affix.post { right: 14px; }
+.money-input input.has-pre { padding-left: 34px; }
+.money-input input.has-post { padding-right: 38px; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Alerts */
+.alert {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--clay-soft); border: 1px solid var(--clay); border-left-width: 5px;
+  border-radius: var(--radius-sm); padding: 14px 16px; color: var(--ink);
+}
+.alert .icon { color: var(--clay); margin-top: 3px; }
+.alert .alert-body { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.status-line { color: var(--muted); display: flex; align-items: center; gap: 10px; }
+.spinner {
+  width: 18px; height: 18px; border-radius: 50%; flex: none;
+  border: 2.5px solid var(--line); border-top-color: var(--accent);
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Start screen ---------- */
+#start {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 48px 0 40px;
+}
+.start-inner { max-width: 620px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 750; letter-spacing: -.01em; }
+.brand .logo { width: 30px; height: 30px; flex: none; }
+.start-logo { width: 52px; height: 52px; margin-bottom: 18px; display: block; }
+#start h1 { font-size: clamp(2.4rem, 7vw, 3.25rem); font-weight: 780; letter-spacing: -.025em; }
+.tagline { font-size: 1.1875rem; color: var(--muted); margin-top: 12px; max-width: 34ch; }
+.country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 36px; }
+.country {
+  display: flex; align-items: center; gap: 16px; text-align: left;
+  min-height: 92px; padding: 18px 20px; border-radius: var(--radius);
+  background: var(--surface); border: 1.5px solid var(--line); box-shadow: var(--shadow);
+  cursor: pointer; transition: border-color .15s, transform .15s, background-color .15s;
+}
+.country:hover:not(:disabled) { border-color: var(--accent); }
+.country:active:not(:disabled) { transform: translateY(1px); }
+.country:disabled { opacity: .6; cursor: progress; }
+.country .cc {
+  width: 48px; height: 48px; border-radius: 50%; flex: none;
+  display: grid; place-items: center; font-weight: 750; font-size: 1rem; letter-spacing: .04em;
+  background: var(--accent); color: var(--on-accent);
+}
+.country .cn { display: block; font-size: 1.3125rem; font-weight: 700; }
+.country .cs { display: block; color: var(--muted); font-size: var(--fs-small); }
+.start-notes { margin-top: 24px; display: flex; flex-direction: column; gap: 6px; }
+#start-msg { margin-top: 20px; }
+
+/* ---------- App shell ---------- */
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0 6px; }
+.topbar .brand { font-size: 1.25rem; }
+.top-right { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.country-badge {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  font-size: var(--fs-small); padding: 4px 12px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink);
+}
+.country-badge .short { display: none; font-weight: 650; }
+@media (max-width: 440px) {
+  .country-badge .long { display: none; }
+  .country-badge .short { display: inline; }
+}
+.tabbar { position: sticky; top: 0; z-index: 20; background: var(--bg); padding: 10px 0; }
+.tabs {
+  display: flex; gap: 4px; padding: 4px; border-radius: 16px;
+  background: var(--surface-2); max-width: 520px;
+}
+.tab {
+  flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 8px; border: 0; border-radius: 12px;
+  background: transparent; color: var(--muted); font-weight: 600; font-size: 1rem; cursor: pointer;
+  white-space: nowrap;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+@media (prefers-color-scheme: dark) { .tab[aria-selected="true"] { background: #39414C; } }
+.panel { padding: 14px 0 24px; }
+.panel-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.panel-head p { color: var(--muted); }
+.app-foot { text-align: center; color: var(--muted); font-size: var(--fs-small); padding: 20px 16px 36px; }
+
+/* ---------- Ask ---------- */
+.ask-intro { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.ask-intro p { color: var(--muted); }
+.chips-label { margin-top: 10px; font-size: var(--fs-small); color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.chip {
+  text-align: left; min-height: 44px; padding: 9px 16px; border-radius: 22px;
+  background: var(--surface); border: 1.5px solid var(--line); color: var(--ink);
+  font-size: 1rem; line-height: 1.4; cursor: pointer; max-width: 100%;
+}
+.chip:hover:not(:disabled) { border-color: var(--accent); }
+.chip:disabled { opacity: .55; cursor: not-allowed; }
+.log { display: flex; flex-direction: column; gap: 16px; }
+.log:empty { display: none; }
+.bubble {
+  align-self: flex-end; max-width: 85%; padding: 11px 16px;
+  background: var(--accent-soft); color: var(--ink);
+  border-radius: 18px 18px 6px 18px; white-space: pre-wrap; overflow-wrap: anywhere;
+  scroll-margin-top: 84px;
+}
+.answer {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px;
+  overflow-wrap: anywhere;
+}
+.answer.pending { flex-direction: row; align-items: center; gap: 12px; color: var(--muted); box-shadow: none; }
+.answer.refused { background: var(--surface-2); box-shadow: none; border-style: dashed; border-color: var(--field-line); }
+.note-label { display: inline-flex; align-items: center; gap: 8px; font-weight: 650; font-size: var(--fs-small); color: var(--muted); }
+.answer-text { font-size: 1.0625rem; line-height: 1.7; }
+.answer.refused .answer-text { color: var(--ink); }
+sup { line-height: 0; }
+a.cite {
+  display: inline-block; min-width: 1.55em; padding: 0 .35em; margin-left: 2px;
+  font-size: .72em; font-weight: 700; line-height: 1.55; text-align: center;
+  border-radius: 6px; background: var(--accent-soft); color: var(--link); text-decoration: none;
+  vertical-align: super;
+}
+a.cite:hover { background: var(--accent); color: var(--on-accent); }
+.sources h3, .sources-title { font-size: var(--fs-small); font-weight: 650; color: var(--muted); margin-bottom: 8px; }
+.src-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.src-list li {
+  display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: start;
+  padding: 8px; margin: 0 -8px; border-radius: 10px; scroll-margin: 90px 0 120px;
+  transition: background-color .6s;
+}
+.src-list li.flash { background: var(--accent-soft); transition: none; }
+.src-n {
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  font-size: var(--fs-tiny); font-weight: 700; background: var(--surface-2); color: var(--ink); margin-top: 1px;
+}
+.src-main { display: flex; flex-direction: column; min-width: 0; }
+.src-main a { display: inline-flex; gap: 6px; align-items: baseline; font-weight: 550; }
+.src-main a .icon { width: .95em; height: .95em; vertical-align: 0; flex: none; }
+.src-domain { color: var(--muted); font-size: var(--fs-small); }
+.src-card {
+  display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: 999px;
+  background: var(--surface-2); color: var(--muted); font-size: var(--fs-tiny);
+}
+.answer-meta { display: flex; flex-direction: column; gap: 2px; color: var(--muted); font-size: var(--fs-small); border-top: 1px solid var(--line); padding-top: 12px; }
+.answer-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: -8px; }
+.answer-foot .linklike { padding-left: 0; }
+.chev { transition: transform .2s; }
+[aria-expanded="true"] > .chev { transform: rotate(180deg); }
+.engine { color: var(--muted); font-size: var(--fs-tiny); }
+.trace { list-style: none; margin: -4px 0 0; padding: 2px 0 2px 18px; border-left: 2px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.trace li { position: relative; }
+.trace li::before {
+  content: ""; position: absolute; left: -25px; top: .5em; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--surface); border: 2.5px solid var(--accent);
+}
+@media (prefers-color-scheme: dark) { .trace li::before { border-color: var(--link); } }
+.trace-head { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); }
+.trace-step { font-weight: 650; }
+.trace-ms { color: var(--muted); font-size: var(--fs-tiny); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.trace-detail { color: var(--muted); font-size: var(--fs-small); }
+.trace-total { color: var(--muted); font-size: var(--fs-tiny); padding-left: 18px; margin-top: -8px; }
+.notice { display: flex; gap: 10px; align-items: flex-start;
+  background: var(--clay-soft); border: 1px solid var(--clay); border-left-width: 5px;
+  border-radius: var(--radius-sm); padding: 12px 14px; font-size: var(--fs-small); }
+.notice .icon { color: var(--clay); margin-top: 3px; }
+.composer {
+  position: sticky; bottom: 0; z-index: 15; margin-top: 18px;
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--bg) 78%, rgba(0,0,0,0));
+}
+.composer-row {
+  display: flex; gap: 8px; align-items: flex-end; padding: 6px;
+  background: var(--surface); border: 1.5px solid var(--field-line); border-radius: 20px; box-shadow: var(--shadow);
+}
+.composer-row:focus-within { border-color: var(--ring); box-shadow: 0 0 0 2px var(--ring); }
+.composer textarea {
+  border: 0; background: transparent; resize: none; min-height: 48px; max-height: 168px;
+  padding: 11px 10px; line-height: 1.45; border-radius: 14px;
+}
+.composer textarea:focus-visible { outline: none; }
+.composer .btn { flex: none; border-radius: 14px; padding: 0 18px; }
+.composer-hint { font-size: var(--fs-tiny); color: var(--muted); margin: 6px 4px 0; }
+@media (max-width: 520px) { .composer-hint { display: none; } }
+.dots { display: inline-flex; gap: 4px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); opacity: .3; animation: blink 1.2s infinite; }
+@media (prefers-color-scheme: dark) { .dots i { background: var(--link); } }
+.dots i:nth-child(2) { animation-delay: .2s; }
+.dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+
+/* ---------- Compare ---------- */
+.picker { display: flex; flex-direction: column; gap: 14px; }
+.picked { display: flex; flex-wrap: wrap; gap: 8px; }
+.picked:empty { display: none; }
+.pchip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 4px 8px 4px 14px;
+  border-radius: 999px; background: var(--accent-soft); border: 1px solid transparent; color: var(--ink); font-size: var(--fs-small); cursor: pointer;
+}
+.pchip .icon { width: 1.05em; height: 1.05em; color: var(--muted); }
+.pchip:hover { border-color: var(--accent); }
+.checklist {
+  list-style: none; margin: 0; padding: 0; max-height: 23rem; overflow-y: auto;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface);
+}
+.checklist li + li { border-top: 1px solid var(--line); }
+.check { display: flex; gap: 14px; align-items: center; padding: 12px 16px; cursor: pointer; min-height: 60px; }
+.check:hover { background: var(--surface-2); }
+.check.is-checked { background: var(--accent-soft); }
+.check.is-disabled { cursor: not-allowed; opacity: .55; }
+.check input { width: 22px; height: 22px; flex: none; accent-color: var(--accent); margin: 0; cursor: inherit; }
+.check-text { display: flex; flex-direction: column; min-width: 0; }
+.check-name { font-weight: 600; }
+.check-sub { color: var(--muted); font-size: var(--fs-small); }
+.picker-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.result { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+.result:empty { display: none; }
+.table-wrap {
+  overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); -webkit-overflow-scrolling: touch;
+}
+table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 1rem; }
+th, td { padding: 13px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+thead th { font-size: var(--fs-small); font-weight: 650; background: var(--surface-2); }
+.compare-table th[scope="row"] {
+  position: sticky; left: 0; z-index: 1; background: var(--surface); font-weight: 600; color: var(--muted);
+  min-width: 128px; max-width: 170px; border-right: 1px solid var(--line);
+}
+.compare-table thead th:first-child { position: sticky; left: 0; z-index: 2; border-right: 1px solid var(--line); }
+.compare-table td { min-width: 170px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.result-note { color: var(--muted); font-size: var(--fs-small); }
+
+/* ---------- Rewards ---------- */
+.spend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px 18px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { padding: 0; margin-bottom: 12px; font-weight: 650; }
+.form-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+.rewards-table td:first-child { font-weight: 600; }
+.net-neg { color: var(--clay-ink); }
+@media (max-width: 600px) {
+  .stack-table .table-wrap, .stack-table.table-wrap { border: 0; background: transparent; }
+  .stack-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .stack-table table, .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: 100%; }
+  .stack-table tr {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 6px 0; margin-bottom: 12px;
+  }
+  .stack-table td { border: 0; padding: 6px 16px; display: flex; justify-content: space-between; gap: 16px; text-align: right; }
+  .stack-table td::before { content: attr(data-label); color: var(--muted); font-weight: 500; text-align: left; }
+  .stack-table td:first-child { text-align: left; font-size: 1.0625rem; padding-top: 8px; padding-bottom: 8px; }
+  .stack-table td:first-child::before { display: none; }
+}
+
+/* ---------- Learn ---------- */
+.lessons { display: flex; flex-direction: column; gap: 12px; }
+.lesson { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.lesson summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 18px 20px; font-weight: 650; font-size: 1.0625rem; border-radius: var(--radius);
+}
+.lesson summary::-webkit-details-marker { display: none; }
+.lesson summary .chev { color: var(--muted); }
+.lesson[open] summary .chev { transform: rotate(180deg); }
+.lesson-body { padding: 0 20px 20px; display: flex; flex-direction: column; gap: 12px; }
+.lesson-body .sources { border-top: 1px solid var(--line); padding-top: 12px; }
+.section-gap { margin-top: 36px; }
+.sim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px 18px; margin-top: 18px; }
+.sim-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 22px; }
+.tile { border-radius: var(--radius-sm); padding: 16px 18px; border: 1px solid var(--line); background: var(--bg); }
+.tile.warn { border-left: 5px solid var(--clay); }
+.tile.ok { border-left: 5px solid var(--accent); }
+@media (prefers-color-scheme: dark) { .tile.ok { border-left-color: var(--link); } }
+.tile h4 { font-size: var(--fs-small); font-weight: 650; color: var(--muted); }
+.tile .big { font-size: 1.5rem; font-weight: 750; margin: 4px 0 10px; letter-spacing: -.01em; }
+.tile dl { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.tile dl div { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); }
+.tile dt { color: var(--muted); }
+.tile dd { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+.sim-diff { margin-top: 16px; }
+.sim-note { margin-top: 12px; color: var(--muted); font-size: var(--fs-small); }
+.tag {
+  display: inline-block; font-size: var(--fs-tiny); font-weight: 650; padding: 2px 10px; border-radius: 999px;
+  background: var(--surface-2); color: var(--muted); vertical-align: middle;
+}
+.empty-note { color: var(--muted); padding: 8px 0; }
+
+@media (min-width: 720px) {
+  .card, .answer { padding: 24px 26px; }
+  .panel { padding-top: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Static icon set, cloned by script -->
+<template id="icons">
+  <svg data-icon="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="6" width="28" height="20" rx="5" fill="#0F6E6E"/><rect x="6.5" y="11" width="6" height="4.5" rx="1.2" fill="#fff" opacity=".85"/><path d="M17.5 21.5l8-6.5-2.4 9-2-2.6z" fill="#fff"/></svg>
+  <svg data-icon="external" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+  <svg data-icon="alert" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9.5 16.5h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></svg>
+  <svg data-icon="info" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.8v.1"/></svg>
+  <svg data-icon="chev" class="icon chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+  <svg data-icon="x" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M7 7l10 10M17 7L7 17"/></svg>
+</template>
+
+<!-- ===================== START ===================== -->
+<main id="start" class="wrap" aria-labelledby="start-title">
+  <div class="start-inner">
+    <span class="start-logo" data-slot="logo"></span>
+    <h1 id="start-title">CardPilot</h1>
+    <p class="tagline">Understand any credit card in your country. Every answer shows its source.</p>
+
+    <div class="country-grid" role="group" aria-label="Choose your country">
+      <button type="button" class="country" data-country="us">
+        <span class="cc" aria-hidden="true">US</span>
+        <span><span class="cn">United States</span><span class="cs">Cards priced in US dollars ($)</span></span>
+      </button>
+      <button type="button" class="country" data-country="in">
+        <span class="cc" aria-hidden="true">IN</span>
+        <span><span class="cn">India</span><span class="cs">Cards priced in Indian rupees (&#8377;)</span></span>
+      </button>
+    </div>
+
+    <div id="start-msg" aria-live="polite"></div>
+
+    <div class="start-notes">
+      <p class="muted small">Answers stay within the country you pick. To switch later, use Start over.</p>
+      <p class="muted small">Education only. Not financial advice.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== APP ===================== -->
+<div id="app" hidden>
+  <header class="wrap topbar">
+    <span class="brand"><span data-slot="logo" class="logo"></span><span>CardPilot</span></span>
+    <div class="top-right">
+      <span class="country-badge" id="country-badge" title="To change country, use Start over">
+        <span class="sr-only">Country </span><span class="long" id="badge-long"></span><span class="short" id="badge-short"></span>
+      </span>
+      <button type="button" class="linklike" id="start-over">Start over</button>
+    </div>
+  </header>
+
+  <div class="tabbar">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="CardPilot sections">
+        <button type="button" role="tab" class="tab" id="tab-ask" aria-controls="panel-ask" data-tab="ask">Ask</button>
+        <button type="button" role="tab" class="tab" id="tab-compare" aria-controls="panel-compare" data-tab="compare">Compare</button>
+        <button type="button" role="tab" class="tab" id="tab-rewards" aria-controls="panel-rewards" data-tab="rewards">Rewards</button>
+        <button type="button" role="tab" class="tab" id="tab-learn" aria-controls="panel-learn" data-tab="learn">Learn</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- Ask -->
+    <section id="panel-ask" class="panel" role="tabpanel" aria-labelledby="tab-ask" tabindex="-1">
+      <div id="ask-intro" class="ask-intro">
+        <h2>What would you like to know?</h2>
+        <p id="ask-scope">Ask about fees, rewards, perks or how a card works. Every answer lists its sources.</p>
+        <p id="chips-label" class="chips-label" hidden>Try one of these</p>
+        <div id="chips" class="chips" role="group" aria-labelledby="chips-label"></div>
+      </div>
+
+      <div id="log" class="log" role="log" aria-live="polite" aria-label="Questions and answers"></div>
+
+      <form id="ask-form" class="composer" novalidate>
+        <div class="composer-row">
+          <label for="q" class="sr-only">Your question</label>
+          <textarea id="q" rows="2" maxlength="600" autocomplete="off" placeholder="Ask about any card, like 'Does the Amex Gold charge foreign transaction fees?'"></textarea>
+          <button type="submit" class="btn primary" id="send">Send</button>
+        </div>
+        <p class="composer-hint">Press Enter to send. Shift and Enter adds a new line.</p>
+      </form>
+    </section>
+
+    <!-- Compare -->
+    <section id="panel-compare" class="panel" role="tabpanel" aria-labelledby="tab-compare" tabindex="-1" hidden>
+      <div class="panel-head">
+        <h2>Compare cards</h2>
+        <p>Pick 2 or 3 cards to see them side by side.</p>
+      </div>
+      <div id="compare-body"></div>
+      <div id="compare-result" class="result" aria-live="polite"></div>
+    </section>
+
+    <!-- Rewards -->
+    <section id="panel-rewards" class="panel" role="tabpanel" aria-labelledby="tab-rewards" tabindex="-1" hidden>
+      <div class="panel-head">
+        <h2>Rewards from your spending</h2>
+        <p>Enter what you usually spend each month. CardPilot estimates what each card could earn in a year.</p>
+      </div>
+      <div id="rewards-body"></div>
+      <div id="rewards-result" class="result" aria-live="polite"></div>
+    </section>
+
+    <!-- Learn -->
+    <section id="panel-learn" class="panel" role="tabpanel" aria-labelledby="tab-learn" tabindex="-1" hidden>
+      <div class="panel-head">
+        <h2>Learn the basics</h2>
+        <p>Short lessons on how credit cards work, each with its sources.</p>
+      </div>
+      <div id="lessons" class="lessons" aria-live="polite"></div>
+
+      <section class="card section-gap" aria-labelledby="sim-title">
+        <h3 id="sim-title">Minimum payment vs paying in full</h3>
+        <p class="muted small" style="margin-top:6px">See what happens to one balance when you pay only the minimum each month. <span class="tag">Simplified estimate</span></p>
+        <form id="sim-form" class="sim-grid" novalidate>
+          <div class="field">
+            <label for="sim-balance">Balance</label>
+            <div class="money-input"><span class="affix pre sym" aria-hidden="true"></span><input id="sim-balance" class="has-pre" type="number" inputmode="decimal" min="0" step="any"></div>
+          </div>
+          <div class="field">
+            <label for="sim-apr">APR</label>
+            <div class="money-input"><input id="sim-apr" class="has-post" type="number" inputmode="decimal" min="0" max="100" step="any"><span class="affix post" aria-hidden="true">%</span></div>
+          </div>
+          <div class="field">
+            <label for="sim-minpct">Minimum payment</label>
+            <div class="money-input"><input id="sim-minpct" class="has-post" type="number" inputmode="decimal" min="0" max="100" step="any" aria-describedby="sim-minpct-hint"><span class="affix post" aria-hidden="true">%</span></div>
+            <span class="hint" id="sim-minpct-hint">Percent of the balance each month</span>
+          </div>
+          <div class="field">
+            <label for="sim-floor">Minimum floor</label>
+            <div class="money-input"><span class="affix pre sym" aria-hidden="true"></span><input id="sim-floor" class="has-pre" type="number" inputmode="decimal" min="0" step="any" aria-describedby="sim-floor-hint"></div>
+            <span class="hint" id="sim-floor-hint">The smallest minimum your card asks for</span>
+          </div>
+        </form>
+        <div id="sim-out"></div>
+        <p class="sim-note">This is a simplified estimate. It assumes no new purchases, no fees and the same APR every month. Interest is charged monthly at the APR divided by 12. Your card's own terms decide the real numbers.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="app-foot">Education only. Not financial advice.</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Small helpers ---------- */
+  var STORE_KEY = 'cardpilot.session';
+  var TAB_KEY = 'cardpilot.tab';
+  var TABS = ['ask', 'compare', 'rewards', 'learn'];
+  var MAX_PICK = 3;
+
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  // Builds an element. Strings always become text nodes, never HTML.
+  function el(tag, props) {
+    var n = document.createElement(tag);
+    if (props) {
+      Object.keys(props).forEach(function (k) {
+        var v = props[k];
+        if (v === null || v === undefined || v === false) return;
+        if (k === 'class') n.className = v;
+        else if (k === 'text') n.textContent = String(v);
+        else if (k === 'hidden') n.hidden = true;
+        else if (k.indexOf('on') === 0 && typeof v === 'function') n.addEventListener(k.slice(2), v);
+        else n.setAttribute(k, v === true ? '' : String(v));
+      });
+    }
+    for (var i = 2; i < arguments.length; i++) appendKid(n, arguments[i]);
+    return n;
+  }
+  function appendKid(n, c) {
+    if (c === null || c === undefined || c === false) return;
+    if (Array.isArray(c)) { c.forEach(function (x) { appendKid(n, x); }); return; }
+    n.appendChild(c instanceof Node ? c : document.createTextNode(String(c)));
+  }
+  function icon(name) {
+    var src = document.getElementById('icons').content.querySelector('[data-icon="' + name + '"]');
+    return src.cloneNode(true);
+  }
+  function storeGet(key) { try { return window.sessionStorage.getItem(key); } catch (e) { return null; } }
+  function storeSet(key, val) { try { window.sessionStorage.setItem(key, val); } catch (e) { /* storage unavailable */ } }
+  function storeDel(key) { try { window.sessionStorage.removeItem(key); } catch (e) { /* storage unavailable */ } }
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+  function str(v) { return (v === null || v === undefined) ? '' : String(v); }
+  function safeUrl(u) {
+    try {
+      var url = new URL(String(u), window.location.href);
+      return (url.protocol === 'https:' || url.protocol === 'http:') ? url.href : null;
+    } catch (e) { return null; }
+  }
+  function domainOf(u) {
+    try { return new URL(String(u)).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+  }
+  function fmtDate(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(str(s));
+    if (!m) return str(s);
+    var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    try { return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }); }
+    catch (e) { return str(s); }
+  }
+  function engineLabel(engine) {
+    var names = { groq: 'Answered by gpt-oss on Groq', claude: 'Answered by Claude', offline: 'Answered from the sources, no AI model' };
+    return names[str(engine)] || ('Answered by ' + str(engine));
+  }
+  function localeFor() { return state.session && state.session.country === 'in' ? 'en-IN' : 'en-US'; }
+  function fmtMoney(n) {
+    var num = Number(n);
+    if (!isFinite(num)) return '';
+    var s = state.session || {};
+    try {
+      return new Intl.NumberFormat(localeFor(), { style: 'currency', currency: s.currency || 'USD', maximumFractionDigits: 0, minimumFractionDigits: 0 }).format(num);
+    } catch (e) {
+      var sign = num < 0 ? '-' : '';
+      return sign + (s.symbol || '') + Math.round(Math.abs(num)).toLocaleString(localeFor());
+    }
+  }
+  function plural(n, word) { return n + ' ' + word + (n === 1 ? '' : 's'); }
+
+  /* ---------- State ---------- */
+  var state = {
+    session: null,
+    tab: 'ask',
+    askBusy: false,
+    answerCount: 0,
+    suggestionsLoaded: false,
+    cards: null,
+    categories: null,
+    cardsPromise: null,
+    selected: [],
+    compareCount: 0,
+    lessonsLoaded: false,
+    simReady: false,
+    spend: {}
+  };
+
+  /* ---------- API ---------- */
+  function ApiError(status, detail) {
+    this.name = 'ApiError';
+    this.status = status;
+    this.detail = detail;
+    this.message = 'API error ' + status;
+  }
+  ApiError.prototype = Object.create(Error.prototype);
+
+  function api(path, opts) {
+    opts = opts || {};
+    var headers = { 'X-CardPilot-Client': 'web', 'Accept': 'application/json' };
+    var init = { method: opts.method || 'GET', headers: headers, credentials: 'same-origin' };
+    if (opts.body !== undefined) {
+      headers['Content-Type'] = 'application/json';
+      init.body = JSON.stringify(opts.body);
+    }
+    return fetch(path, init).then(function (res) {
+      return res.text().then(function (txt) {
+        var data = null;
+        try { data = txt ? JSON.parse(txt) : null; } catch (e) { data = null; }
+        if (!res.ok) {
+          var detail = data && typeof data.detail === 'string' ? data.detail : null;
+          throw new ApiError(res.status, detail);
+        }
+        if (!data || typeof data !== 'object') throw new ApiError(502, null);
+        return data;
+      });
+    }, function () {
+      throw new ApiError(0, null);
+    });
+  }
+
+  // Calls that belong to the current session. A 404 means the session is gone.
+  function sapi(path, opts) {
+    if (!state.session) return Promise.reject(ended());
+    var sid = state.session.session_id;
+    return api(path, opts).then(function (data) {
+      if (!state.session || state.session.session_id !== sid) throw ended();
+      return data;
+    }, function (err) {
+      if (!state.session || state.session.session_id !== sid) throw ended();
+      if (err && err.status === 404) {
+        endSession('Your session has ended. Pick your country to start again.');
+        throw ended();
+      }
+      throw err;
+    });
+  }
+  function ended() { var e = new ApiError(-1, null); e.sessionEnded = true; return e; }
+  function withSid(path) { return path + '?session_id=' + encodeURIComponent(state.session.session_id); }
+
+  function friendly(err) {
+    var status = err && typeof err.status === 'number' ? err.status : 0;
+    if (status === 0) return 'We could not reach CardPilot. Check your connection and try again.';
+    if (status === 429) return 'Too many questions at once. Try again in a minute.';
+    if (status >= 500) return 'Something went wrong on our side. Please try again in a moment.';
+    if (status >= 400 && err.detail) return err.detail;
+    return 'Something went wrong. Please try again.';
+  }
+
+  function alertBox(message, retry) {
+    return el('div', { class: 'alert', role: 'alert' },
+      icon('alert'),
+      el('div', { class: 'alert-body' },
+        el('p', { text: message }),
+        retry ? el('button', { type: 'button', class: 'btn secondary compact', onclick: retry }, 'Try again') : null
+      )
+    );
+  }
+  function statusLine(text) {
+    return el('p', { class: 'status-line', role: 'status' }, el('span', { class: 'spinner', 'aria-hidden': 'true' }), text);
+  }
+
+  /* ---------- Start and session ---------- */
+  var startEl = $('#start');
+  var appEl = $('#app');
+  var startMsg = $('#start-msg');
+
+  $all('[data-slot="logo"]').forEach(function (slot) {
+    var svg = icon('logo');
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('height', '100%');
+    slot.appendChild(svg);
+  });
+
+  $all('.country').forEach(function (btn) {
+    btn.addEventListener('click', function () { startSession(btn.getAttribute('data-country')); });
+  });
+
+  function setStartBusy(busy) {
+    $all('.country').forEach(function (b) { b.disabled = busy; });
+    startMsg.replaceChildren(busy ? statusLine('Setting things up...') : '');
+  }
+
+  function startSession(country) {
+    setStartBusy(true);
+    api('/api/session', { method: 'POST', body: { country: country } }).then(function (data) {
+      if (!data.session_id) throw new ApiError(502, null);
+      var cc = str(data.country || country).toLowerCase();
+      state.session = {
+        session_id: str(data.session_id),
+        country: cc,
+        country_name: str(data.country_name) || (cc === 'in' ? 'India' : 'United States'),
+        currency: str(data.currency) || (cc === 'in' ? 'INR' : 'USD'),
+        symbol: str(data.symbol) || (cc === 'in' ? '₹' : '$')
+      };
+      storeSet(STORE_KEY, JSON.stringify(state.session));
+      storeDel(TAB_KEY);
+      setStartBusy(false);
+      enterApp('ask', true);
+    }).catch(function (err) {
+      setStartBusy(false);
+      startMsg.replaceChildren(alertBox(friendly(err)));
+    });
+  }
+
+  function resetSessionUI() {
+    state.askBusy = false;
+    state.answerCount = 0;
+    state.suggestionsLoaded = false;
+    state.cards = null;
+    state.categories = null;
+    state.cardsPromise = null;
+    state.selected = [];
+    state.lessonsLoaded = false;
+    state.simReady = false;
+    state.spend = {};
+    $('#log').replaceChildren();
+    $('#chips').replaceChildren();
+    $('#chips-label').hidden = true;
+    $('#ask-intro').hidden = false;
+    $('#q').value = '';
+    autoGrow();
+    setSendBusy(false);
+    $('#compare-body').replaceChildren();
+    $('#compare-result').replaceChildren();
+    $('#rewards-body').replaceChildren();
+    $('#rewards-result').replaceChildren();
+    $('#lessons').replaceChildren();
+    $('#sim-out').replaceChildren();
+  }
+
+  function enterApp(tab, focusTab) {
+    resetSessionUI();
+    var s = state.session;
+    $('#badge-long').textContent = s.country_name + ' (' + s.symbol + ')';
+    $('#badge-short').textContent = s.country.toUpperCase() + ' ' + s.symbol;
+    $('#ask-scope').textContent = 'Ask about fees, rewards, perks or how a card works in ' + s.country_name + '. Every answer lists its sources.';
+    $all('.sym').forEach(function (n) { n.textContent = s.symbol; });
+    startEl.hidden = true;
+    appEl.hidden = false;
+    document.title = 'CardPilot, ' + s.country_name;
+    selectTab(TABS.indexOf(tab) >= 0 ? tab : 'ask', false);
+    window.scrollTo(0, 0);
+    if (focusTab) $('#q').focus();
+  }
+
+  function endSession(message) {
+    state.session = null;
+    storeDel(STORE_KEY);
+    storeDel(TAB_KEY);
+    resetSessionUI();
+    appEl.hidden = true;
+    startEl.hidden = false;
+    document.title = 'CardPilot';
+    startMsg.replaceChildren(message ? el('p', { class: 'alert', role: 'status' }, icon('info'), el('span', { text: message })) : '');
+    window.scrollTo(0, 0);
+    var first = $('.country');
+    if (first) first.focus();
+  }
+
+  $('#start-over').addEventListener('click', function () { endSession(null); });
+
+  /* ---------- Tabs ---------- */
+  var tabButtons = $all('[role="tab"]');
+  tabButtons.forEach(function (b) {
+    b.addEventListener('click', function () { selectTab(b.getAttribute('data-tab'), false); });
+    b.addEventListener('keydown', function (e) {
+      var i = TABS.indexOf(b.getAttribute('data-tab'));
+      var next = null;
+      if (e.key === 'ArrowRight') next = TABS[(i + 1) % TABS.length];
+      else if (e.key === 'ArrowLeft') next = TABS[(i + TABS.length - 1) % TABS.length];
+      else if (e.key === 'Home') next = TABS[0];
+      else if (e.key === 'End') next = TABS[TABS.length - 1];
+      if (next) { e.preventDefault(); selectTab(next, true); }
+    });
+  });
+
+  function selectTab(name, focus) {
+    var changed = state.tab !== name;
+    state.tab = name;
+    storeSet(TAB_KEY, name);
+    tabButtons.forEach(function (b) {
+      var on = b.getAttribute('data-tab') === name;
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    TABS.forEach(function (t) { $('#panel-' + t).hidden = t !== name; });
+    if (changed) {
+      var bar = $('.tabbar');
+      var top = bar.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY > top) window.scrollTo(0, top);
+    }
+    if (name === 'ask') loadSuggestions();
+    if (name === 'compare') showCompare();
+    if (name === 'rewards') showRewards();
+    if (name === 'learn') { loadLessons(); initSim(); }
+  }
+
+  /* ---------- Ask ---------- */
+  var qEl = $('#q');
+  var sendBtn = $('#send');
+  var logEl = $('#log');
+
+  function autoGrow() {
+    qEl.style.height = 'auto';
+    qEl.style.height = Math.min(qEl.scrollHeight + 2, 168) + 'px';
+  }
+  qEl.addEventListener('input', autoGrow);
+  qEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
+      e.preventDefault();
+      $('#ask-form').requestSubmit ? $('#ask-form').requestSubmit() : submitAsk();
+    }
+  });
+  $('#ask-form').addEventListener('submit', function (e) { e.preventDefault(); submitAsk(); });
+
+  function submitAsk() {
+    var q = qEl.value.trim();
+    if (!q || state.askBusy) { qEl.focus(); return; }
+    qEl.value = '';
+    autoGrow();
+    ask(q);
+  }
+
+  function setSendBusy(busy) {
+    sendBtn.disabled = busy;
+    sendBtn.setAttribute('aria-label', busy ? 'Sending' : 'Send question');
+    $('#ask-form').setAttribute('aria-busy', busy ? 'true' : 'false');
+    $all('.chip').forEach(function (c) { c.disabled = busy; });
+  }
+
+  function scrollIntoViewNice(node, block) {
+    node.scrollIntoView({ block: block || 'start', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  }
+
+  function ask(question) {
+    if (state.askBusy || !state.session) return;
+    state.askBusy = true;
+    setSendBusy(true);
+    $('#ask-intro').hidden = true;
+
+    var bubble = el('div', { class: 'bubble' }, el('span', { class: 'sr-only', text: 'You asked ' }), question);
+    var pending = el('div', { class: 'answer pending', role: 'status' },
+      el('span', { class: 'dots', 'aria-hidden': 'true' }, el('i'), el('i'), el('i')),
+      'Looking it up...');
+    logEl.appendChild(bubble);
+    logEl.appendChild(pending);
+    scrollIntoViewNice(bubble, 'start');
+
+    sapi('/api/ask', { method: 'POST', body: { session_id: state.session.session_id, question: question } })
+      .then(function (data) {
+        pending.replaceWith(renderAnswer(data));
+      })
+      .catch(function (err) {
+        if (err && err.sessionEnded) return;
+        var box = el('div', { class: 'answer refused' });
+        box.appendChild(alertBox(friendly(err), function () {
+          box.remove();
+          bubble.remove();
+          ask(question);
+        }));
+        pending.replaceWith(box);
+      })
+      .then(function () {
+        state.askBusy = false;
+        setSendBusy(false);
+        if (state.session && state.tab === 'ask' && window.matchMedia('(min-width: 721px)').matches) qEl.focus({ preventScroll: true });
+      });
+  }
+
+  function renderSourceList(sources, idPrefix, headingText) {
+    if (!sources.length) return null;
+    var list = el('ol', { class: 'src-list' });
+    sources.forEach(function (s) {
+      var url = safeUrl(s.url);
+      var title = str(s.title) || domainOf(s.url) || 'Source ' + s.n;
+      var titleNode = url
+        ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' },
+            el('span', { text: title }), icon('external'), el('span', { class: 'sr-only', text: ' (opens in a new tab)' }))
+        : el('span', { text: title });
+      var domain = url ? domainOf(url) : '';
+      list.appendChild(el('li', { id: idPrefix + s.n, tabindex: '-1' },
+        el('span', { class: 'src-n', 'aria-label': 'Source ' + s.n }, String(s.n)),
+        el('div', { class: 'src-main' },
+          titleNode,
+          (domain || s.card) ? el('span', { class: 'src-domain' },
+            domain,
+            s.card ? el('span', { class: 'src-card', text: str(s.card) }) : null) : null
+        )
+      ));
+    });
+    return el('div', { class: 'sources' }, el('h3', { class: 'sources-title', text: headingText || 'Sources' }), list);
+  }
+
+  function citeLink(n, idPrefix) {
+    return el('sup', null, el('a', {
+      class: 'cite', href: '#' + idPrefix + n, 'aria-label': 'Source ' + n,
+      onclick: function (e) {
+        var target = document.getElementById(idPrefix + n);
+        if (!target) return;
+        e.preventDefault();
+        scrollIntoViewNice(target, 'center');
+        target.classList.add('flash');
+        target.focus({ preventScroll: true });
+        setTimeout(function () { target.classList.remove('flash'); }, 1400);
+      }
+    }, String(n)));
+  }
+
+  function normSources(list) {
+    var out = [];
+    var seen = {};
+    (Array.isArray(list) ? list : []).forEach(function (s, i) {
+      if (!s || typeof s !== 'object') return;
+      var n = Number(s.n);
+      if (!isFinite(n)) n = i + 1;
+      if (seen[n]) return;
+      seen[n] = true;
+      out.push({ n: n, title: s.title, url: s.url, card: s.card || null });
+    });
+    return out;
+  }
+
+  function renderAnswer(data) {
+    var idx = ++state.answerCount;
+    var prefix = 'a' + idx + '-s';
+    var sources = normSources(data.sources);
+    var known = {};
+    sources.forEach(function (s) { known[s.n] = true; });
+    var refused = data.refused === true;
+
+    var art = el('article', { class: 'answer' + (refused ? ' refused' : ''), 'aria-label': 'Answer ' + idx });
+
+    if (data.notice) {
+      art.appendChild(el('div', { class: 'notice', role: 'note' }, icon('alert'), el('span', { text: str(data.notice) })));
+    }
+    if (refused) art.appendChild(el('span', { class: 'note-label' }, icon('info'), 'A quick note'));
+
+    var p = el('p', { class: 'answer-text' });
+    var sentences = Array.isArray(data.sentences) ? data.sentences : [];
+    sentences.forEach(function (s, i) {
+      if (!s) return;
+      if (i > 0) p.appendChild(document.createTextNode(' '));
+      p.appendChild(el('span', { text: str(s.text) }));
+      (Array.isArray(s.sources) ? s.sources : []).forEach(function (n) {
+        n = Number(n);
+        if (known[n]) p.appendChild(citeLink(n, prefix));
+      });
+    });
+    if (!p.textContent.trim()) {
+      p.textContent = 'I could not find an answer to that. Try naming a specific card or asking in a different way.';
+    }
+    art.appendChild(p);
+
+    var srcBlock = renderSourceList(sources, prefix);
+    if (srcBlock) art.appendChild(srcBlock);
+
+    var meta = el('div', { class: 'answer-meta' });
+    if (data.as_of) meta.appendChild(el('span', { text: 'As of ' + fmtDate(data.as_of) }));
+    if (data.disclaimer) meta.appendChild(el('span', { text: str(data.disclaimer) }));
+    if (meta.childNodes.length) art.appendChild(meta);
+
+    var trace = Array.isArray(data.trace) ? data.trace : [];
+    var foot = el('div', { class: 'answer-foot' });
+    var traceList = null;
+    if (trace.length) {
+      var tid = 'a' + idx + '-trace';
+      var total = 0;
+      traceList = el('ol', { class: 'trace', id: tid, hidden: true, 'aria-label': 'Steps taken' });
+      trace.forEach(function (t) {
+        if (!t) return;
+        var ms = Number(t.ms);
+        if (isFinite(ms)) total += ms;
+        traceList.appendChild(el('li', null,
+          el('div', { class: 'trace-head' },
+            el('span', { class: 'trace-step', text: str(t.step) }),
+            isFinite(ms) ? el('span', { class: 'trace-ms', text: Math.round(ms) + ' ms' }) : null),
+          t.detail ? el('p', { class: 'trace-detail', text: str(t.detail) }) : null
+        ));
+      });
+      var totalLine = el('p', { class: 'trace-total', hidden: true, text: 'Total ' + Math.round(total) + ' ms' });
+      var toggle = el('button', {
+        type: 'button', class: 'linklike', 'aria-expanded': 'false', 'aria-controls': tid,
+        onclick: function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+          traceList.hidden = open;
+          totalLine.hidden = open;
+        }
+      }, 'How I got this', icon('chev'));
+      foot.appendChild(toggle);
+      foot.appendChild(data.engine ? el('span', { class: 'engine', text: engineLabel(data.engine) }) : el('span'));
+      art.appendChild(foot);
+      art.appendChild(traceList);
+      art.appendChild(totalLine);
+    } else if (data.engine) {
+      foot.appendChild(el('span', { class: 'engine', text: engineLabel(data.engine) }));
+      art.appendChild(foot);
+    }
+    return art;
+  }
+
+  function loadSuggestions() {
+    if (state.suggestionsLoaded || !state.session || logEl.childNodes.length) return;
+    state.suggestionsLoaded = true;
+    sapi(withSid('/api/suggestions')).then(function (data) {
+      var list = Array.isArray(data.suggestions) ? data.suggestions.filter(function (s) { return typeof s === 'string' && s.trim(); }) : [];
+      var chips = $('#chips');
+      chips.replaceChildren();
+      list.slice(0, 6).forEach(function (s) {
+        chips.appendChild(el('button', { type: 'button', class: 'chip', onclick: function () { ask(s); } }, s));
+      });
+      $('#chips-label').hidden = list.length === 0;
+      setSendBusy(state.askBusy);
+    }).catch(function (err) {
+      if (err && err.sessionEnded) return;
+      state.suggestionsLoaded = false; // try again next time the tab opens
+    });
+  }
+
+  /* ---------- Cards (shared by Compare and Rewards) ---------- */
+  function loadCards() {
+    if (state.cards) return Promise.resolve();
+    if (state.cardsPromise) return state.cardsPromise;
+    state.cardsPromise = sapi(withSid('/api/cards')).then(function (data) {
+      state.cards = (Array.isArray(data.cards) ? data.cards : []).filter(function (c) { return c && c.id !== undefined; })
+        .map(function (c) { return { id: str(c.id), name: str(c.name), issuer: str(c.issuer), kind: str(c.kind), annual_fee: c.annual_fee }; });
+      state.categories = (Array.isArray(data.categories) ? data.categories : []).filter(function (c) { return c && c.key; })
+        .map(function (c) { return { key: str(c.key), label: str(c.label) || str(c.key) }; });
+    }).catch(function (err) {
+      state.cardsPromise = null;
+      throw err;
+    });
+    return state.cardsPromise;
+  }
+
+  function feeText(fee) {
+    var n = Number(fee);
+    if (fee === null || fee === undefined || !isFinite(n)) return '';
+    return n === 0 ? 'No annual fee' : fmtMoney(n) + ' a year';
+  }
+
+  /* ---------- Compare ---------- */
+  function showCompare() {
+    var body = $('#compare-body');
+    if (body.dataset.ready === '1' && state.cards) return;
+    body.replaceChildren(statusLine('Loading cards...'));
+    loadCards().then(function () {
+      buildPicker();
+    }).catch(function (err) {
+      if (err && err.sessionEnded) return;
+      body.replaceChildren(alertBox(friendly(err), showCompare));
+    });
+  }
+
+  function buildPicker() {
+    var body = $('#compare-body');
+    body.dataset.ready = '1';
+    if (!state.cards.length) {
+      body.replaceChildren(el('p', { class: 'empty-note', text: 'No cards are available for this country yet.' }));
+      return;
+    }
+    var search = el('input', { type: 'search', id: 'card-search', placeholder: 'Card or bank name', autocomplete: 'off', 'aria-controls': 'card-list' });
+    var list = el('ul', { class: 'checklist', id: 'card-list', 'aria-label': 'Cards' });
+    var none = el('p', { class: 'empty-note', id: 'card-none', hidden: true, text: 'No cards match your search.' });
+    var picked = el('div', { class: 'picked', id: 'picked', 'aria-label': 'Picked cards' });
+    var count = el('p', { class: 'muted small', id: 'pick-count', 'aria-live': 'polite' });
+    var go = el('button', { type: 'button', class: 'btn primary', id: 'compare-go', disabled: true, onclick: runCompare }, 'Compare');
+
+    state.cards.forEach(function (c) {
+      var sub = [c.issuer, c.kind, feeText(c.annual_fee)].filter(Boolean).join(' · ');
+      var cb = el('input', { type: 'checkbox', value: c.id });
+      var label = el('label', { class: 'check' }, cb,
+        el('span', { class: 'check-text' }, el('span', { class: 'check-name', text: c.name }), sub ? el('span', { class: 'check-sub', text: sub }) : null));
+      var li = el('li', { 'data-search': (c.name + ' ' + c.issuer + ' ' + c.kind).toLowerCase() }, label);
+      cb.addEventListener('change', function () {
+        var i = state.selected.indexOf(c.id);
+        if (cb.checked && i < 0) {
+          if (state.selected.length >= MAX_PICK) { cb.checked = false; return; }
+          state.selected.push(c.id);
+        } else if (!cb.checked && i >= 0) {
+          state.selected.splice(i, 1);
+        }
+        updatePicks();
+      });
+      list.appendChild(li);
+    });
+
+    search.addEventListener('input', function () {
+      var q = search.value.trim().toLowerCase();
+      var shown = 0;
+      $all('li', list).forEach(function (li) {
+        var hit = !q || li.getAttribute('data-search').indexOf(q) >= 0;
+        li.hidden = !hit;
+        if (hit) shown++;
+      });
+      none.hidden = shown > 0;
+      list.hidden = shown === 0;
+    });
+
+    body.replaceChildren(el('div', { class: 'card picker' },
+      el('div', { class: 'field' }, el('label', { for: 'card-search', text: 'Search cards' }), search),
+      picked,
+      list,
+      none,
+      el('div', { class: 'picker-foot' }, count, go)
+    ));
+    updatePicks();
+  }
+
+  function cardById(id) {
+    for (var i = 0; i < (state.cards || []).length; i++) if (state.cards[i].id === id) return state.cards[i];
+    return null;
+  }
+
+  function updatePicks() {
+    var n = state.selected.length;
+    var full = n >= MAX_PICK;
+    $all('#card-list .check').forEach(function (label) {
+      var cb = $('input', label);
+      var on = state.selected.indexOf(cb.value) >= 0;
+      cb.checked = on;
+      cb.disabled = full && !on;
+      label.classList.toggle('is-checked', on);
+      label.classList.toggle('is-disabled', full && !on);
+    });
+    var picked = $('#picked');
+    picked.replaceChildren();
+    state.selected.forEach(function (id) {
+      var c = cardById(id);
+      if (!c) return;
+      picked.appendChild(el('button', {
+        type: 'button', class: 'pchip', 'aria-label': 'Remove ' + c.name,
+        onclick: function () {
+          state.selected = state.selected.filter(function (x) { return x !== id; });
+          updatePicks();
+          var s = $('#card-search'); if (s) s.focus();
+        }
+      }, el('span', { text: c.name }), icon('x')));
+    });
+    var msg = n === 0 ? 'Pick 2 or 3 cards.'
+      : n === 1 ? '1 picked. Pick at least one more.'
+      : n === 2 ? '2 picked. You can add one more.'
+      : '3 picked. That is the most you can compare at once.';
+    $('#pick-count').textContent = msg;
+    $('#compare-go').disabled = n < 2;
+  }
+
+  function runCompare() {
+    if (state.selected.length < 2) return;
+    var go = $('#compare-go');
+    var out = $('#compare-result');
+    go.disabled = true;
+    go.textContent = 'Comparing...';
+    out.replaceChildren(statusLine('Putting the cards side by side...'));
+    sapi('/api/compare', { method: 'POST', body: { session_id: state.session.session_id, card_ids: state.selected.slice() } })
+      .then(function (data) {
+        out.replaceChildren(renderCompare(data));
+        scrollIntoViewNice(out, 'start');
+      })
+      .catch(function (err) {
+        if (err && err.sessionEnded) return;
+        out.replaceChildren(alertBox(friendly(err), runCompare));
+      })
+      .then(function () {
+        var g = $('#compare-go');
+        if (g) { g.textContent = 'Compare'; g.disabled = state.selected.length < 2; }
+      });
+  }
+
+  function renderCompare(data) {
+    var k = ++state.compareCount;
+    var prefix = 'c' + k + '-s';
+    var cols = Array.isArray(data.columns) ? data.columns : [];
+    var rows = Array.isArray(data.rows) ? data.rows : [];
+    var sources = normSources(data.sources);
+    var known = {};
+    sources.forEach(function (s) { known[s.n] = true; });
+    if (!cols.length || !rows.length) {
+      return el('p', { class: 'empty-note', text: 'No details came back for these cards. Try a different pick.' });
+    }
+    var headRow = el('tr', null, el('th', { scope: 'col', text: 'Feature' }));
+    cols.forEach(function (c) { headRow.appendChild(el('th', { scope: 'col', text: str(c) })); });
+    var tbody = el('tbody');
+    rows.forEach(function (r) {
+      if (!r) return;
+      var tr = el('tr', null, el('th', { scope: 'row', text: str(r.label) }));
+      var cells = Array.isArray(r.cells) ? r.cells : [];
+      for (var i = 0; i < cols.length; i++) {
+        var cell = cells[i] || {};
+        var td = el('td', null, el('span', { text: str(cell.value) || 'Not listed' }));
+        var n = Number(cell.source);
+        if (cell.source !== null && cell.source !== undefined && known[n]) td.appendChild(citeLink(n, prefix));
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
+    var table = el('table', { class: 'compare-table' },
+      el('caption', { class: 'sr-only', text: 'Side by side comparison of ' + cols.map(str).join(', ') }),
+      el('thead', null, headRow), tbody);
+    table.style.minWidth = (140 + cols.length * 180) + 'px';
+    var frag = document.createDocumentFragment();
+    frag.appendChild(el('h3', { text: 'Side by side' }));
+    frag.appendChild(el('div', { class: 'table-wrap', role: 'region', 'aria-label': 'Comparison table, scrolls sideways', tabindex: '0' }, table));
+    var src = renderSourceList(sources, prefix);
+    if (src) frag.appendChild(el('div', { class: 'card' }, src));
+    return frag;
+  }
+
+  /* ---------- Rewards ---------- */
+  function showRewards() {
+    var body = $('#rewards-body');
+    if (body.dataset.ready === '1' && state.categories) return;
+    body.replaceChildren(statusLine('Loading spending categories...'));
+    loadCards().then(buildRewardsForm).catch(function (err) {
+      if (err && err.sessionEnded) return;
+      body.replaceChildren(alertBox(friendly(err), showRewards));
+    });
+  }
+
+  function buildRewardsForm() {
+    var body = $('#rewards-body');
+    body.dataset.ready = '1';
+    var cats = state.categories || [];
+    if (!cats.length) {
+      body.replaceChildren(el('p', { class: 'empty-note', text: 'Spending categories are not available right now.' }));
+      return;
+    }
+    var grid = el('div', { class: 'spend-grid' });
+    cats.forEach(function (c) {
+      var id = 'spend-' + c.key.replace(/[^a-zA-Z0-9_-]/g, '_');
+      var input = el('input', { id: id, type: 'number', inputmode: 'decimal', min: '0', step: 'any', placeholder: '0', class: 'has-pre', 'data-key': c.key });
+      if (state.spend[c.key] !== undefined) input.value = state.spend[c.key];
+      input.addEventListener('input', function () { state.spend[c.key] = input.value; });
+      grid.appendChild(el('div', { class: 'field' },
+        el('label', { for: id, text: c.label }),
+        el('div', { class: 'money-input' }, el('span', { class: 'affix pre', 'aria-hidden': 'true', text: state.session.symbol }), input)
+      ));
+    });
+    var hint = el('p', { class: 'hint', id: 'rewards-hint', 'aria-live': 'polite' });
+    var btn = el('button', { type: 'submit', class: 'btn primary', id: 'rewards-go' }, 'Estimate rewards');
+    var form = el('form', { class: 'card', novalidate: true },
+      el('fieldset', null,
+        el('legend', { text: 'Monthly spending in ' + (state.session.currency || '') + ' (' + state.session.symbol + ')' }),
+        grid),
+      el('div', { class: 'form-foot' }, btn, hint));
+    form.addEventListener('submit', function (e) { e.preventDefault(); runEstimate(form); });
+    body.replaceChildren(form);
+  }
+
+  function runEstimate(form) {
+    var spend = {};
+    var anyPositive = false;
+    var bad = false;
+    $all('input[data-key]', form).forEach(function (inp) {
+      var raw = inp.value.trim();
+      if (!raw) { spend[inp.getAttribute('data-key')] = 0; inp.removeAttribute('aria-invalid'); return; }
+      var v = Number(raw);
+      if (!isFinite(v) || v < 0) { bad = true; inp.setAttribute('aria-invalid', 'true'); return; }
+      inp.removeAttribute('aria-invalid');
+      spend[inp.getAttribute('data-key')] = v;
+      if (v > 0) anyPositive = true;
+    });
+    var hint = $('#rewards-hint');
+    if (bad) { hint.textContent = 'Please use amounts of zero or more.'; return; }
+    if (!anyPositive) { hint.textContent = 'Enter at least one monthly amount to see an estimate.'; return; }
+    hint.textContent = '';
+
+    var btn = $('#rewards-go');
+    var out = $('#rewards-result');
+    btn.disabled = true;
+    btn.textContent = 'Estimating...';
+    out.replaceChildren(statusLine('Working out the numbers...'));
+    sapi('/api/estimate', { method: 'POST', body: { session_id: state.session.session_id, spend: spend } })
+      .then(function (data) {
+        out.replaceChildren(renderEstimate(data));
+        scrollIntoViewNice(out, 'start');
+      })
+      .catch(function (err) {
+        if (err && err.sessionEnded) return;
+        out.replaceChildren(alertBox(friendly(err), function () { runEstimate(form); }));
+      })
+      .then(function () {
+        var b = $('#rewards-go');
+        if (b) { b.disabled = false; b.textContent = 'Estimate rewards'; }
+      });
+  }
+
+  function renderEstimate(data) {
+    var rows = Array.isArray(data.rows) ? data.rows.filter(Boolean) : [];
+    var frag = document.createDocumentFragment();
+    frag.appendChild(el('h3', { text: 'Estimated yearly rewards from your spending' }));
+    if (!rows.length) {
+      frag.appendChild(el('p', { class: 'empty-note', text: 'No estimates came back. Try different amounts.' }));
+      if (data.note) frag.appendChild(el('p', { class: 'result-note', text: str(data.note) }));
+      return frag;
+    }
+    var labels = ['Card', 'Yearly rewards', 'Annual fee', 'Net value'];
+    var head = el('tr');
+    labels.forEach(function (l, i) { head.appendChild(el('th', { scope: 'col', class: i ? 'num' : null, text: l })); });
+    var tbody = el('tbody');
+    rows.forEach(function (r) {
+      var net = Number(r.net);
+      tbody.appendChild(el('tr', null,
+        el('td', { 'data-label': labels[0], text: str(r.name) || str(r.card_id) }),
+        el('td', { class: 'num', 'data-label': labels[1], text: fmtMoney(r.yearly_rewards) }),
+        el('td', { class: 'num', 'data-label': labels[2], text: Number(r.annual_fee) === 0 ? 'None' : fmtMoney(r.annual_fee) }),
+        el('td', { class: 'num' + (net < 0 ? ' net-neg' : ''), 'data-label': labels[3], text: fmtMoney(r.net) })
+      ));
+    });
+    var table = el('table', { class: 'rewards-table' },
+      el('caption', { class: 'sr-only', text: 'Estimated yearly rewards from your spending' }),
+      el('thead', null, head), tbody);
+    frag.appendChild(el('div', { class: 'stack-table' }, el('div', { class: 'table-wrap' }, table)));
+    frag.appendChild(el('p', { class: 'result-note', text: 'Net value is yearly rewards minus the annual fee.' + (data.note ? ' ' + str(data.note) : '') }));
+    return frag;
+  }
+
+  /* ---------- Learn ---------- */
+  function loadLessons() {
+    if (state.lessonsLoaded || !state.session) return;
+    var box = $('#lessons');
+    state.lessonsLoaded = true;
+    box.replaceChildren(statusLine('Loading lessons...'));
+    sapi(withSid('/api/lessons')).then(function (data) {
+      var lessons = Array.isArray(data.lessons) ? data.lessons.filter(Boolean) : [];
+      box.replaceChildren();
+      if (!lessons.length) {
+        box.appendChild(el('p', { class: 'empty-note', text: 'No lessons are ready for this country yet. The simulator below still works.' }));
+        return;
+      }
+      lessons.forEach(function (l, i) {
+        var body = el('div', { class: 'lesson-body' });
+        str(l.body).split(/\n\s*\n/).forEach(function (para) {
+          if (para.trim()) body.appendChild(el('p', { text: para.trim() }));
+        });
+        var srcs = (Array.isArray(l.sources) ? l.sources : []).filter(Boolean).map(function (s, j) {
+          return { n: j + 1, title: s.title, url: s.url, card: null };
+        });
+        var list = renderSourceList(srcs, 'l' + i + '-s');
+        if (list) body.appendChild(list);
+        box.appendChild(el('details', { class: 'lesson' },
+          el('summary', null, el('span', { text: str(l.title) }), icon('chev')),
+          body));
+      });
+    }).catch(function (err) {
+      if (err && err.sessionEnded) return;
+      state.lessonsLoaded = false;
+      box.replaceChildren(alertBox(friendly(err), loadLessons));
+    });
+  }
+
+  /* ---------- Minimum payment simulator ---------- */
+  var simTimer = null;
+  function initSim() {
+    if (state.simReady || !state.session) return;
+    state.simReady = true;
+    var d = state.session.country === 'in'
+      ? { balance: 50000, apr: 42, minpct: 5, floor: 200 }
+      : { balance: 3000, apr: 24, minpct: 2, floor: 35 };
+    $('#sim-balance').value = d.balance;
+    $('#sim-apr').value = d.apr;
+    $('#sim-minpct').value = d.minpct;
+    $('#sim-floor').value = d.floor;
+    runSim();
+  }
+  $('#sim-form').addEventListener('input', function () {
+    clearTimeout(simTimer);
+    simTimer = setTimeout(runSim, 250);
+  });
+  $('#sim-form').addEventListener('submit', function (e) { e.preventDefault(); runSim(); });
+
+  function simulate(balance, apr, minPct, floor) {
+    var rate = apr / 100 / 12;
+    var b = balance, months = 0, interest = 0, paid = 0, first = null;
+    var LIMIT = 600;
+    while (b > 0.005 && months < LIMIT) {
+      var i = b * rate;
+      b += i;
+      interest += i;
+      var pay = Math.max(b * minPct / 100, floor);
+      if (pay > b) pay = b;
+      if (first === null) first = pay;
+      b -= pay;
+      paid += pay;
+      months++;
+    }
+    return { months: months, interest: interest, paid: paid, first: first, done: b <= 0.005, left: b };
+  }
+
+  function duration(m) {
+    var y = Math.floor(m / 12), r = m % 12;
+    if (!y) return plural(r, 'month');
+    return plural(y, 'year') + (r ? ' ' + plural(r, 'month') : '');
+  }
+
+  function runSim() {
+    var out = $('#sim-out');
+    var balance = Number($('#sim-balance').value);
+    var apr = Number($('#sim-apr').value);
+    var minPct = Number($('#sim-minpct').value || 0);
+    var floor = Number($('#sim-floor').value || 0);
+    var problem = null;
+    if (!$('#sim-balance').value || !isFinite(balance) || balance <= 0) problem = 'Enter a balance above zero.';
+    else if ($('#sim-apr').value === '' || !isFinite(apr) || apr < 0 || apr > 100) problem = 'Enter an APR between 0 and 100 percent.';
+    else if (!isFinite(minPct) || minPct < 0 || minPct > 100) problem = 'Enter a minimum payment between 0 and 100 percent.';
+    else if (!isFinite(floor) || floor < 0) problem = 'Enter a floor amount of zero or more.';
+    else if (minPct === 0 && floor === 0) problem = 'Enter a minimum payment percent or a floor amount above zero.';
+    if (problem) {
+      out.replaceChildren(el('p', { class: 'hint', role: 'status', style: 'margin-top:18px', text: problem }));
+      return;
+    }
+    var r = simulate(balance, apr, minPct, floor);
+    var minTile = el('div', { class: 'tile warn' },
+      el('h4', { text: 'Paying only the minimum' }),
+      el('p', { class: 'big', text: r.done ? duration(r.months) : 'More than 50 years' }),
+      el('dl', null,
+        el('div', null, el('dt', { text: 'Total interest' }), el('dd', { text: fmtMoney(r.interest) + (r.done ? '' : '+') })),
+        el('div', null, el('dt', { text: 'Total paid' }), el('dd', { text: fmtMoney(r.paid) + (r.done ? '' : '+') })),
+        el('div', null, el('dt', { text: 'First minimum payment' }), el('dd', { text: fmtMoney(r.first) }))
+      ));
+    var fullTile = el('div', { class: 'tile ok' },
+      el('h4', { text: 'Paying in full within the grace period' }),
+      el('p', { class: 'big', text: 'One payment' }),
+      el('dl', null,
+        el('div', null, el('dt', { text: 'Total interest' }), el('dd', { text: fmtMoney(0) })),
+        el('div', null, el('dt', { text: 'Total paid' }), el('dd', { text: fmtMoney(balance) }))
+      ));
+    var diff = r.done
+      ? 'In this example, paying only the minimum takes ' + duration(r.months) + ' and adds ' + fmtMoney(r.interest) + ' in interest. Paying in full within the grace period adds no interest.'
+      : 'In this example, the minimum barely covers the interest, so the balance is still not paid off after 50 years. Paying in full within the grace period adds no interest.';
+    out.replaceChildren(
+      el('div', { class: 'sim-results' }, minTile, fullTile),
+      el('p', { class: 'sim-diff', 'aria-live': 'polite', text: diff })
+    );
+  }
+
+  /* ---------- Boot ---------- */
+  (function boot() {
+    var saved = null;
+    try { saved = JSON.parse(storeGet(STORE_KEY) || 'null'); } catch (e) { saved = null; }
+    if (saved && saved.session_id && (saved.country === 'us' || saved.country === 'in')) {
+      state.session = {
+        session_id: str(saved.session_id), country: saved.country,
+        country_name: str(saved.country_name) || (saved.country === 'in' ? 'India' : 'United States'),
+        currency: str(saved.currency) || (saved.country === 'in' ? 'INR' : 'USD'),
+        symbol: str(saved.symbol) || (saved.country === 'in' ? '₹' : '$')
+      };
+      enterApp(storeGet(TAB_KEY) || 'ask', false);
+    } else {
+      startEl.hidden = false;
+      appEl.hidden = true;
+    }
+  })();
+})();
+</script>
+</body>
+</html>

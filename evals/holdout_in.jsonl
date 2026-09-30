@@ -1,0 +1,10 @@
+{"source": "holdout", "question": "Renewal fee on the Axis Ace?", "card_id": "axis-ace", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "holdout", "question": "Is the SBI Cashback costly to use abroad?", "card_id": "sbi-cashback", "must": ["forex", "markup"], "field": "other"}
+{"source": "holdout", "question": "What does the Regalia Gold charge each year?", "card_id": "hdfc-regalia-gold", "must": ["annual fee", "renewal fee"], "field": "fee"}
+{"source": "holdout", "question": "Tata Neu Infinity benefits on groceries?", "card_id": "hdfc-tata-neu-infinity", "must": ["groceries", "grocery"], "field": "other"}
+{"source": "holdout", "question": "Cashback on Swiggy or Zomato with the HDFC Millennia?", "card_id": "hdfc-millennia", "must": ["swiggy", "zomato", "dining"], "field": "other"}
+{"source": "holdout", "question": "Can my bank send me a card I didn't request?", "card_id": null, "must": ["unsolicited"], "field": "general"}
+{"source": "holdout", "question": "What happens if I don't pay the full amount on my card?", "card_id": null, "must": ["interest-free period", "interest can be charged", "minimum amount due"], "field": "general"}
+{"source": "holdout", "question": "Fraud on my card, what protection do I get?", "card_id": null, "must": ["zero liability", "shadow reversal"], "field": "general"}
+{"source": "holdout", "question": "How is the minimum due worked out?", "card_id": null, "must": ["minimum amount due"], "field": "general"}
+{"source": "holdout", "question": "My bank wants to cancel my card. How long do they take?", "card_id": null, "must": ["close a credit card"], "field": "general"}

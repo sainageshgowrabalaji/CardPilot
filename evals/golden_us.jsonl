@@ -1,0 +1,59 @@
+{"source": "generated", "question": "What does the Freedom Unlimited cost per year?", "card_id": "chase-freedom-unlimited", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Freedom Unlimited abroad?", "card_id": "chase-freedom-unlimited", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Freedom Unlimited?", "card_id": "chase-freedom-unlimited", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Freedom Unlimited?", "card_id": "chase-freedom-unlimited", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Sapphire Preferred cost per year?", "card_id": "chase-sapphire-preferred", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Sapphire Preferred abroad?", "card_id": "chase-sapphire-preferred", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Sapphire Preferred?", "card_id": "chase-sapphire-preferred", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Sapphire Preferred?", "card_id": "chase-sapphire-preferred", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Double Cash cost per year?", "card_id": "citi-double-cash", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Double Cash abroad?", "card_id": "citi-double-cash", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Double Cash?", "card_id": "citi-double-cash", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Double Cash?", "card_id": "citi-double-cash", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Savor cost per year?", "card_id": "capital-one-savor", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Savor abroad?", "card_id": "capital-one-savor", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Savor?", "card_id": "capital-one-savor", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Savor?", "card_id": "capital-one-savor", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Venture cost per year?", "card_id": "capital-one-venture", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Venture abroad?", "card_id": "capital-one-venture", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Venture?", "card_id": "capital-one-venture", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Venture?", "card_id": "capital-one-venture", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Quicksilver cost per year?", "card_id": "capital-one-quicksilver", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Quicksilver abroad?", "card_id": "capital-one-quicksilver", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Quicksilver?", "card_id": "capital-one-quicksilver", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Quicksilver?", "card_id": "capital-one-quicksilver", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Amex Gold cost per year?", "card_id": "amex-gold", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Amex Gold abroad?", "card_id": "amex-gold", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Amex Gold?", "card_id": "amex-gold", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Amex Gold?", "card_id": "amex-gold", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Blue Cash Everyday cost per year?", "card_id": "amex-blue-cash-everyday", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Blue Cash Everyday abroad?", "card_id": "amex-blue-cash-everyday", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Blue Cash Everyday?", "card_id": "amex-blue-cash-everyday", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Blue Cash Everyday?", "card_id": "amex-blue-cash-everyday", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Active Cash cost per year?", "card_id": "wells-fargo-active-cash", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Active Cash abroad?", "card_id": "wells-fargo-active-cash", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Active Cash?", "card_id": "wells-fargo-active-cash", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Active Cash?", "card_id": "wells-fargo-active-cash", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Discover It cost per year?", "card_id": "discover-it-cash-back", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Discover It abroad?", "card_id": "discover-it-cash-back", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Discover It?", "card_id": "discover-it-cash-back", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Discover It?", "card_id": "discover-it-cash-back", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Customized Cash cost per year?", "card_id": "bofa-customized-cash-rewards", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "Is there an extra charge for using the Customized Cash abroad?", "card_id": "bofa-customized-cash-rewards", "must": ["foreign transaction fee", "outside the us"], "field": "foreign"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Customized Cash?", "card_id": "bofa-customized-cash-rewards", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Customized Cash?", "card_id": "bofa-customized-cash-rewards", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "generated", "question": "What does the Discover It Secured cost per year?", "card_id": "discover-it-secured", "must": ["annual fee"], "field": "fee"}
+{"source": "generated", "question": "How much do I get back at restaurants with the Discover It Secured?", "card_id": "discover-it-secured", "must": ["dining"], "field": "dining"}
+{"source": "generated", "question": "What do I earn at the supermarket with the Discover It Secured?", "card_id": "discover-it-secured", "must": ["groceries", "grocery"], "field": "groceries"}
+{"source": "handwritten", "question": "How long do I have to pay my bill before interest kicks in?", "card_id": null, "must": ["grace period"], "field": "general"}
+{"source": "handwritten", "question": "What does APR actually mean?", "card_id": null, "must": ["apr stands"], "field": "general"}
+{"source": "handwritten", "question": "What happens if I only pay the minimum each month?", "card_id": null, "must": ["more than the minimum"], "field": "general"}
+{"source": "handwritten", "question": "How big can a late fee legally be?", "card_id": null, "must": ["penalty fee"], "field": "general"}
+{"source": "handwritten", "question": "How can I build credit when I have none?", "card_id": null, "must": ["secured card", "credit score", "credit history"], "field": "general"}
+{"source": "handwritten", "question": "My wallet was stolen. Do I owe for charges the thief made?", "card_id": null, "must": ["lost or stolen"], "field": "general"}
+{"source": "handwritten", "question": "How do I dispute a wrong charge on my card?", "card_id": null, "must": ["dispute"], "field": "general"}
+{"source": "handwritten", "question": "Does a 0% balance transfer cover my new purchases too?", "card_id": null, "must": ["balance transfer"], "field": "general"}
+{"source": "handwritten", "question": "Can I take cash out of an ATM with a credit card?", "card_id": null, "must": ["cash advance"], "field": "general"}
+{"source": "handwritten", "question": "Can I add my partner to my card?", "card_id": null, "must": ["authorized user"], "field": "general"}
+{"source": "handwritten", "question": "How many days before the due date must the bill arrive?", "card_id": null, "must": ["21 days"], "field": "general"}
+{"source": "handwritten", "question": "How long must an intro rate last?", "card_id": null, "must": ["introductory rate"], "field": "general"}
