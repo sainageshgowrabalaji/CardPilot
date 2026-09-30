@@ -1,0 +1,19 @@
+CardPilot
+Copyright (c) 2026 Sai Nagesh Gowra Balaji
+
+Third-party data included in this repository:
+
+- src/cardpilot/models/words-64.json is derived from GloVe: Global Vectors for Word Representation
+  (Jeffrey Pennington, Richard Socher and Christopher D. Manning, Stanford NLP, 2014), reduced to a
+  smaller vocabulary and dimension. GloVe is made available under the Open Data Commons Public
+  Domain Dedication and License (PDDL) v1.0. https://nlp.stanford.edu/projects/glove/
+
+- data/cards/us.json quotes and summarises public pages from card issuers, the Consumer Financial
+  Protection Bureau (consumerfinance.gov), the Federal Trade Commission (consumer.ftc.gov) and the
+  Electronic Code of Federal Regulations. Every passage keeps the URL it came from.
+
+- data/cards/in.json quotes and summarises public pages from card issuers and the Reserve Bank of
+  India (rbi.org.in). Every passage keeps the URL it came from.
+
+Card names and issuer names are trademarks of their owners and are used only to identify the
+products described. CardPilot is an educational project and is not affiliated with any issuer.

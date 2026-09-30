@@ -1,0 +1,15 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# local state
+.venv/
+data/index/
+*.sqlite
+*.sqlite-*
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+dist/
+.DS_Store

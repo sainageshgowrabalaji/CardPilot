@@ -1,0 +1,1059 @@
+{
+  "country": "in",
+  "currency": "INR",
+  "as_of": "2026-09-29",
+  "cards": [
+    {
+      "id": "hdfc-millennia",
+      "name": "HDFC Bank Millennia Credit Card",
+      "issuer": "HDFC Bank",
+      "network": "Visa",
+      "kind": "cash back",
+      "annual_fee": 1000,
+      "joining_fee": 1000,
+      "fee_waiver": "Renewal fee waived for the next year on spending ₹1,00,000 in 12 months. GST is extra on all fees.",
+      "foreign_transaction_fee_pct": null,
+      "interest_rate": "3.75% per month (45% a year) per Paisabazaar, see issuer terms",
+      "credit_level": "Salaried age 21 to 40 with net monthly income above ₹35,000, or self-employed with ITR above ₹6 lakh a year (per Paisabazaar)",
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "fuel": 0,
+        "travel": 1,
+        "online_shopping": 5,
+        "bills_utilities": 1,
+        "other": 1
+      },
+      "earn_assumption": "CashPoints valued at ₹1 each when redeemed against the statement. Other redemption options are worth about ₹0.30 per point.",
+      "earn_caps": "5% applies only at Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato. Other online stores, dining and travel earn 1%. The 5% and 1% rates are each capped at 1,000 CashPoints per statement cycle. Statement redemption is capped at 3,000 CashPoints per calendar month.",
+      "key_benefits": [
+        "Choice of one domestic lounge visit or a ₹1,000 voucher on ₹1 lakh quarterly spend",
+        "1% fuel surcharge waiver up to ₹250 per statement cycle"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://v.hdfc.bank.in/htdocs/amp/credit_card/millenia_fees_and_charges.html",
+          "title": "Millennia Credit Card Fees and Charges (HDFC Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+          "title": "Millennia Credit Card (HDFC Bank)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.paisabazaar.com/hdfc-bank/millennia-credit-card",
+          "title": "HDFC Millennia Credit Card (Paisabazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "HDFC Bank lists Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato as the card's accelerated cashback merchants.",
+          "source": "s2"
+        },
+        {
+          "text": "These ten merchants earn 5% cashback. Other spends earn 1%. Each rate is capped at 1,000 CashPoints per statement cycle.",
+          "source": "s3"
+        },
+        {
+          "text": "The joining fee and the renewal fee are each ₹1,000 plus taxes. The renewal fee is waived for the next year if you spend ₹1,00,000 in 12 months.",
+          "source": "s1"
+        },
+        {
+          "text": "GST applies on all fees, charges and interest.",
+          "source": "s1"
+        },
+        {
+          "text": "One CashPoint is worth ₹1 when redeemed against the statement. At least 500 CashPoints are needed. Statement redemption is capped at 3,000 CashPoints per calendar month.",
+          "source": "s3"
+        },
+        {
+          "text": "Fuel, rent, government transactions, cash advances, card fees and Smart EMI or Dial-an-EMI transactions earn no cashback.",
+          "source": "s3"
+        },
+        {
+          "text": "The fuel surcharge waiver is 1% on transactions of ₹400 to ₹5,000. It is capped at ₹250 per statement cycle.",
+          "source": "s3"
+        },
+        {
+          "text": "Spending ₹1 lakh in a calendar quarter unlocks a choice of one domestic lounge visit or a ₹1,000 brand voucher.",
+          "source": "s3"
+        },
+        {
+          "text": "Salaried applicants must be 21 to 40 years old with net monthly income above ₹35,000. Self-employed applicants need ITR above ₹6 lakh a year.",
+          "source": "s3"
+        },
+        {
+          "text": "Finance charges are listed at 3.75% per month, or 45% a year.",
+          "source": "s3"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "Fees, the renewal waiver and the merchant list are confirmed on HDFC Bank pages. Cashback rates, caps, exclusions, redemption rules, lounge, eligibility and interest come from Paisabazaar because the issuer product page did not render its details. Older HDFC pages show a different, outdated structure and were not used. Network shown as Visa per Paisabazaar. Other network variants were not confirmed. Forex markup and a current welcome offer could not be confirmed."
+    },
+    {
+      "id": "hdfc-regalia-gold",
+      "name": "HDFC Bank Regalia Gold Credit Card",
+      "issuer": "HDFC Bank",
+      "network": null,
+      "kind": "points",
+      "annual_fee": 2500,
+      "joining_fee": 2500,
+      "fee_waiver": "Renewal fee waived for the next year on spending ₹4 lakh in an anniversary year. GST is extra.",
+      "foreign_transaction_fee_pct": 2,
+      "interest_rate": "3.75% per month (45% a year) per Paisabazaar, see issuer terms",
+      "credit_level": "Salaried age 21 to 60 with income above ₹18 lakh a year, or self-employed age 21 to 65 with ITR above ₹18 lakh a year",
+      "earn": {
+        "dining": 0.5,
+        "groceries": 0.5,
+        "fuel": null,
+        "travel": 0.5,
+        "online_shopping": 2.5,
+        "bills_utilities": null,
+        "other": 0.5
+      },
+      "earn_assumption": "5 Reward Points per ₹200, valued at ₹0.20 each as statement cashback, the lowest listed option. Flights and hotels give ₹0.50 per point and the catalogue gives ₹0.65, which would raise the base rate to 1.25% or 1.6%.",
+      "earn_caps": "online_shopping reflects 5X points at Myntra, Nykaa, Marks & Spencer and Reliance Digital only. Other online spends earn the base 0.5%. Paisabazaar says 5X points are capped at 5,000 per month. SmartBuy bookings can earn up to 10X, which is not reflected in travel.",
+      "key_benefits": [
+        "12 domestic lounge visits a year, 3 per quarter after ₹60,000 spend in the previous quarter",
+        "6 international lounge visits a year via Priority Pass",
+        "Quarterly and annual milestone vouchers",
+        "Boarding Edge travel perks, 2 per quarter on uploading a boarding pass"
+      ],
+      "welcome_offer": "As of September 2026, HDFC Bank lists complimentary Swiggy One and MMT Black Gold memberships on spending ₹1 lakh within 90 days (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://v.hdfc.bank.in/htdocs/amp/personal/pay/cards/credit-cards/regalia-gold-credit-card.html",
+          "title": "Regalia Gold Credit Card (HDFC Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://v.hdfc.bank.in/regalia-gold/features.html",
+          "title": "Regalia Gold Features (HDFC Bank)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/common/Credit-Cards/Regalia-Gold-Product-feature-change.pdf",
+          "title": "Regalia Gold Product feature change (HDFC Bank)"
+        },
+        {
+          "id": "s4",
+          "url": "https://v.hdfc.bank.in/regalia-gold/index.html",
+          "title": "Regalia Gold Credit Card (HDFC Bank)"
+        },
+        {
+          "id": "s5",
+          "url": "https://www.paisabazaar.com/hdfc-bank/hdfc-regalia-gold-credit-card",
+          "title": "HDFC Regalia Gold Credit Card (Paisabazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "From 15 May 2026, the card earns 5 Reward Points per ₹200 spent on eligible categories.",
+          "source": "s3"
+        },
+        {
+          "text": "Marks & Spencer, Myntra, Nykaa and Reliance Digital earn 5X Reward Points.",
+          "source": "s1"
+        },
+        {
+          "text": "The joining and renewal fee is ₹2,500 plus taxes.",
+          "source": "s4"
+        },
+        {
+          "text": "The renewal fee is waived for the next year when you spend ₹4 lakh in an anniversary year.",
+          "source": "s1"
+        },
+        {
+          "text": "Reward Points are worth ₹0.50 each on flights and hotels, ₹0.65 on the catalogue, up to ₹0.35 on products and vouchers, and ₹0.20 as statement cashback.",
+          "source": "s1"
+        },
+        {
+          "text": "The foreign currency markup is 2%.",
+          "source": "s1"
+        },
+        {
+          "text": "From 1 July 2026, three domestic lounge visits are available per calendar quarter after spending ₹60,000 in the previous quarter. Six international visits a year through Priority Pass continue.",
+          "source": "s3"
+        },
+        {
+          "text": "Quarterly spends of ₹1.5 lakh earn ₹1,500 in vouchers. Annual spends of ₹5 lakh and ₹7.5 lakh each earn ₹5,000 in flight vouchers.",
+          "source": "s2"
+        },
+        {
+          "text": "Salaried applicants must be 21 to 60 with income above ₹18 lakh a year. Self-employed applicants must be 21 to 65 with ITR above ₹18 lakh.",
+          "source": "s4"
+        },
+        {
+          "text": "A 1.75% fee applies to international transactions charged in Indian rupees.",
+          "source": "s3"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Fees, earn rate, redemption values, lounge rules, forex and eligibility are from HDFC Bank pages. An older HDFC page still shows 4 points per ₹150. The May 2026 feature change document sets 5 points per ₹200. Interest and the 5X cap are from Paisabazaar. Network, fuel surcharge waiver, and exclusions such as fuel, rent, wallet loads and utilities could not be confirmed, so fuel and bills_utilities are null."
+    },
+    {
+      "id": "sbi-simplyclick",
+      "name": "SimplyCLICK SBI Card",
+      "issuer": "SBI Card",
+      "network": "Visa",
+      "kind": "points",
+      "annual_fee": 499,
+      "joining_fee": 499,
+      "fee_waiver": "Renewal fee waived on annual spends of ₹1 lakh or more. GST is extra.",
+      "foreign_transaction_fee_pct": 3.5,
+      "interest_rate": "up to 3.75% per month (45% a year) per SBI Card MITC, see issuer terms",
+      "credit_level": "Age 21 to 70 per Paisabazaar. Income requirement not stated.",
+      "earn": {
+        "dining": 0.25,
+        "groceries": 0.25,
+        "fuel": 0,
+        "travel": 0.25,
+        "online_shopping": 1.25,
+        "bills_utilities": 0.25,
+        "other": 0.25
+      },
+      "earn_assumption": "Reward Points valued at ₹0.25 each (4 points per ₹1). Base 1 point per ₹100 is 0.25%. 5X is 1.25%. 10X is 2.5%.",
+      "earn_caps": "online_shopping is the 5X rate on general online spends. Online spends at 10X partners such as BookMyShow, Apollo 24X7, Domino's, IGP, Myntra, Yatra, Netmeds, Tata CLiQ and Cleartrip earn about 2.5%. Swiggy moved to 5X from April 2025. 10X and 5X are each capped at 10,000 points per calendar month. Utility bills, wallet loads and fuel are excluded from accelerated points.",
+      "key_benefits": [
+        "₹2,000 Cleartrip or Yatra e-voucher at ₹1 lakh and again at ₹2 lakh of annual online spend",
+        "1% fuel surcharge waiver up to ₹100 per month"
+      ],
+      "welcome_offer": "As of September 2026, Paisabazaar lists an Amazon gift voucher worth ₹500 on paying the joining fee (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+          "title": "Most Important Terms and Conditions (SBI Card)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/simply-click-tnc-MITC-booklet.pdf",
+          "title": "SimplyCLICK SBI Card T&C and MITC booklet (SBI Card)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.paisabazaar.com/sbi-bank/simplyclick-credit-card",
+          "title": "SBI SimplyCLICK Credit Card (Paisabazaar)"
+        },
+        {
+          "id": "s4",
+          "url": "https://www.business-standard.com/finance/personal-finance/sbi-card-reduces-reward-points-on-simplyclick-and-other-credit-cards-125031900403_1.html",
+          "title": "SBI Card reduces reward points on SimplyCLICK and other credit cards (Business Standard)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Online spends at partners such as BookMyShow, Apollo 24X7, Domino's, IGP, Myntra, Yatra, Netmeds, Tata CLiQ and Cleartrip earn 10X points. Other online spends earn 5X. All other spends earn 1 point per ₹100.",
+          "source": "s3"
+        },
+        {
+          "text": "From 1 April 2025, Swiggy spends earn 5X points instead of 10X.",
+          "source": "s4"
+        },
+        {
+          "text": "10X and 5X points are each capped at 10,000 points per calendar month. Spends beyond the cap earn standard points.",
+          "source": "s2"
+        },
+        {
+          "text": "The joining and renewal fee is ₹499. It is waived on annual spends of ₹1 lakh or more.",
+          "source": "s1"
+        },
+        {
+          "text": "Four Reward Points are worth ₹1. That makes 10X worth about 2.5% and 5X about 1.25%.",
+          "source": "s3"
+        },
+        {
+          "text": "Wallet loads, utility bill payments, cash advances, balance transfers, Encash, Flexipay, fuel and Amazon gift card purchases are excluded from the accelerated online rewards.",
+          "source": "s2"
+        },
+        {
+          "text": "The fuel surcharge waiver is 1% on transactions of ₹500 to ₹3,000, up to ₹100 per month.",
+          "source": "s3"
+        },
+        {
+          "text": "Most SBI cards carry a 3.5% foreign currency markup. Cash advances cost 2.5% with a minimum of ₹500.",
+          "source": "s1"
+        },
+        {
+          "text": "Online spends of ₹1 lakh and ₹2 lakh in a year each earn a ₹2,000 Cleartrip or Yatra e-voucher.",
+          "source": "s3"
+        },
+        {
+          "text": "The interest-free period is 20 to 50 days on purchases when the previous balance is fully paid. Finance charges go up to 3.75% per month.",
+          "source": "s1"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "Fees, waiver, forex, interest and the monthly caps are confirmed on SBI Card documents. The SBI product page did not render its details, so the partner list, point value, milestones, fuel waiver and eligibility come from Paisabazaar. The caps and exclusions come from a 2021 SBI booklet and may have changed. Paisabazaar still lists Swiggy as a 10X partner, but Business Standard reports it moved to 5X in April 2025. The 2021 booklet lists interest at 3.50% per month. The current MITC page says up to 3.75%. The 3.5% forex figure is the MITC rate for most SBI cards."
+    },
+    {
+      "id": "sbi-cashback",
+      "name": "CASHBACK SBI Card",
+      "issuer": "SBI Card",
+      "network": null,
+      "kind": "cash back",
+      "annual_fee": 999,
+      "joining_fee": 999,
+      "fee_waiver": "Renewal fee waived on annual spends of ₹2 lakh or more. GST is extra.",
+      "foreign_transaction_fee_pct": 3.5,
+      "interest_rate": "up to 3.75% per month (45% a year) per SBI Card MITC, see issuer terms",
+      "credit_level": null,
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "fuel": 0,
+        "travel": 1,
+        "online_shopping": 5,
+        "bills_utilities": 0,
+        "other": 1
+      },
+      "earn_assumption": "Cashback credited to the card account at ₹1 per rupee earned.",
+      "earn_caps": "5% applies to eligible online spends, capped at ₹2,000 per statement cycle. 1% offline is capped at ₹2,000. Total cashback is capped at ₹4,000 per cycle. Online food delivery or travel bookings may earn 5%, but dining and travel are shown at the offline 1%. Utilities, insurance, fuel, rent, wallet loads, education, jewellery, railways, EMI, gaming, tolls and government payments earn nothing.",
+      "key_benefits": [
+        "Cashback auto-credited after each statement",
+        "1% fuel surcharge waiver up to ₹100 per statement"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+          "title": "Most Important Terms and Conditions (SBI Card)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/cashback-revised.pdf",
+          "title": "CASHBACK SBI Card revisions effective 1 April 2026 (SBI Card)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.sbicard.com/en/faq/cashback-sbi-card-faq.page",
+          "title": "CASHBACK SBI Card FAQ (SBI Card)"
+        },
+        {
+          "id": "s4",
+          "url": "https://sbicard.com/CashbackCard",
+          "title": "CASHBACK SBI Card benefit revision (SBI Card)"
+        },
+        {
+          "id": "s5",
+          "url": "https://www.paisabazaar.com/sbi-bank/cashback-sbi-card/",
+          "title": "Cashback SBI Card (Paisabazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "From 1 April 2026, online spends earn 5% cashback up to ₹2,000 per statement cycle. Offline spends earn 1% up to ₹2,000.",
+          "source": "s2"
+        },
+        {
+          "text": "Total cashback is capped at ₹4,000 per statement cycle.",
+          "source": "s2"
+        },
+        {
+          "text": "No cashback is given on utilities, insurance, fuel, rent, wallet loads, education, jewellery, railways, merchant EMI or Flexipay EMI.",
+          "source": "s2"
+        },
+        {
+          "text": "From 1 April 2026, digital gaming, tolls and government transactions are also excluded.",
+          "source": "s2"
+        },
+        {
+          "text": "The joining and renewal fee is ₹999. It is waived on annual spends of ₹2 lakh or more.",
+          "source": "s1"
+        },
+        {
+          "text": "Cashback is credited to the card account within two working days of the statement date. It does not expire.",
+          "source": "s3"
+        },
+        {
+          "text": "The fuel surcharge waiver is 1% on fuel transactions of ₹500 to ₹3,000. It is capped at ₹100 per statement.",
+          "source": "s3"
+        },
+        {
+          "text": "SBI Card discontinued the complimentary domestic airport lounge benefit on this card from 1 May 2023.",
+          "source": "s4"
+        },
+        {
+          "text": "Most SBI cards charge a 3.5% foreign currency markup. Cash advances cost 2.5% with a minimum of ₹500.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "All key facts are from SBI Card documents. Paisabazaar (updated September 2026) matches the rates, caps and exclusions. The 3.5% forex figure is the MITC rate for most SBI cards and was not stated for this card by name. Network, eligibility and a current welcome offer could not be confirmed."
+    },
+    {
+      "id": "icici-amazon-pay",
+      "name": "Amazon Pay ICICI Bank Credit Card",
+      "issuer": "ICICI Bank",
+      "network": "Visa",
+      "kind": "co-branded",
+      "annual_fee": 0,
+      "joining_fee": 0,
+      "fee_waiver": "No joining or annual fee, so no waiver is needed.",
+      "foreign_transaction_fee_pct": 1.99,
+      "interest_rate": "3.75% per month, see issuer terms",
+      "credit_level": "Indian citizen aged 21 or more with monthly income of at least ₹30,000. Invite only.",
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "fuel": 0,
+        "travel": 1,
+        "online_shopping": 5,
+        "bills_utilities": 1,
+        "other": 1
+      },
+      "earn_assumption": "Rewards are credited as Amazon Pay balance and valued at ₹1 per rupee, usable on Amazon and Amazon Pay.",
+      "earn_caps": "online_shopping reflects 5% on Amazon India for Prime members only. Non-Prime members get 3% on Amazon, and 2% on digital products and gift cards. Other online stores earn 1%, or 2% at Amazon Pay partner merchants. There is no earning cap.",
+      "key_benefits": [
+        "No joining or annual fee",
+        "1.99% forex markup",
+        "1% fuel surcharge waiver"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+          "title": "Amazon Pay ICICI Bank Credit Card (ICICI Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card/faqs",
+          "title": "Amazon Pay ICICI Bank Credit Card FAQs (ICICI Bank)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Amazon Prime members get 5% back on Amazon India. Non-Prime customers get 3%, or 2% on digital products and gift cards.",
+          "source": "s2"
+        },
+        {
+          "text": "Payments at more than 100 Amazon Pay partner merchants earn 2%. All other payments earn 1%.",
+          "source": "s2"
+        },
+        {
+          "text": "There is no joining fee and no annual fee.",
+          "source": "s1"
+        },
+        {
+          "text": "Rewards turn into Amazon Pay balance after each billing cycle. There is no earning limit and no minimum redemption.",
+          "source": "s2"
+        },
+        {
+          "text": "Gold, silver and other precious metals, tax payments, EMI purchases on Amazon, rent and fuel earn no rewards.",
+          "source": "s2"
+        },
+        {
+          "text": "The foreign currency markup is 1.99%.",
+          "source": "s1"
+        },
+        {
+          "text": "A 1% fuel surcharge waiver applies to fuel purchases.",
+          "source": "s1"
+        },
+        {
+          "text": "Applicants must be Indian citizens aged 21 or more with monthly income of at least ₹30,000. The card is offered by invitation.",
+          "source": "s1"
+        },
+        {
+          "text": "Interest is 3.75% per month on unpaid balances and cash withdrawals.",
+          "source": "s1"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "All facts are from ICICI Bank pages. Lounge access is not mentioned by the issuer. A welcome benefit and a fuel surcharge cap could not be confirmed."
+    },
+    {
+      "id": "axis-flipkart",
+      "name": "Flipkart Axis Bank Credit Card",
+      "issuer": "Axis Bank",
+      "network": null,
+      "kind": "co-branded",
+      "annual_fee": 500,
+      "joining_fee": 500,
+      "fee_waiver": "Annual fee waived on annual spends of ₹3.5 lakh. BankBazaar says rent and wallet loads do not count. GST is extra.",
+      "foreign_transaction_fee_pct": 3.5,
+      "interest_rate": "3.75% per month per BankBazaar, see issuer terms",
+      "credit_level": "Indian resident aged 18 to 70 per BankBazaar. Income not stated.",
+      "earn": {
+        "dining": 1,
+        "groceries": 1,
+        "fuel": 0,
+        "travel": 1,
+        "online_shopping": 5,
+        "bills_utilities": 0,
+        "other": 1
+      },
+      "earn_assumption": "Cashback credited to the card account at ₹1 per rupee earned.",
+      "earn_caps": "online_shopping reflects 5% at Flipkart only. Myntra earns 7.5% and Cleartrip 5%. Each of the three is capped at ₹4,000 per statement quarter. Swiggy, Uber, PVR and FITPASS earn 4% with no cap. Other online stores, dining and travel earn 1%. Utilities, telecom, rent, wallet loads, fuel and EMI earn nothing.",
+      "key_benefits": [
+        "Up to 4 domestic lounge visits a year after ₹50,000 spend in the previous three months",
+        "1% fuel surcharge waiver up to ₹400 per month"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.axis.bank.in/docs/default-source/default-document-library/cashback-tncs---final.pdf",
+          "title": "Flipkart Axis Bank Credit Card cashback terms (Axis Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.flipkart.com/pages/axis-bank-credit-card-faq",
+          "title": "Flipkart Axis Bank Credit Card FAQ (Flipkart)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.bankbazaar.com/credit-card/axis-bank-flipkart-credit-card.html",
+          "title": "Flipkart Axis Bank Credit Card (BankBazaar)"
+        },
+        {
+          "id": "s4",
+          "url": "https://www.bankbazaar.com/credit-card/axis-bank-credit-card-fees.html",
+          "title": "Axis Bank Credit Card Fees and Charges (BankBazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Myntra earns 7.5% cashback. Flipkart and Cleartrip earn 5%. Each is capped at ₹4,000 per statement quarter.",
+          "source": "s1"
+        },
+        {
+          "text": "Preferred merchants earn 4% and other eligible spends earn 1%, both with no cap.",
+          "source": "s1"
+        },
+        {
+          "text": "Swiggy, Uber, PVR and FITPASS are listed as the 4% preferred merchants.",
+          "source": "s2"
+        },
+        {
+          "text": "Utilities, telecom, fuel, jewellery, insurance, financial institutions, rent, wallet loads, education and government services earn no cashback. Gift cards, gold, EMI and cash advances are also excluded.",
+          "source": "s1"
+        },
+        {
+          "text": "The joining fee and annual fee are ₹500 plus taxes each. The annual fee is waived on annual spends of ₹3.5 lakh.",
+          "source": "s2"
+        },
+        {
+          "text": "Cashback is credited in the next billing cycle, three days before the statement date.",
+          "source": "s2"
+        },
+        {
+          "text": "The fuel surcharge waiver is 1% on transactions of ₹400 to ₹4,000, up to ₹400 per month.",
+          "source": "s2"
+        },
+        {
+          "text": "The foreign currency markup is 3.5%. Cash advances cost 2.5% with a minimum of ₹500.",
+          "source": "s4"
+        },
+        {
+          "text": "Up to four domestic lounge visits are available in a year after spending ₹50,000 in the previous three months.",
+          "source": "s3"
+        },
+        {
+          "text": "Applicants must be Indian residents aged 18 to 70. Interest is listed at 3.75% per month.",
+          "source": "s3"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Cashback rates, caps and exclusions are from the Axis Bank terms document. Fees, preferred merchants and fuel waiver are from the Flipkart FAQ page, which is the co-brand partner. Forex, lounge, eligibility and interest are from BankBazaar. The Axis product page did not render its details. An older Flipkart page lists outdated benefits and Mastercard, so network is left null. The Axis terms say the program can change with 30 days notice."
+    },
+    {
+      "id": "axis-ace",
+      "name": "Axis Bank ACE Credit Card",
+      "issuer": "Axis Bank",
+      "network": null,
+      "kind": "cash back",
+      "annual_fee": 499,
+      "joining_fee": 499,
+      "fee_waiver": null,
+      "foreign_transaction_fee_pct": 3.5,
+      "interest_rate": "3.75% per month per BankBazaar, see issuer terms",
+      "credit_level": null,
+      "earn": {
+        "dining": 1.5,
+        "groceries": 1.5,
+        "fuel": 0,
+        "travel": 1.5,
+        "online_shopping": 1.5,
+        "bills_utilities": 5,
+        "other": 1.5
+      },
+      "earn_assumption": "Cashback credited to the card account at ₹1 per rupee earned.",
+      "earn_caps": "bills_utilities is 5% only when utility bills and recharges are paid through Google Pay. Bills paid elsewhere earn nothing. Swiggy, Zomato and Ola earn 4%. The 5% and 4% categories share a ₹500 cap per statement. Other spends earn 1.5% with no cap.",
+      "key_benefits": [
+        "4 airport lounge visits a year after ₹50,000 spend in the previous quarter",
+        "1% fuel surcharge waiver",
+        "Up to 15% off at partner restaurants"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.axis.bank.in/cards/credit-card/axis-bank-ace-credit-card?cta=cc-",
+          "title": "ACE Credit Card (Axis Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.axis.bank.in/docs/default-source/default-document-library/credit-card/axis-bank-ace-credit-card-tncs.pdf",
+          "title": "Axis Bank ACE Credit Card terms and conditions (Axis Bank)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.axisbank.com/ace",
+          "title": "ACE Credit Card (Axis Bank)"
+        },
+        {
+          "id": "s4",
+          "url": "https://www.bankbazaar.com/credit-card/axis-bank-credit-card-fees.html",
+          "title": "Axis Bank Credit Card Fees and Charges (BankBazaar)"
+        },
+        {
+          "id": "s5",
+          "url": "https://www.paisabazaar.com/credit-card/compare/ace-credit-card-vs-airtel-axis-bank-credit-card/",
+          "title": "ACE Credit Card vs Airtel Axis Bank Credit Card (Paisabazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Utility bills paid through Google Pay earn 5% cashback. Swiggy, Zomato and Ola earn 4%.",
+          "source": "s2"
+        },
+        {
+          "text": "The 5% and 4% categories share a cap of ₹500 per statement. Other eligible spends earn 1.5% with no cap.",
+          "source": "s2"
+        },
+        {
+          "text": "Since 20 April 2024, other spends earn 1.5% instead of 2%, and the 5% rate applies only to bills paid through Google Pay.",
+          "source": "s2"
+        },
+        {
+          "text": "Fuel, EMI, wallet loads, cash advances, rent, jewellery, insurance, education and card fees earn no cashback.",
+          "source": "s2"
+        },
+        {
+          "text": "Cashback is credited in the next billing cycle, three days before the statement date.",
+          "source": "s2"
+        },
+        {
+          "text": "The joining fee and annual fee are ₹499 each. The foreign currency markup is 3.5%.",
+          "source": "s4"
+        },
+        {
+          "text": "Axis Bank lists a 1% fuel surcharge waiver and up to 15% off at partner restaurants.",
+          "source": "s1"
+        },
+        {
+          "text": "Four airport lounge visits a year are available after spending ₹50,000 in the previous quarter.",
+          "source": "s5"
+        },
+        {
+          "text": "Finance charges are 3.75% per month. Cash advances cost 2.5% with a minimum of ₹500.",
+          "source": "s4"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Cashback rates, caps, exclusions and credit timing are from the Axis Bank terms document. Fees, forex and interest are from BankBazaar. The lounge condition is from Paisabazaar. An older Axis page (axisbank.com/ace) says 1% on other spends, which conflicts with the 1.5% in the terms document. The fee waiver, network and eligibility could not be confirmed on an allowed source. One unlisted aggregator claims new applications were paused in September 2026, while the Axis page still shows Apply now. Treat availability as unconfirmed."
+    },
+    {
+      "id": "idfc-first-millennia",
+      "name": "IDFC FIRST Millennia Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "network": null,
+      "kind": "points",
+      "annual_fee": 0,
+      "joining_fee": 0,
+      "fee_waiver": "No joining or annual fee, with no spend condition.",
+      "foreign_transaction_fee_pct": 3.5,
+      "interest_rate": "starting at 0.71% per month (8.5% a year) per an older issuer document, see issuer terms",
+      "credit_level": null,
+      "earn": {
+        "dining": 0.375,
+        "groceries": 0.375,
+        "fuel": 0,
+        "travel": 0.375,
+        "online_shopping": 0.375,
+        "bills_utilities": null,
+        "other": 0.375
+      },
+      "earn_assumption": "Reward Points valued at ₹0.25 each. 3 points per ₹200 is 0.375%. 10 points per ₹200 is 1.25%.",
+      "earn_caps": "Rates shown are the 3X rate on monthly spends up to ₹20,000. Spends above ₹20,000 in a month and birthday spends earn 10X, about 1.25%. FASTag and railway spends earn 1X, about 0.125%. FASTag above ₹10,000 and railway above ₹25,000 per cycle attract a 1% fee.",
+      "key_benefits": [
+        "Lifetime free",
+        "Reward Points never expire",
+        "4 railway lounge visits per quarter",
+        "Interest-free ATM cash for up to 45 days"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.idfcfirst.bank.in/content/dam/idfcfirstbank/pdf/credit-card/FIRST-Millennia-Credit-Card.pdf",
+          "title": "FIRST Millennia Credit Card (IDFC FIRST Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.idfcfirst.bank.in/content/dam/idfcfirstbank/pdf/cards/IDFC-FIRST-Millennia-2024.pdf",
+          "title": "IDFC FIRST Millennia 2024 (IDFC FIRST Bank)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.bankbazaar.com/credit-card/idfc-first-bank-millennia-credit-card.html",
+          "title": "IDFC FIRST Bank Millennia Credit Card (BankBazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The card earns 3 Reward Points per ₹200 on monthly spends up to ₹20,000. Spends above ₹20,000 in a month earn 10 points per ₹200.",
+          "source": "s1"
+        },
+        {
+          "text": "Birthday spends earn 10X points. FASTag and railway spends earn 1 point per ₹200.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no joining fee and no annual fee, with no minimum spend condition.",
+          "source": "s1"
+        },
+        {
+          "text": "Reward Points never expire.",
+          "source": "s1"
+        },
+        {
+          "text": "One Reward Point is worth ₹0.25.",
+          "source": "s2"
+        },
+        {
+          "text": "The fuel surcharge waiver is 1%, up to ₹200 a month.",
+          "source": "s1"
+        },
+        {
+          "text": "Cardholders get 4 complimentary railway lounge visits per quarter.",
+          "source": "s1"
+        },
+        {
+          "text": "ATM cash withdrawals carry a ₹199 fee but no interest for up to 45 days.",
+          "source": "s1"
+        },
+        {
+          "text": "FASTag spends above ₹10,000 and railway spends above ₹25,000 in a cycle attract a 1% fee.",
+          "source": "s1"
+        },
+        {
+          "text": "The foreign currency markup is 3.5%.",
+          "source": "s3"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Earn rates, fees, expiry, fuel waiver, lounge and cash terms are from the current IDFC FIRST product document. The point value and interest rate come from an older IDFC document dated 2022 that also shows a ₹499 fee, which the current document replaces with zero. The older document lists fuel, EMI and cash as excluded, so fuel is 0. Utility treatment is unclear, so bills_utilities is null. Forex is from BankBazaar, whose other details look outdated. Network, eligibility and a current welcome offer could not be confirmed."
+    },
+    {
+      "id": "idfc-first-wow",
+      "name": "IDFC FIRST WOW! Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "network": null,
+      "kind": "secured",
+      "annual_fee": 0,
+      "joining_fee": 0,
+      "fee_waiver": "Lifetime free. No waiver needed.",
+      "foreign_transaction_fee_pct": 0,
+      "interest_rate": "8.5% to 46.2% a year, see issuer terms",
+      "credit_level": "Secured against a fixed deposit. The credit limit equals the FD amount and the issuer describes approval as guaranteed. Paisabazaar lists a minimum FD of ₹20,000 and a minimum age of 18.",
+      "earn": {
+        "dining": 0.5,
+        "groceries": 0.5,
+        "fuel": 0,
+        "travel": 0.5,
+        "online_shopping": 0.5,
+        "bills_utilities": 0.125,
+        "other": 0.5
+      },
+      "earn_assumption": "Reward Points valued at ₹0.25 each. 4X is 4 points per ₹200, or 0.5%. Redemption carries a ₹99 plus GST fee.",
+      "earn_caps": "4X applies to online, offline and international spends. Insurance, utility bills, FASTag and railway spends earn 1X. Fuel, EMI and cash withdrawals earn nothing.",
+      "key_benefits": [
+        "Zero forex markup",
+        "Lifetime free",
+        "Interest-free cash withdrawals for up to 45 days",
+        "1% fuel surcharge waiver up to ₹200 a month"
+      ],
+      "welcome_offer": null,
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.idfcfirst.bank.in/content/dam/idfcfirstbank/images/credit-card/cc-details-image/pdf/WOW-Product-Guide.pdf",
+          "title": "WOW Product Guide (IDFC FIRST Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.idfcfirst.bank.in/credit-card/wow",
+          "title": "FIRST WOW! Credit Card (IDFC FIRST Bank)"
+        },
+        {
+          "id": "s3",
+          "url": "https://www.idfcfirstbank.com/credit-card/ntb-diy/fd-wow-card",
+          "title": "FD-backed FIRST WOW! Credit Card (IDFC FIRST Bank)"
+        },
+        {
+          "id": "s4",
+          "url": "https://paisabazaar.com/idfc-bank/idfc-first-wow-credit-card",
+          "title": "IDFC FIRST WOW Credit Card (Paisabazaar)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "The credit limit equals the fixed deposit amount.",
+          "source": "s3"
+        },
+        {
+          "text": "IDFC FIRST describes the card as FD-backed with guaranteed approval.",
+          "source": "s2"
+        },
+        {
+          "text": "The card is lifetime free.",
+          "source": "s1"
+        },
+        {
+          "text": "Online, offline and international spends earn 4X points. Insurance, utility bills, FASTag and railway spends earn 1X. 1X is 1 point per ₹200.",
+          "source": "s1"
+        },
+        {
+          "text": "One Reward Point is worth ₹0.25. Redemption carries a fee of ₹99 plus GST.",
+          "source": "s1"
+        },
+        {
+          "text": "Fuel, EMI and cash withdrawals earn no points.",
+          "source": "s1"
+        },
+        {
+          "text": "There is no foreign currency markup.",
+          "source": "s1"
+        },
+        {
+          "text": "Cash withdrawals carry no interest for up to 45 days. A fee of ₹199 plus taxes applies.",
+          "source": "s1"
+        },
+        {
+          "text": "Interest ranges from 8.5% to 46.2% a year. The fuel surcharge waiver is 1%, up to ₹200 a month.",
+          "source": "s1"
+        },
+        {
+          "text": "The minimum fixed deposit is ₹20,000 and applicants must be 18 or older.",
+          "source": "s4"
+        }
+      ],
+      "verified": "issuer",
+      "notes": "Rewards, fees, forex, interest and cash terms are from the IDFC FIRST product guide (2025). An older issuer page shows 3, 6 and 10 points per ₹100 and interest of 0.75% to 2.99% a month. The product guide was used instead. The minimum FD and age are from Paisabazaar. Network and FD interest rate could not be confirmed."
+    },
+    {
+      "id": "hdfc-tata-neu-infinity",
+      "name": "Tata Neu Infinity HDFC Bank Credit Card",
+      "issuer": "HDFC Bank",
+      "network": "Visa or RuPay",
+      "kind": "co-branded",
+      "annual_fee": 1499,
+      "joining_fee": 1499,
+      "fee_waiver": "Renewal fee waived on spending ₹3 lakh in a year. GST is extra.",
+      "foreign_transaction_fee_pct": 2,
+      "interest_rate": "3.75% per month (45% a year) per Paisabazaar, see issuer terms",
+      "credit_level": "Age 21 to 65. Salaried net monthly income of ₹1 lakh, or self-employed ITR above ₹12 lakh a year (per Paisabazaar).",
+      "earn": {
+        "dining": 1.5,
+        "groceries": 1.5,
+        "fuel": 0,
+        "travel": 1.5,
+        "online_shopping": 5,
+        "bills_utilities": 0,
+        "other": 1.5
+      },
+      "earn_assumption": "NeuCoins valued at ₹1 each, redeemable on the Tata Neu app.",
+      "earn_caps": "online_shopping reflects 5% on Tata Neu and partner Tata brands only. Other online stores earn 1.5%. Base NeuCoins on groceries are capped at 2,000 a month. UPI spends on the RuPay variant earn 1.5%, up to 500 NeuCoins a month. Fuel, government, rent, wallet loads, EMI conversions and bill payments earn nothing.",
+      "key_benefits": [
+        "8 domestic lounge visits a year, up to 2 per quarter after ₹50,000 spend in the previous quarter",
+        "4 international lounge visits a year, up to 1 per quarter",
+        "1% fuel surcharge waiver, capped at ₹500 a month per Paisabazaar",
+        "2% forex markup"
+      ],
+      "welcome_offer": "As of September 2026, Paisabazaar lists 1,499 NeuCoins on the first transaction within 30 days (changes often).",
+      "sources": [
+        {
+          "id": "s1",
+          "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+          "title": "Tata Neu Infinity HDFC Bank Credit Card (HDFC Bank)"
+        },
+        {
+          "id": "s2",
+          "url": "https://www.paisabazaar.com/hdfc-bank/tata-neu-infinity-hdfc-bank-credit-card/",
+          "title": "Tata Neu Infinity HDFC Bank Credit Card (Paisabazaar)"
+        },
+        {
+          "id": "s3",
+          "url": "https://support.tatadigital.com/support/solutions/articles/81000406249-how-do-i-earn-neucoins-on-my-tata-neu-hdfc-bank-credit-card-purchases-",
+          "title": "How do I earn NeuCoins on my Tata Neu HDFC Bank Credit Card purchases (Tata Digital)"
+        }
+      ],
+      "passages": [
+        {
+          "text": "Spends at partner Tata brands earn 5% as NeuCoins. Other eligible spends earn 1.5%.",
+          "source": "s3"
+        },
+        {
+          "text": "UPI spends on the RuPay variant earn 1.5% as NeuCoins, up to 500 NeuCoins a month.",
+          "source": "s2"
+        },
+        {
+          "text": "One NeuCoin is worth ₹1.",
+          "source": "s2"
+        },
+        {
+          "text": "Base NeuCoins on grocery spends are capped at 2,000 a month.",
+          "source": "s3"
+        },
+        {
+          "text": "Fuel, government, rent, post-transaction EMI conversions and wallet loads earn no NeuCoins.",
+          "source": "s3"
+        },
+        {
+          "text": "The joining and renewal fee is ₹1,499 plus taxes. The fee is waived on ₹3 lakh of spends in a year.",
+          "source": "s2"
+        },
+        {
+          "text": "The foreign currency markup is 2%.",
+          "source": "s2"
+        },
+        {
+          "text": "Cardholders get 8 domestic lounge visits a year, up to 2 a quarter after spending ₹50,000 in the previous quarter. They also get 4 international visits a year, up to 1 a quarter.",
+          "source": "s2"
+        },
+        {
+          "text": "HDFC Bank lists airport lounge access and a 1% fuel surcharge waiver for this card.",
+          "source": "s1"
+        },
+        {
+          "text": "Salaried applicants need net monthly income of ₹1 lakh. Self-employed applicants need ITR above ₹12 lakh a year. Age must be 21 to 65.",
+          "source": "s2"
+        }
+      ],
+      "verified": "secondary",
+      "notes": "The HDFC Bank page only confirmed lounge access and the fuel waiver. Fees, NeuCoin value, UPI rate, lounge rules, forex, eligibility and interest are from Paisabazaar (updated May 2026). Earn rates, the grocery cap and exclusions are from Tata Digital, the co-brand partner. Paisabazaar also mentions an extra 5% on the Tata Neu app, which is not included in the earn figures."
+    }
+  ],
+  "general": [
+    {
+      "text": "A credit card comes with a pre-approved revolving credit limit. It can be used to buy goods and services or to draw cash advances.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "The interest-free period applies only when the cardholder pays the entire outstanding by the payment due date.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Interest can be charged only on the outstanding amount, after adjusting for payments, refunds and reversed transactions.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Statements must be sent in time to leave at least a fortnight to pay before interest starts.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "The minimum amount due must be set so that paying it does not make the balance grow. Unpaid charges, levies and taxes cannot be added to the balance for charging interest.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Statements must warn that paying only the minimum each month stretches repayment over months or years with compounded interest.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "An account can be reported as past due, and late payment charges levied, only when it stays unpaid for more than three days after the due date.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Late payment charges apply only to the outstanding amount after the due date, not to the total amount due.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "A request to close a credit card must be honoured within seven working days once all dues are paid. If the issuer is late, it must pay the cardholder ₹500 for each calendar day of delay.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Issuing unsolicited cards or upgrades is prohibited. If one is issued and billed, the issuer must reverse the charges and pay a penalty of twice their value.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Issuers need written consent, or digital consent with multifactor authentication, before issuing a credit card. They cannot raise the credit limit without explicit consent.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Before reporting a default to a credit information company (a credit bureau), the issuer must inform the cardholder. After the dues are settled, the issuer must update the bureau within 30 days.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "The Most Important Terms and Conditions must state the cash advance fee and the cash withdrawal limit, and show the interest-free period with examples.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "Issuers must give a one-page Key Fact Statement with the card application, covering the interest rate and charges.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300",
+        "title": "Master Direction, Reserve Bank of India (Credit Card and Debit Card Issuance and Conduct) Directions, 2022"
+      }
+    },
+    {
+      "text": "A customer has zero liability when an unauthorised electronic transaction arises from the bank's negligence, or from a third-party breach that the customer reports within three working days.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+        "title": "Customer Protection, Limiting Liability of Customers in Unauthorised Electronic Banking Transactions (RBI, 6 July 2017)"
+      }
+    },
+    {
+      "text": "The bank must credit the disputed amount as a shadow reversal within 10 working days, and resolve the complaint within 90 days.",
+      "source": {
+        "url": "https://rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+        "title": "Customer Protection, Limiting Liability of Customers in Unauthorised Electronic Banking Transactions (RBI, 6 July 2017)"
+      }
+    }
+  ]
+}

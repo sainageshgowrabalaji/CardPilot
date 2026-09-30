@@ -1,0 +1,53 @@
+[project]
+name = "cardpilot"
+version = "0.1.0"
+description = "Understand any credit card in your country. A country-scoped RAG agent with cited answers, guardrails and evals."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.8",
+  "pydantic-settings>=2.4",
+  "numpy>=1.26",
+  "langgraph>=0.2",
+  "langchain-core>=0.3",
+  "langchain-groq>=0.2",
+  "langchain-anthropic>=0.3",
+  "mcp>=2.0",
+]
+
+[project.optional-dependencies]
+embeddings = ["fastembed>=0.4"]
+postgres = ["psycopg[binary]>=3.2", "pgvector>=0.3"]
+tracing = ["langfuse>=2.50"]
+
+[dependency-groups]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6", "pgserver>=0.1.4", "psycopg[binary]>=3.2", "pgvector>=0.3"]
+
+[project.scripts]
+cardpilot-ingest = "cardpilot.retrieval:main"
+cardpilot-mcp = "cardpilot.mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cardpilot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+# Blind excepts are deliberate at the model boundary: any provider failure degrades to the offline engine.
+select = ["E", "F", "W", "I", "B", "UP", "C4"]
+ignore = ["E501"]  # the formatter owns line length; long prompt strings stay whole
+
+[tool.ruff.lint.per-file-ignores]
+"tests/test_postgres.py" = ["E402"]  # imports follow importorskip on purpose
