@@ -140,6 +140,17 @@ docker compose up                     # SQLite, on http://localhost:8000
 docker compose --profile postgres up  # Postgres with pgvector, on http://localhost:8001
 ```
 
+### Put it online
+
+`render.yaml` deploys CardPilot to [Render](https://render.com) on the free plan, from the Dockerfile.
+
+1. Sign in to Render with GitHub
+2. Choose **New**, then **Blueprint**, and pick this repository
+3. Paste a Groq key when Render asks for `GROQ_API_KEY`, or leave it empty to run with no model
+4. Press **Apply**. The first build takes a few minutes, and every push to `master` deploys again
+
+The free plan sleeps after 15 minutes without visitors, and the next visit takes about a minute to wake it. Sessions live in memory, so they reset when it sleeps.
+
 To use it as an MCP server, add this to Claude Desktop's config, with the full path to the project.
 
 ```json

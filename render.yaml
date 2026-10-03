@@ -1,0 +1,22 @@
+# Puts CardPilot online on Render's free plan, built from the Dockerfile in this repo.
+# In Render, choose New, then Blueprint, and pick this repository. The README has the steps.
+services:
+  - type: web
+    name: cardpilot
+    runtime: docker
+    plan: free
+    branch: master
+    region: virginia
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      # The container listens on 8000, so Render must send traffic there.
+      - key: PORT
+        value: "8000"
+      # Render sits in front of the app, so the real visitor address is in X-Forwarded-For.
+      # Without this, every visitor would share one rate limit.
+      - key: CARDPILOT_TRUST_PROXY_HEADERS
+        value: "true"
+      # Typed into Render's own page when the Blueprint is created. Leave it empty to run with no model.
+      - key: GROQ_API_KEY
+        sync: false
